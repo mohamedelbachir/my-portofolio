@@ -1,0 +1,121 @@
+---
+
+---
+
+<div class="plan-card">
+  <div class="plan-header">
+    <div class="plan-icon">⨀</div>
+    <h1>Basic Plan</h1>
+    <h2>Survivor's Starter Pack</h2>
+  </div>
+  <div class="plan-price">
+    <p>$29.99<span>/mo</span></p>
+    <button>Buy Game</button>
+  </div>
+  <div class="plan-features">
+    <ul>
+      <li>Access to the full game with all core features.</li>
+      <li>Single-player mode available.</li>
+      <li>Limited selection of character customization options.</li>
+      <li>Exclusive in-game items: "Rookie's Rations" supply pack.</li>
+      <li>Feature text goes here</li>
+    </ul>
+  </div>
+</div>
+<style>
+  .plan-card {
+    position: relative;
+    background: none;
+    color: blue;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    width: 320px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    clip-path: polygon(
+      12px 0,
+      100% 0,
+      100% calc(100% - 12px),
+      calc(100% - 12px) 100%,
+      0 100%,
+      0 12px
+    );
+    z-index: 2;
+  }
+  .plan-card::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    -webkit-mask: paint(polygon-border);
+    background: currentColor;
+  }
+
+  .plan-header {
+    margin-bottom: 20px;
+  }
+
+  .plan-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .plan-header h1 {
+    font-size: 24px;
+    color: #3b3bff;
+    margin: 0;
+  }
+
+  .plan-header h2 {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0 0;
+  }
+
+  .plan-price {
+    margin: 20px 0;
+  }
+
+  .plan-price p {
+    font-size: 32px;
+    color: #000;
+    margin: 0;
+  }
+
+  .plan-price p span {
+    font-size: 16px;
+    color: #666;
+  }
+
+  .plan-price button {
+    background: #3b3bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .plan-price button:hover {
+    background: #2a2abf;
+  }
+
+  .plan-features ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    margin: 0;
+  }
+
+  .plan-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+  }
+
+  .plan-features li:last-child {
+    border-bottom: none;
+  }
+</style>

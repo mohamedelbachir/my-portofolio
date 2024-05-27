@@ -1,10 +1,45 @@
 ---
 //import Card from '../components/Card.astro';
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/libs/Card";
+import Layout from "@/layouts/Layout.astro";
+import Text from "@/components/Text.astro";
+import Grid from "animated-grid-lines";
+import { Icon } from "astro-icon/components";
+import TextSlide from "@/components/TextSlide.astro";
 ---
 
 <Layout title="Home">
-  <h1 class="text-xl text-white">hello world</h1>
-  <Card />
+  <div
+    class="relative max-w-2xl mx-auto text-center h-[80vh] flex items-center flex-col justify-center dark:text-white"
+  >
+    <Grid
+      squareSize={8}
+      lineWidth={1}
+      className="absolute top-0 left-0 z-[1] w-full h-full"
+      gridColor="transparent"
+      client:only
+    />
+    <div class="inline-flex items-center relative z-[2] leading-none h-[4em]">
+      <span class="text-4xl whitespace-nowrap">Hi, my name is&ensp;</span><Text
+        text="MOHAMED EL BACHIR"
+        className=" lining-nums whitespace-nowrap text-4xl leading-normal sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-primary py-8"
+      />
+    </div>
+    <div class="inline-flex items-center gap-3 relative z-[2] my-4">
+      <span class="text-4xl whitespace-nowrap leading-none">I am </span>
+      <TextSlide
+        speed={2}
+        textClassName="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-indigo-500"
+        data={["a Software engineer", "an AI enthousiast", "a Game developer"]}
+      />
+    </div>
+    <div class="flex gap-3 mt-3">
+      <button
+        class="relative z-[2] border-primary border-[1px] px-3 flex gap-5 items-center hover:bg-primary transition-all hover:text-white"
+      >
+        <Icon name="tabler:download" class={"size-5"} />
+        Download my CV
+      </button>
+      <button class="btn relative z-[2]">Hire me!</button>
+    </div>
+  </div>
 </Layout>

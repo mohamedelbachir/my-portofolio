@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import Logo from "@/components/Logo.astro";
+//import { Icon } from "astro-icon/components";
+import ButtonSwitcher from "./libs/ButtonSwitcher";
+import clsx from "clsx";
+---
+
+<header
+  id="header"
+  data-aw-sticky-header
+  class={clsx(
+    "w-full sticky z-10 top-0 left-0 transition-all dark:text-white text-lg"
+  )}
+>
+  <div class="flex justify-between items-center mx-auto max-w-screen-lg py-4">
+    <div class="logo flex gap-3 items-center">
+      <div><Logo className="fill-black dark:fill-white w-[50px] block" /></div>
+      <span><!-- &nearrow; -->BACHDEV</span>
+    </div>
+    <nav class="flex gap-5 ml-10">
+      <a href="/">home</a>
+      <a href="/about">About Me</a>
+      <a href="/project">Project</a>
+      <a href="/test">Blog</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="flex gap-3">
+      <ButtonSwitcher client:only />
+      <button class="btn"> hire me </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  :global(.logo) {
+    width: 30px;
+  }
+
+  #header.scroll {
+    backdrop-filter: blur(4px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    #header.scroll {
+      background-color: rgba(35, 38, 47, 0.8) !important;
+      border-bottom: none;
+    }
+  }
+  @media (prefers-color-scheme: light) {
+    #header.scroll {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid rgb(163 163 163);
+    }
+  }
+  /*
+  #23262F
+  #header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(110deg, blue, 45%, #f7f7f7, 55%, blue);
+  }*/
+</style>

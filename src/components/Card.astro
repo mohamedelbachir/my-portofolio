@@ -2,53 +2,63 @@
 
 ---
 
-<div class="plan-card">
-  <div class="plan-header">
-    <div class="plan-icon">⨀</div>
-    <h1>Basic Plan</h1>
-    <h2>Survivor's Starter Pack</h2>
-  </div>
-  <div class="plan-price">
-    <p>$29.99<span>/mo</span></p>
-    <button>Buy Game</button>
-  </div>
-  <div class="plan-features">
-    <ul>
-      <li>Access to the full game with all core features.</li>
-      <li>Single-player mode available.</li>
-      <li>Limited selection of character customization options.</li>
-      <li>Exclusive in-game items: "Rookie's Rations" supply pack.</li>
-      <li>Feature text goes here</li>
-    </ul>
+<div class="plan-card shadow-xl shadow-red-500 outline-2 outline-red-500">
+  <div class="plan-ctn">
+    <div class="plan-header">
+      <div class="plan-icon">⨀</div>
+      <h1>Basic Plan</h1>
+      <h2>Survivor's Starter Pack</h2>
+    </div>
+    <div class="plan-price">
+      <p>$29.99<span>/mo</span></p>
+      <button>Buy Game</button>
+    </div>
+    <div class="plan-features">
+      <ul>
+        <li>Access to the full game with all core features.</li>
+        <li>Single-player mode available.</li>
+        <li>Limited selection of character customization options.</li>
+        <li>Exclusive in-game items: "Rookie's Rations" supply pack.</li>
+        <li>Feature text goes here</li>
+      </ul>
+    </div>
   </div>
 </div>
 <style>
-  .plan-card {
+  .plan-card,
+  .plan-ctn {
     position: relative;
-    background: none;
-    color: blue;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    display: block;
+    z-index: 1;
+    clip-path: polygon(
+      20px 0,
+      100% 0,
+      100% calc(100% - 20px),
+      calc(100% - 20px) 100%,
+      0 100%,
+      0 20px
+    );
+  }
+  .plan-card {
     width: 320px;
     text-align: center;
-    padding: 20px;
-    position: relative;
-    clip-path: polygon(
-      12px 0,
-      100% 0,
-      100% calc(100% - 12px),
-      calc(100% - 12px) 100%,
-      0 100%,
-      0 12px
-    );
-    z-index: 2;
+    padding: 1px;
+    overflow: hidden;
+    background: white;
   }
-  .plan-card::before {
+  .plan-ctn::after {
+    content: "";
     position: absolute;
-    z-index: -1;
     inset: 0;
-    -webkit-mask: paint(polygon-border);
-    background: currentColor;
+    background-color: green;
+    z-index: -1;
+  }
+
+  .plan-ctn {
+    padding: 5px;
+    backdrop-filter: blur(3px);
+    background: white;
+    z-index: -2;
   }
 
   .plan-header {

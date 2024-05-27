@@ -1,0 +1,55 @@
+---
+import clsx from "clsx";
+interface Props {
+  speed?: number;
+  textClassName?: string;
+  data: string[];
+}
+
+const { speed: speedValue = 1.5, data, textClassName = "" } = Astro.props;
+const itemsLenght = `${data.length}`;
+---
+
+<div class={clsx("g-container leading-none text-left")}>
+  <ul>
+    {data.map((d) => <li class={textClassName}>{d}</li>)}
+    <li class={textClassName}>{data[0]}</li>
+  </ul>
+</div>
+<style define:vars={{ s: itemsLenght, speed: speedValue + "s" }}>
+  :root {
+    /* --s: var(--itemsLenght); */
+    --h: 36;
+    /* --speed: 1.5s; */
+  }
+  .g-container {
+    height: calc(var(--h) * 1px);
+    overflow: hidden;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    animation: move calc(var(--speed) * var(--s)) steps(var(--s)) infinite;
+  }
+  ul li {
+    width: 100%;
+    animation: liMove calc(var(--speed)) infinite;
+  }
+  @keyframes move {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(0, calc(var(--s) * var(--h) * -1px));
+    }
+  }
+  @keyframes liMove {
+    0% {
+      transform: translate(0, 0);
+    }
+    80%,
+    100% {
+      transform: translate(0, calc(var(--h) * -1px));
+    }
+  }
+</style>

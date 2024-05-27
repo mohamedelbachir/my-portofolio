@@ -1,6 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-
-import { flushSync } from "react-dom";
+import { useEffect, useRef, useState } from "react";
 
 /*
  CSS to disable fade-in animation
@@ -82,31 +80,11 @@ function useThemeTransition() {
 } */
 
 function ButtonSwitcher() {
-  //const { toggleTheme, theme } = useThemeTransition();
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLButtonElement>(null);
 
   const toggleDarkMode = async (isDarkMode: boolean) => {
-    /**
-     * Return early if View Transition API is not supported
-     * or user prefers reduced motion
-     */
-    if (
-      !ref.current ||
-      !document.startViewTransition ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      setIsDarkMode(isDarkMode);
-      return;
-    }
-
-    await document.startViewTransition(() => {
-      flushSync(() => {
-        setIsDarkMode(isDarkMode);
-      });
-    }).ready;
-
-    const { top, left, width, height } = ref.current?.getBoundingClientRect();
+    const { top, left, width, height } = ref.current!.getBoundingClientRect();
     const x = left + width / 2;
     const y = top + height / 2;
     const right = window.innerWidth - left;

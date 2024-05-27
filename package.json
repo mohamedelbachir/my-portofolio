@@ -15,6 +15,7 @@
     "@astrojs/react": "^3.3.4",
     "@astrojs/rss": "^4.0.6",
     "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/vercel": "^7.6.0",
     "@iconify-json/tabler": "^1.1.113",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",

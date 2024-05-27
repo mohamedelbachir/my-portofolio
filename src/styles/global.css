@@ -1,0 +1,55 @@
+@tailwind base;
+@layer base {
+  .btn {
+    @apply btn-shape inline-flex h-10 items-center justify-center after:bg-[linear-gradient(110deg,var(--primary-color),35%,rgba(255,255,255,0.5),65%,var(--primary-color))] after:bg-[length:200%_100%] after:animate-shimmer px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 bg-primary;
+  }
+  .btn-no-shape {
+    @apply inline-flex h-10 items-center justify-center after:bg-[linear-gradient(110deg,var(--primary-color),35%,rgba(255,255,255,0.5),65%,var(--primary-color))] after:bg-[length:200%_100%] after:animate-shimmer px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 bg-primary;
+  }
+  .container {
+    @apply max-w-2xl mx-auto;
+  }
+}
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("/fonts/TitilliumWeb-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+:global(.dark) {
+  color-scheme: dark;
+}
+
+:root {
+  --primary-color: #2563eb;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: TitilliumWeb, sans-serif;
+  scrollbar-width: thin;
+}
+
+.btn-shape {
+  position: relative;
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
+}
+.btn-shape::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}

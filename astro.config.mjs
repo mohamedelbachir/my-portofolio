@@ -20,5 +20,10 @@ export default defineConfig({
     }),
   ],
   output: "server",
-  adapter: vercel(),
+  adapter: vercel({
+    includeFiles: [
+      "./public/fonts/Michroma-Regular.ttf",
+      "./public/fonts/TitilliumWeb-Regular.ttf",
+    ],
+  }),
 });

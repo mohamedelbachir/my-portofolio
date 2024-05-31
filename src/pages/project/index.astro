@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+const allProjects = await getCollection("project");
+import CardBox from "@/components/CardBox.astro";
+import Heading from "@/components/Heading.astro";
+import Layout from "./../../layouts/Layout.astro";
+---
+
+<Layout title="project">
+  <section id="education" class="screen-wrapper my-10">
+    <Heading> MY PROJECTS </Heading>
+    <p class="text-center">
+      Projects that i made with passion and ambition to learn.
+    </p>
+    <div class="flex flex-wrap gap-3 w-full justify-center mt-10">
+      {
+        allProjects.map(({ slug, data }) => (
+          <CardBox
+            url={slug}
+            title={data.title}
+            img={data.image}
+            description={data.description}
+            tag={data.tags}
+          />
+        ))
+      }
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import MyPhoto from "@/assets/images/me.jpeg";
+import { Icon } from "astro-icon/components";
+---
+
+<section id="about" class="screen-wrapper my-14">
+  <!-- <div class="w-full flex gap-5">
+    <div class="w-full h-[300px]">
+      <Image
+        src={MyPhoto}
+        alt={"Mohamed el bachir"}
+        loading={"lazy"}
+        class="object-cover w-[300px] h-full"
+      />
+    </div>
+    <div class="grow">
+      
+    </div>
+  </div> -->
+  <div class="w-full flex gap-10">
+    <div aria-hidden="true" class="grow relative profile after:bg-dot-blue-500">
+      <Image
+        class="w-full bg-gray-500 shadow-lg"
+        width={500}
+        height={500}
+        widths={[400, 768]}
+        sizes="(max-width: 768px) 100vw, 432px"
+        src={MyPhoto}
+        alt={"Mohamed el bachir profile"}
+      />
+    </div>
+    <div class="w-2/3">
+      <div class="btn-shape bg-primary py-2 px-5 w-fit text-lg text-white mb-4">
+        About
+      </div>
+      <h3
+        class="font-heading leading-none font-semibold text-2xl text-primary py-4"
+      >
+        Why hire me for your next project ?
+      </h3>
+      <p class="text-justify dark:text-white text-lg">
+        As a Master 2 student in computer science, I'm passionate about the
+        complex and evolving world of software systems and distributed
+        environments. With a solid academic background and an unwavering passion
+        for programming, I'm looking for opportunities to apply my technical
+        skills and make a significant contribution to innovative projects.
+      </p>
+      <button class="mt-5 btn-no-shape flex gap-3">
+        <Icon name="tabler:download" class={"size-5"} />
+        Download my CV
+      </button>
+    </div>
+  </div>
+</section>
+<style>
+  .profile::after,
+  .profile::before {
+    position: absolute;
+    content: "";
+    width: 40%;
+    aspect-ratio: 1/1;
+  }
+  .profile::before {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border-radius: 50%;
+    border: 10px solid var(--primary-color);
+    transform: translate(-50%, -50%);
+  }
+  .profile::after {
+    top: -30px;
+    right: -30px;
+    z-index: -1;
+    aspect-ratio: 1/2;
+  }
+</style>

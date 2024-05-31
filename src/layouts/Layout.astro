@@ -2,11 +2,26 @@
 import "./../styles/global.css";
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+  type?: "website" | "article";
+  publishedTime?: string;
 }
-import Header from "@/components/Header.astro";
-import { ViewTransitions } from "astro:transitions";
 
-const { title } = Astro.props;
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+import MetaData from "@/components/MetaData.astro";
+
+const {
+  title,
+  description = "",
+  image = "/social-image.png",
+  canonicalUrl = import.meta.env.SITE,
+  publishedTime,
+  type = "website",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -17,18 +32,121 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <MetaData
+      title={title}
+      description={description}
+      image={image}
+      canonicalUrl={canonicalUrl}
+      publishedTime={publishedTime}
+      type={type}
+    />
     <ViewTransitions />
   </head>
   <body
-    class="subpixel-antialiased min-h-screen overflow-x-hidden w-full dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] relative"
+    class="overflow-x-hidden w-full dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.4] relative"
   >
     <Header />
     <div
-      class="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black/80 bg-white/80 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
+      class="fixed h-full pointer-events-none inset-0 flex items-center justify-center dark:bg-black/80 bg-white/80 [mask-image:radial-gradient(ellipse_at_center,transparent_40%,black)]"
     >
     </div>
-    <slot />
+    <div class="min-h-screen">
+      <slot />
+    </div>
+    <Footer />
+    <div id="loading">
+      <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <script src="/script.js" is:inline></script>
+    <style>
+      #loading {
+        visibility: hidden;
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 30;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(211, 211, 211, 0.582);
+      }
+      :global(.dark) #loading {
+        background-color: rgba(36, 36, 36, 0.582);
+      }
+      #loading.show {
+        visibility: visible;
+      }
+      .spinner {
+        width: 44px;
+        height: 44px;
+        animation: spinner-y0fdc1 2s infinite ease;
+        transform-style: preserve-3d;
+      }
+
+      .spinner > div {
+        background-color: rgba(0, 77, 255, 0.2);
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        border: 2px solid #004dff;
+      }
+
+      .spinner div:nth-of-type(1) {
+        transform: translateZ(-22px) rotateY(180deg);
+      }
+
+      .spinner div:nth-of-type(2) {
+        transform: rotateY(-270deg) translateX(50%);
+        transform-origin: top right;
+      }
+
+      .spinner div:nth-of-type(3) {
+        transform: rotateY(270deg) translateX(-50%);
+        transform-origin: center left;
+      }
+
+      .spinner div:nth-of-type(4) {
+        transform: rotateX(90deg) translateY(-50%);
+        transform-origin: top center;
+      }
+
+      .spinner div:nth-of-type(5) {
+        transform: rotateX(-90deg) translateY(50%);
+        transform-origin: bottom center;
+      }
+
+      .spinner div:nth-of-type(6) {
+        transform: translateZ(22px);
+      }
+
+      @keyframes spinner-y0fdc1 {
+        0% {
+          transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+        }
+
+        50% {
+          transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+        }
+
+        100% {
+          transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+        }
+      }
+    </style>
+    <script is:inline>
+      document.addEventListener("astro:before-preparation", () => {
+        document.querySelector("#loading").classList.add("show");
+      });
+      document.addEventListener("astro:after-preparation", () => {
+        document.querySelector("#loading").classList.remove("show");
+      });
+    </script>
   </body>
 </html>

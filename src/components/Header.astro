@@ -1,32 +1,42 @@
 ---
-import { Image } from "astro:assets";
 import Logo from "@/components/Logo.astro";
 //import { Icon } from "astro-icon/components";
-import ButtonSwitcher from "./libs/ButtonSwitcher";
+//import ButtonSwitcher from "./libs/ButtonSwitcher";
 import clsx from "clsx";
+import ButtonTheme from "./ButtonTheme.astro";
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
 <header
   id="header"
   data-aw-sticky-header
-  class={clsx(
-    "w-full sticky z-10 top-0 left-0 transition-all dark:text-white text-lg leading-none"
-  )}
+  class={clsx("w-full sticky z-10 top-0 left-0 transition-all dark:text-white")}
 >
-  <div class="flex justify-between items-center mx-auto max-w-screen-lg py-4">
+  <div class="flex justify-between items-center screen-wrapper py-4">
     <div class="logo flex gap-3 items-center">
-      <div><Logo className="fill-black dark:fill-white w-[50px] block" /></div>
-      <span><!-- &nearrow; -->BACHDEV</span>
+      <div>
+        <Logo className="fill-black dark:fill-white w-[40px] block" />
+      </div>
+      <!-- &nearrow; -->
+      <code> &lt;BACHDEV/&gt; </code>
     </div>
-    <nav class="flex gap-5 ml-10">
-      <a href="/">home</a>
-      <a href="/about">About Me</a>
-      <a href="/project">Project</a>
-      <a href="/test">Blog</a>
-      <a href="/contact">Contact</a>
+    <nav class="flex gap-5 ml-20">
+      <a class={currentPath === "" ? "text-primary" : ""} href="/">home</a>
+      <a
+        class={currentPath.includes("project") ? "text-primary" : ""}
+        href="/project">Project</a
+      >
+      <a class={currentPath.includes("blog") ? "text-primary" : ""} href="/blog"
+        >Blog</a
+      >
+      <a class={currentPath === "contact" ? "text-primary" : ""} href="/contact"
+        >Contact</a
+      >
     </nav>
     <div class="flex gap-3">
-      <ButtonSwitcher client:only />
+      <!-- <ButtonSwitcher client:only /> -->
+      <ButtonTheme />
       <button class="btn"> hire me </button>
     </div>
   </div>
@@ -39,19 +49,13 @@ import clsx from "clsx";
 
   #header.scroll {
     backdrop-filter: blur(4px);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid var(--primary-color);
   }
 
-  @media (prefers-color-scheme: dark) {
-    #header.scroll {
-      background-color: rgba(35, 38, 47, 0.8) !important;
-      border-bottom: none;
-    }
-  }
-  @media (prefers-color-scheme: light) {
-    #header.scroll {
-      background-color: rgba(255, 255, 255, 0.8);
-      border-bottom: 1px solid rgb(163 163 163);
-    }
+  :global(.dark) #header.scroll {
+    background-color: rgba(35, 38, 47, 0.8) !important;
+    border-bottom: none;
   }
   /*
   #23262F

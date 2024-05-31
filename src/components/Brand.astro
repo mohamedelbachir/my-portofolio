@@ -1,0 +1,14 @@
+---
+import Logo from "@/assets/icons/logo.json";
+export interface LogoType {
+  [key: string]: string;
+}
+interface Props {
+  name: string;
+  className: string;
+}
+const { name, className } = Astro.props;
+const logoList = Logo as LogoType;
+---
+
+<Fragment class:list={className} set:html={logoList[name]} />

@@ -1,0 +1,19 @@
+---
+import MarkdownPostLayout from "../../layouts/LayoutMarkdown.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getEntryBySlug } from "astro:content";
+
+const { slug } = Astro.params;
+const project = await getEntryBySlug("project", slug as string);
+if (!project) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await project.render();
+---
+
+<Layout title={project.data.title}>
+  <MarkdownPostLayout frontmatter={project.data}>
+    <Content />
+  </MarkdownPostLayout>
+</Layout>

@@ -1,8 +1,167 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import HeroSection from "@/components/HeroSection.astro";
+import About from "@/components/About.astro";
+import Steps from "@/components/Steps.astro";
+import Heading from "@/components/Heading.astro";
+import Skills from "@/components/Skills.astro";
+import ProjectList from "@/components/ProjectList.astro";
+import BlogList from "@/components/BlogList.astro";
 ---
 
 <Layout title="Home">
   <HeroSection />
+  <About />
+  <section id="work" class="screen-wrapper my-14">
+    <Heading> Work experience </Heading>
+    <Steps
+      items={[
+        {
+          title: "Frontend Developer internship",
+          at: "Sygalin SAS, Ngaoundere",
+          dateRange: "2024 - Present",
+          description: `Create visually appealing user interfaces for websites.`,
+          icon: "tabler:briefcase",
+          classes: {
+            title: "dark:text-white font-heading ",
+            at: "text-primary text-base font-heading ",
+            date: "dark:text-white ",
+            icon: "dark:text-white",
+            description: "dark:text-slate-200 text-lg",
+          },
+        },
+        {
+          title: "Web Developer Intership",
+          at: "Generalite informatique, Garoua",
+          dateRange: "August 2020 - September 2020",
+          description: `Create landing page and learn hardware webcam security.`,
+          icon: "tabler:briefcase",
+          classes: {
+            title: "dark:text-white font-heading ",
+            at: "text-primary text-base font-heading ",
+            date: "dark:text-white",
+            icon: "dark:text-white",
+            description: "dark:text-slate-200 text-lg",
+          },
+        },
+      ]}
+    />
+  </section>
+  <section id="education" class="screen-wrapper my-10">
+    <Heading> Education </Heading>
+    <Steps
+      items={[
+        {
+          title: "Master II in software systems and distributed environments",
+          at: " University of Ngaoundéré",
+          dateRange: "2024 - Present",
+          icon: "tabler:school",
+          classes: {
+            title: " dark:text-white font-heading ",
+            at: "text-primary text-base font-heading ",
+            date: "dark:text-white ",
+            icon: "dark:text-white",
+          },
+        },
+        {
+          title: "Bachelor in Computer science",
+          at: "University of Ngaoundéré",
+          dateRange: "2021 - 2022",
+          icon: "tabler:school",
+          classes: {
+            title: "dark:text-white font-heading ",
+            at: "text-primary text-base font-heading ",
+            date: "dark:text-white",
+            icon: "dark:text-white",
+          },
+        },
+      ]}
+    />
+  </section>
+  <section id="education" class="screen-wrapper my-10">
+    <Heading> SKILLS </Heading>
+    <p class="text-center">
+      Discover the proficiencies that allow me to bring imagination to life.
+    </p>
+    <Skills
+      item={[
+        {
+          skill: "c++",
+          color: "lightblue",
+        },
+        {
+          skill: "c",
+          color: "lightblue",
+        },
+        {
+          skill: "javascript",
+          color: "#fff3a7",
+        },
+        {
+          skill: "typescript",
+          color: "lightblue",
+        },
+        {
+          skill: "python",
+          color: "#8699a8",
+        },
+        {
+          skill: "react",
+          color: "#c4e8ee",
+        },
+        {
+          skill: "tailwindcss",
+          color: "#68d7e4",
+        },
+        {
+          skill: "Astro_dark",
+          color: "black",
+        },
+        {
+          skill: "nextjs",
+          color: "black",
+        },
+        {
+          skill: "supabase",
+          color: "#8ad8b5",
+        },
+        {
+          skill: "firebase",
+          color: "#fff3a7",
+        },
+        {
+          skill: "reactquery",
+          color: "#ff6978",
+        },
+        {
+          skill: "vscode",
+          color: "#4faff0",
+        },
+        {
+          skill: "qt",
+          color: "#6dc46d",
+        },
+        {
+          skill: "godot_engine",
+          color: "#7cacd1",
+        },
+        {
+          skill: "git",
+          color: "#dd7160",
+        },
+      ]}
+    />
+  </section>
+  <section id="education" class="screen-wrapper my-10">
+    <Heading> MY PROJECTS </Heading>
+    <p class="text-center">
+      Projects that i made with passion and ambition to learn.
+    </p>
+    <ProjectList max={3} />
+  </section>
+  <section id="education" class="screen-wrapper mt-10 mb-20">
+    <Heading> MY LATEST BLOG </Heading>
+    <p class="text-center">Here where i have fun to share my thought .</p>
+    <BlogList max={3} />
+  </section>
 </Layout>

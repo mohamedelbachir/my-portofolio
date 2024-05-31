@@ -1,18 +1,30 @@
 @tailwind base;
 @layer base {
-  .btn {
-    @apply btn-shape inline-flex h-10 items-center justify-center after:bg-[linear-gradient(110deg,var(--primary-color),35%,rgba(255,255,255,0.5),65%,var(--primary-color))] after:bg-[length:200%_100%] after:animate-shimmer px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 bg-primary;
-  }
+  .btn,
   .btn-no-shape {
-    @apply inline-flex h-10 items-center justify-center after:bg-[linear-gradient(110deg,var(--primary-color),35%,rgba(255,255,255,0.5),65%,var(--primary-color))] after:bg-[length:200%_100%] after:animate-shimmer px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 bg-primary;
+    @apply btn-shape font-heading  inline-flex h-10 items-center justify-center after:bg-[linear-gradient(110deg,var(--primary-color),35%,rgba(255,255,255,0.5),65%,var(--primary-color))] after:bg-[length:200%_100%] after:animate-shimmer px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 bg-primary;
   }
-  .container {
-    @apply max-w-2xl mx-auto;
+
+  .screen-wrapper {
+    @apply max-w-screen-lg mx-auto;
+  }
+  body {
+    @apply text-lg dark:text-white;
   }
 }
+
 @font-face {
   font-family: "TitilliumWeb";
   src: url("/fonts/TitilliumWeb-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "michroma";
+  src: url("/fonts/Michroma-Regular.ttf");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -24,14 +36,43 @@
 :root {
   --primary-color: #2563eb;
 }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
 * {
   box-sizing: border-box;
 }
+
+/**Michroma*/
 body {
   padding: 0;
   margin: 0;
   font-family: TitilliumWeb, sans-serif;
   scrollbar-width: thin;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--primary-color) 20%, white);
+  border-radius: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .btn-shape {
@@ -45,6 +86,7 @@ body {
     0 10px
   );
 }
+
 .btn-shape::after {
   position: absolute;
   content: "";
@@ -52,4 +94,8 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
+}
+
+.btn-no-shape {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }

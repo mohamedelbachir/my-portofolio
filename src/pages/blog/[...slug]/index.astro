@@ -1,0 +1,26 @@
+---
+import MarkdownPostLayout from "../../../layouts/LayoutMarkdown.astro";
+import Layout from "../../../layouts/Layout.astro";
+import { getEntryBySlug } from "astro:content";
+
+const { slug } = Astro.params;
+const blog = await getEntryBySlug("blog", slug as string);
+if (!blog) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await blog.render();
+---
+
+<Layout
+  title={blog.data.title}
+  description={blog.data.description}
+  image={`${import.meta.env.SITE}/blog/${slug}/og.png`}
+  canonicalUrl={`${import.meta.env.SITE}/blog/${slug}/`}
+  publishedTime={blog.data.pubDate.toISOString()}
+  type="article"
+>
+  <MarkdownPostLayout frontmatter={blog.data}>
+    <Content />
+  </MarkdownPostLayout>
+</Layout>

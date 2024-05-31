@@ -8,11 +8,17 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), mdx(), icon({
-    include: {
-      tabler: ["*"]
-    }
-  })],
+  site: "https://bachdev.vercel.app",
+  integrations: [
+    tailwind(),
+    react(),
+    mdx(),
+    icon({
+      include: {
+        tabler: ["*"],
+      },
+    }),
+  ],
   output: "server",
-  adapter: vercel()
+  adapter: vercel(),
 });

@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+import clsx from "clsx";
+interface Props {
+  url: string;
+  title: string;
+  tag?: string[];
+  img?: {
+    src: string;
+    width: number;
+    height: number;
+    format: string;
+  };
+  description?: string;
+  isBlog?: boolean;
+}
+const { url, tag, title, img, description, isBlog = false } = Astro.props;
+---
+
+<div class={clsx("card shape w-[32%] h-full shadow-md", isBlog && "isBlog")}>
+  <div class={"shape card-wrapper"}>
+    <div class={clsx("card shape p-1", !isBlog && "preview")}>
+      <img
+        class="w-full bg-primay shadow-lg image-border transition-all"
+        width={img?.width}
+        height={img?.height}
+        src={img?.src}
+        alt={description || ""}
+      />
+    </div>
+
+    <h5 class="font-heading text-primary hover:underline my-2">
+      <a href={`${isBlog ? "/blog" : "/project"}/${url}`}>{title}</a>
+    </h5>
+    <div class="inline-flex gap-2 flex-wrap">
+      {
+        tag?.map((t) => (
+          <span class="bg-primary btn-shape text-white text-xs w-fit px-4 py-1 whitespace-nowrap">
+            {t}
+          </span>
+        ))
+      }
+    </div>
+    <p class="line-clamp-2 my-2">{description}</p>
+  </div>
+</div>
+<style>
+  .shape {
+    clip-path: polygon(
+      20px 0,
+      100% 0,
+      100% calc(100% - 20px),
+      calc(100% - 20px) 100%,
+      0 100%,
+      0 20px
+    );
+  }
+  .card,
+  .card-wrapper {
+    position: relative;
+    display: block;
+    z-index: 1;
+    padding: 8px;
+    user-select: none;
+  }
+  .isBlog .card-wrapper {
+    padding: 10px;
+  }
+  .isBlog.card::before,
+  .isBlog.card::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    right: 5px;
+    width: 50%;
+    aspect-ratio: 1/1;
+    border: 1px solid var(--primary-color);
+    z-index: 2;
+    border-style: dashed;
+  }
+  :global(.dark) .isBlog.card::before,
+  :global(.dark) .isBlog.card::after {
+    border-color: rgb(77, 77, 77) !important;
+  }
+  .isBlog.card::before {
+    top: 5px;
+    border-left: none;
+    border-bottom: none;
+  }
+  .isBlog.card::after {
+    bottom: 5px;
+    left: 5px;
+    width: 50%;
+    border-top: none;
+    border-right: none;
+  }
+  .card {
+    padding: 1px;
+    overflow: hidden;
+    background: var(--primary-color);
+  }
+  .card-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: white;
+    z-index: -1;
+    height: 100%;
+  }
+  .card:hover.preview::before {
+    content: "Go to the project ↗";
+    cursor: pointer;
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 255, 0.616);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 3;
+  }
+  :global(.dark) .card:hover.preview::before {
+    background-color: rgba(85, 85, 85, 0.616);
+  }
+  .card:hover.preview > img {
+    transform: scale(1.2);
+  }
+  :global(.dark) .card-wrapper::after {
+    background-color: transparent;
+  }
+  :global(.dark) .card {
+    background-color: transparent;
+
+    background-image: linear-gradient(
+      to bottom,
+      color-mix(in srgb, rgba(35, 38, 47) 70%, white 30%),
+      rgba(41, 41, 41, 0.678)
+    );
+  }
+</style>

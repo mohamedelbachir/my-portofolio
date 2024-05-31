@@ -28,10 +28,28 @@ const initTheme = function () {
 
 initTheme();
 
-const onLoad = function () {
-  let lastKnownScrollPosition = window.scrollY;
-  let ticking = true;
+let lastKnownScrollPosition = window.scrollY;
+let ticking = true;
 
+function applyHeaderStylesOnScroll() {
+  const header = document.querySelector("#header");
+  const thresholdHeader = 30;
+  if (!header) return;
+  if (
+    lastKnownScrollPosition > thresholdHeader &&
+    !header.classList.contains("scroll")
+  ) {
+    header.classList.add("scroll");
+  } else if (
+    lastKnownScrollPosition <= thresholdHeader &&
+    header.classList.contains("scroll")
+  ) {
+    header.classList.remove("scroll");
+  }
+  ticking = false;
+}
+
+const onLoad = function () {
   attachEvent("[data-aw-social-share]", "click", function (_, elem) {
     const network = elem.getAttribute("data-aw-social-share");
     const url = encodeURIComponent(elem.getAttribute("data-aw-url"));
@@ -70,19 +88,6 @@ const onLoad = function () {
     //
   });
 
-  function applyHeaderStylesOnScroll() {
-    const header = document.querySelector("#header");
-    if (!header) return;
-    if (lastKnownScrollPosition > 60 && !header.classList.contains("scroll")) {
-      header.classList.add("scroll");
-    } else if (
-      lastKnownScrollPosition <= 60 &&
-      header.classList.contains("scroll")
-    ) {
-      header.classList.remove("scroll");
-    }
-    ticking = false;
-  }
   applyHeaderStylesOnScroll();
 
   attachEvent([document], "scroll", function () {
@@ -95,6 +100,53 @@ const onLoad = function () {
       ticking = true;
     }
   });
+
+  const handleToggleClick = async (e, elmt) => {
+    const element = document.documentElement;
+
+    const toogleDark = () => {
+      element.classList.toggle("dark");
+      const isDark = element.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    };
+
+    if (
+      !document.startViewTransition ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      toogleDark();
+      return;
+    }
+
+    await document.startViewTransition(() => {
+      setTimeout(() => {
+        toogleDark();
+      }, 0);
+    }).ready;
+
+    const { top, left, width, height } = elmt.getBoundingClientRect();
+    const x = left + width / 2;
+    const y = top + height / 2;
+    const right = window.innerWidth - left;
+    const bottom = window.innerHeight - top;
+    const maxRadius = Math.hypot(Math.max(left, right), Math.max(top, bottom));
+
+    document.documentElement.animate(
+      {
+        clipPath: [
+          `circle(0px at ${x}px ${y}px)`,
+          `circle(${maxRadius}px at ${x}px ${y}px)`,
+        ],
+      },
+      {
+        duration: 500,
+        easing: "ease-in-out",
+        pseudoElement: "::view-transition-new(root)",
+      }
+    );
+  };
+
+  attachEvent("#themeToggle", "click", handleToggleClick);
 };
 const onPageShow = function () {
   document.documentElement.classList.add("motion-safe:scroll-smooth");

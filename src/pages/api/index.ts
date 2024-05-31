@@ -3,6 +3,7 @@ import { html } from "satori-html";
 import { readFileSync } from "fs";
 import satori from "satori";
 import sharp from "sharp";
+import type { ReactNode } from "react";
 
 export const GET: APIRoute = async () => {
   const markup = html(`
@@ -26,7 +27,7 @@ export const GET: APIRoute = async () => {
   const fontFile = readFileSync(fontFilePath);
 
   // resulting svg is basically a long string
-  const svg: string = await satori(markup, {
+  const svg: string = await satori(markup as ReactNode, {
     width: 1200,
     height: 630,
     fonts: [

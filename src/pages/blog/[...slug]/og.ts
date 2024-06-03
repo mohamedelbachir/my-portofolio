@@ -5,7 +5,7 @@ import sharp from "sharp";
 import { basename } from "path";
 import type { ReactNode } from "react";
 import type { APIRoute, MarkdownInstance } from "astro";
-
+import { getCollection } from "astro:content";
 export const generateOGImage = async (postData: any) => {
   // HTML template for OG image
   const markup = html(`
@@ -15,7 +15,7 @@ export const generateOGImage = async (postData: any) => {
       <div
         style="font-size: 70px; margin-top: 38px; display: flex; flex-direction: column; color: white;"
       >
-        ${postData.frontmatter.title}
+        ${postData.title}
       </div>
     </div>
   `);
@@ -36,28 +36,19 @@ export const generateOGImage = async (postData: any) => {
 export const GET: APIRoute = async ({ params }) => {
   const { slug } = params;
   // Find the slug in content dir
-  const posts: Record<string, () => Promise<any>> = import.meta.glob(
-    `./**/*.md`
-  );
+  const blogs = await getCollection("blog");
 
-  const postPaths = Object.entries(posts).map(([path, promise]) => ({
-    slug: basename(path).replace(".md", ""),
-    loadPost: promise,
-  }));
+  const pages = blogs.map((b) => b);
 
-  const post = postPaths.find((p) => p.slug === String(slug));
+  const post = pages.find((p) => p.slug === String(slug));
 
   if (!post) {
     return new Response("Post not found", { status: 404 });
   }
 
-  const postData = (await post.loadPost()) as MarkdownInstance<
-    Record<string, any>
-  >;
-
   try {
     // Generate OG image with dynamic content
-    const ogImageBuffer = await generateOGImage(postData);
+    const ogImageBuffer = await generateOGImage(post.data);
 
     // Serve the image
     return new Response(ogImageBuffer, {

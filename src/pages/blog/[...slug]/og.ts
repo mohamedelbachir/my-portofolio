@@ -1,6 +1,6 @@
 import satori from "satori";
 import { html } from "satori-html";
-import { readFileSync } from "fs";
+const fs = require("fs").promises;
 import type { APIRoute, MarkdownInstance } from "astro";
 import sharp from "sharp";
 import { basename } from "path";
@@ -28,7 +28,7 @@ export const GET: APIRoute = async ({ params }) => {
   }
 
   const fontFilePath = `${process.cwd()}/public/fonts/TitilliumWeb-Regular.ttf`;
-  const fontFile = readFileSync(fontFilePath);
+  const fontFile = await fs.readFile(fontFilePath);
   const markup = html(`<div
     style="height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: rgb(45,26,84); font-size: 32px; font-weight: 600;"
   >

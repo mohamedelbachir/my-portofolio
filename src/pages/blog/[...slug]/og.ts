@@ -19,12 +19,19 @@ export const generateOGImage = async (postData: any) => {
       </div>
     </div>
   `);
-
+  const fontFilePath = `${process.cwd()}/public/fonts/Michroma-Regular.ttf`;
+  const fontFile = readFileSync(fontFilePath);
   // Render HTML template to SVG
   const svg = await satori(markup as ReactNode, {
     width: 1200,
     height: 630,
-    fonts: [],
+    fonts: [
+      {
+        name: "Michroma-Regular",
+        data: fontFile,
+        style: "normal",
+      },
+    ],
   });
 
   // Convert SVG to PNG

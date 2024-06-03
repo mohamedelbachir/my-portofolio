@@ -23,7 +23,6 @@ export const generateOGImage = async (postData: any) => {
     process.cwd(),
     "/public/fonts/Michroma-Regular.ttf"
   );
-  return fontFilePath;
   const fontFile = fs.readFileSync(fontFilePath);
 
   // Render HTML template to SVG

@@ -19,7 +19,8 @@ export const generateOGImage = async (postData: any) => {
       </div>
     </div>
   `);
-  const fs = require("fs").promises;
+  return markup;
+  /* const fs = require("fs").promises;
   const fontFilePath = `${process.cwd()}/public/fonts/Michroma-Regular.ttf`;
   const fontFile = await fs.readFile(fontFilePath);
   // Render HTML template to SVG
@@ -38,7 +39,7 @@ export const generateOGImage = async (postData: any) => {
   // Convert SVG to PNG
   const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
 
-  return pngBuffer;
+  return pngBuffer; */
 };
 
 export const GET: APIRoute = async ({ params }) => {
@@ -59,10 +60,11 @@ export const GET: APIRoute = async ({ params }) => {
     const ogImageBuffer = await generateOGImage(post.data);
 
     // Serve the image
-    return new Response(ogImageBuffer, {
+    return new Response(JSON.stringify(ogImageBuffer), {
       status: 200,
       headers: {
-        "Content-Type": "image/png",
+        //"Content-Type": "image/png",
+        "Content-Type": "text/plain",
         "Cache-Control": "s-maxage=1, stale-while-revalidate=59",
       },
     });

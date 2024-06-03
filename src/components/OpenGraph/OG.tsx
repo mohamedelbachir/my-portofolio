@@ -1,4 +1,4 @@
-export default function OG(
+/* export default function OG(
   title: string = "<Site Name> - Default Title",
   heroImageURL: string
 ) {
@@ -127,3 +127,4 @@ export default function OG(
     </div>
   );
 }
+ */

@@ -9,6 +9,7 @@ import vercel from "@astrojs/vercel/serverless";
 // https://astro.build/config
 export default defineConfig({
   site: "https://bachdev.vercel.app",
+server: { port: 8080, host: true},
   integrations: [
     tailwind(),
     react(),

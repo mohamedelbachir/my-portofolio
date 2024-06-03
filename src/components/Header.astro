@@ -1,31 +1,39 @@
 ---
 import Logo from "@/components/Logo.astro";
-//import { Icon } from "astro-icon/components";
-//import ButtonSwitcher from "./libs/ButtonSwitcher";
 import clsx from "clsx";
 import ButtonTheme from "./ButtonTheme.astro";
+import { Icon } from "astro-icon/components";
 const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1); // remove the first "/"
+const currentPath = pathname.slice(1);
 ---
 
 <header
   id="header"
   data-aw-sticky-header
-  class={clsx("w-full sticky z-10 top-0 left-0 transition-all dark:text-white")}
+  class={clsx(
+    "w-full sticky z-10 top-0 left-0 transition-all dark:text-white max-sm:fixed "
+  )}
+  data-aos="slide-down"
 >
-  <div class="flex justify-between items-center screen-wrapper py-4">
-    <div class="logo flex gap-3 items-center">
+  <div
+    class="flex justify-between items-center screen-wrapper py-4 max-sm:!px-2"
+  >
+    <a href="/" class="flex gap-3 items-center font-heading">
       <div>
-        <Logo className="fill-black dark:fill-white w-[40px] block" />
+        <Logo
+          className="fill-black dark:fill-white w-[40px] block  max-sm:w-[35px]"
+        />
       </div>
       <!-- &nearrow; -->
-      <code> &lt;BACHDEV/&gt; </code>
-    </div>
-    <nav class="flex gap-5 ml-20">
-      <a class={currentPath === "" ? "text-primary" : ""} href="/">home</a>
+      <span class="block max-sm:text-sm max-lg:hidden max-sm:block"
+        >BACHDEV</span
+      >
+    </a>
+    <nav class="flex gap-5 font-heading">
+      <a class={currentPath === "" ? "text-primary" : ""} href="/">Home</a>
       <a
         class={currentPath.includes("project") ? "text-primary" : ""}
-        href="/project">Project</a
+        href="/project">Projects</a
       >
       <a class={currentPath.includes("blog") ? "text-primary" : ""} href="/blog"
         >Blog</a
@@ -37,25 +45,93 @@ const currentPath = pathname.slice(1); // remove the first "/"
     <div class="flex gap-3">
       <!-- <ButtonSwitcher client:only /> -->
       <ButtonTheme />
-      <button class="btn"> hire me </button>
+      <button class="btn max-sm:!hidden" data-hire-me> hire me </button>
+      <button
+        id="menu"
+        class="hidden text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 items-center max-sm:inline-flex"
+      >
+        <Icon name={"tabler:menu"} class={"size-5"} />
+      </button>
     </div>
   </div>
 </header>
 
 <style>
+  :root {
+    --light-bg: rgba(249, 249, 251, 0.9);
+    --dark-bg: rgba(35, 38, 47, 0.8);
+  }
+  @media only screen and (max-width: 640px) {
+    nav {
+      --light-bg: rgba(249, 249, 251, 0.95);
+      --dark-bg: rgba(35, 38, 47, 0.95);
+      position: absolute;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      top: -250%;
+      left: 50%;
+      padding: 10px 0;
+      transform: translateX(-50%);
+      clip-path: polygon(
+        10px 0,
+        100% 0,
+        100% calc(100% - 10px),
+        calc(100% - 10px) 100%,
+        0 100%,
+        0 10px
+      );
+      background-color: var(--light-bg);
+      z-index: 3;
+      border: 1px solid var(--primary-color);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: all 0.4s;
+      opacity: 0;
+    }
+    nav.open {
+      top: 105%;
+      opacity: 1;
+    }
+    :global(.dark) nav {
+      background-color: var(--dark-bg);
+    }
+    nav::before {
+      position: absolute;
+      top: -10px;
+      left: -15px;
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: var(--primary-color);
+      transform: rotate(135deg);
+      border: 1px solid var(--primary-color);
+    }
+    nav::after {
+      position: absolute;
+      bottom: -10px;
+      right: -15px;
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: var(--primary-color);
+      transform: rotate(135deg);
+      border: 1px solid var(--primary-color);
+    }
+  }
+
   :global(.logo) {
     width: 30px;
   }
 
   #header.scroll {
-    backdrop-filter: blur(4px);
-    background-color: rgba(255, 255, 255, 0.8);
     border-bottom: 1px solid var(--primary-color);
+    background-color: var(--light-bg);
+    backdrop-filter: blur(4px);
   }
 
   :global(.dark) #header.scroll {
-    background-color: rgba(35, 38, 47, 0.8) !important;
-    border-bottom: none;
+    background-color: var(--dark-bg) !important;
   }
   /*
   #23262F

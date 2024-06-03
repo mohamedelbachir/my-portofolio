@@ -1,7 +1,8 @@
----
-const { frontmatter } = Astro.props;
----
-
-<div class="screen-wrapper">
-  <slot />
+<div class="screen-wrapper pb-20 max-sm:pt-20" data-aos="fade-up">
+  <slot name="header" />
+  <div
+    class="prose max-w-none dark:prose-invert prose-headings:font-heading prose-img:w-full prose-img:bg-blue-500 w-full"
+  >
+    <slot name="content" />
+  </div>
 </div>

@@ -2,6 +2,7 @@
 import MarkdownPostLayout from "../../../layouts/LayoutMarkdown.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { getEntryBySlug } from "astro:content";
+import { TracingBeam } from "@/components/libs/WrapperTracer";
 
 const { slug } = Astro.params;
 const blog = await getEntryBySlug("blog", slug as string);
@@ -10,17 +11,22 @@ if (!blog) {
 }
 
 const { Content } = await blog.render();
+console.log(blog.data.image.src);
 ---
 
 <Layout
   title={blog.data.title}
   description={blog.data.description}
-  image={`${import.meta.env.SITE}/blog/${slug}/og.png`}
   canonicalUrl={`${import.meta.env.SITE}/blog/${slug}/`}
   publishedTime={blog.data.pubDate.toISOString()}
   type="article"
 >
-  <MarkdownPostLayout frontmatter={blog.data}>
-    <Content />
+  <MarkdownPostLayout>
+    <Fragment slot="header">
+      {blog.data.tags.map((t) => <span class="chip">{t}</span>)}
+    </Fragment>
+    <Fragment slot="content">
+      <Content />
+    </Fragment>
   </MarkdownPostLayout>
 </Layout>

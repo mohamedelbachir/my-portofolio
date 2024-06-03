@@ -2,14 +2,17 @@
 @layer base {
   .btn,
   .btn-no-shape {
-    @apply btn-shape font-heading  inline-flex h-10 items-center justify-center after:bg-[linear-gradient(110deg,var(--primary-color),35%,rgba(255,255,255,0.5),65%,var(--primary-color))] after:bg-[length:200%_100%] after:animate-shimmer px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 bg-primary;
+    @apply btn-shape font-heading  inline-flex h-10 items-center justify-center after:bg-[linear-gradient(110deg,var(--primary-color),35%,rgba(255,255,255,0.5),65%,var(--primary-color))] after:bg-[length:200%_100%] after:animate-shimmer px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 bg-primary whitespace-nowrap max-sm:text-sm;
   }
 
   .screen-wrapper {
-    @apply max-w-screen-lg mx-auto;
+    @apply max-w-screen-lg mx-auto max-lg:px-5 max-sm:w-full;
   }
   body {
     @apply text-lg dark:text-white;
+  }
+  .chip{
+    @apply bg-primary btn-shape text-white text-xs w-fit px-4 py-1 whitespace-nowrap;
   }
 }
 
@@ -20,7 +23,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 
 @font-face {
   font-family: "michroma";
@@ -40,10 +42,6 @@
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 /**Michroma*/
@@ -86,7 +84,16 @@ body {
     0 10px
   );
 }
-
+.shape {
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
+}
 .btn-shape::after {
   position: absolute;
   content: "";

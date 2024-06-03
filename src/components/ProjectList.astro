@@ -11,19 +11,20 @@ allProjects = allProjects.slice(0, max);
 
 <div class="flex flex-wrap gap-3 w-full justify-center mt-10">
   {
-    allProjects.map(({ slug, data }) => (
+    allProjects.map(({ slug, data }, i) => (
       <CardBox
         url={slug}
         title={data.title}
         img={data.image}
         description={data.description}
         tag={data.tags}
+        index={i + 1}
       />
     ))
   }
 </div>
 <div class="flex justify-center w-full mt-5">
-  <button class="btn">See more</button>
+  <a href="/project" class="btn">See more</a>
 </div>
 
 <!-- tag={p.tags}

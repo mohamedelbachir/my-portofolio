@@ -7,9 +7,10 @@ import Layout from "./../../layouts/Layout.astro";
 ---
 
 <Layout title="Blog">
-  <section id="education" class="screen-wrapper my-10">
-    <Heading> MY LATEST BLOG </Heading>
-    <p class="text-center">Here where i have fun to share my thought .</p>
+  <section id="education" class="screen-wrapper py-16" data-aos="fade-up">
+    <Heading> All blog posts </Heading>
+    <p class="text-center">A collection of useful articles i have written. You can select a specific post tag to filter posts for that topic </p>
+    
     <div class="flex flex-wrap gap-3 w-full justify-center mt-10">
       {
         allProjects.map(({ slug, data }) => (

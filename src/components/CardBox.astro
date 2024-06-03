@@ -1,4 +1,4 @@
----
+﻿---
 import { Image } from "astro:assets";
 import clsx from "clsx";
 interface Props {
@@ -13,34 +13,51 @@ interface Props {
   };
   description?: string;
   isBlog?: boolean;
+  index?: number;
 }
-const { url, tag, title, img, description, isBlog = false } = Astro.props;
+const {
+  url,
+  tag,
+  title,
+  img,
+  description,
+  isBlog = false,
+  index = 1,
+} = Astro.props;
 ---
 
-<div class={clsx("card shape w-[32%] h-full shadow-md", isBlog && "isBlog")}>
+<div
+  class={clsx(
+    "card shape w-[32%] max-lg:w-[48%] max-sm:w-full h-full shadow-md",
+    isBlog && "isBlog"
+  )}
+  data-aos="fade-up"
+  data-aos-delay={70 * index}
+>
   <div class={"shape card-wrapper"}>
     <div class={clsx("card shape p-1", !isBlog && "preview")}>
       <img
-        class="w-full bg-primay shadow-lg image-border transition-all"
+        class="w-full bg-primay shadow-lg image-border transition-all max-sm:h-[200px] object-cover"
         width={img?.width}
         height={img?.height}
         src={img?.src}
         alt={description || ""}
+	loading="lazy"
       />
     </div>
-
-    <h5 class="font-heading text-primary hover:underline my-2">
-      <a href={`${isBlog ? "/blog" : "/project"}/${url}`}>{title}</a>
-    </h5>
-    <div class="inline-flex gap-2 flex-wrap">
+    <div class="inline-flex gap-2 flex-wrap my-2">
       {
         tag?.map((t) => (
-          <span class="bg-primary btn-shape text-white text-xs w-fit px-4 py-1 whitespace-nowrap">
+          <span class="chip">
             {t}
           </span>
         ))
       }
     </div>
+    <h5 class="font-heading text-primary hover:underline">
+      <a href={`${isBlog ? "/blog" : "/project"}/${url}`}>{title}</a>
+    </h5>
+
     <p class="line-clamp-2 my-2">{description}</p>
   </div>
 </div>

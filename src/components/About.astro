@@ -5,23 +5,14 @@ import { Icon } from "astro-icon/components";
 ---
 
 <section id="about" class="screen-wrapper my-14">
-  <!-- <div class="w-full flex gap-5">
-    <div class="w-full h-[300px]">
+  <div class="w-full flex gap-10 max-sm:flex-col">
+    <div
+      aria-hidden="true"
+      class="grow relative profile after:bg-dot-blue-500 max-sm:h-[300px]"
+      data-aos="fade-up"
+    >
       <Image
-        src={MyPhoto}
-        alt={"Mohamed el bachir"}
-        loading={"lazy"}
-        class="object-cover w-[300px] h-full"
-      />
-    </div>
-    <div class="grow">
-      
-    </div>
-  </div> -->
-  <div class="w-full flex gap-10">
-    <div aria-hidden="true" class="grow relative profile after:bg-dot-blue-500">
-      <Image
-        class="w-full bg-gray-500 shadow-lg"
+        class="w-full bg-gray-500 shadow-lg h-full object-cover object-top"
         width={500}
         height={500}
         widths={[400, 768]}
@@ -30,7 +21,7 @@ import { Icon } from "astro-icon/components";
         alt={"Mohamed el bachir profile"}
       />
     </div>
-    <div class="w-2/3">
+    <div class="w-2/3 max-sm:w-full" data-aos="fade-up" data-aos-delay="250">
       <div class="btn-shape bg-primary py-2 px-5 w-fit text-lg text-white mb-4">
         About
       </div>
@@ -40,13 +31,9 @@ import { Icon } from "astro-icon/components";
         Why hire me for your next project ?
       </h3>
       <p class="text-justify dark:text-white text-lg">
-        As a Master 2 student in computer science, I'm passionate about the
-        complex and evolving world of software systems and distributed
-        environments. With a solid academic background and an unwavering passion
-        for programming, I'm looking for opportunities to apply my technical
-        skills and make a significant contribution to innovative projects.
+      As a Master's student in Computer Science specializing in software systems and distributed environments, I offer a strong academic background and a deep passion for programming. I am eager to apply my technical skills to drive innovation and contribute meaningfully to challenging projects
       </p>
-      <button class="mt-5 btn-no-shape flex gap-3">
+      <button class="mt-5 btn-no-shape flex gap-3" data-download-cv >
         <Icon name="tabler:download" class={"size-5"} />
         Download my CV
       </button>

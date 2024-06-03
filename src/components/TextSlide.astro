@@ -22,6 +22,11 @@ const itemsLenght = `${data.length}`;
     --h: 32;
     /* --speed: 1.5s; */
   }
+  @media only screen and (max-width:640px) {
+    :root{
+      --h:27;
+    }
+  }
   .g-container {
     height: calc(var(--h) * 1px);
     overflow: hidden;

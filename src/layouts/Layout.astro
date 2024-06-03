@@ -1,5 +1,6 @@
 ---
 import "./../styles/global.css";
+
 interface Props {
   title: string;
   description?: string;
@@ -13,10 +14,11 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 import MetaData from "@/components/MetaData.astro";
+import { Icon } from "astro-icon/components";
 
 const {
   title,
-  description = "",
+  description = "My amazing portofolio where i share thoughts and my works ",
   image = "/social-image.png",
   canonicalUrl = import.meta.env.SITE,
   publishedTime,
@@ -28,10 +30,10 @@ const {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#2563eb" />
     <MetaData
       title={title}
       description={description}
@@ -40,20 +42,46 @@ const {
       publishedTime={publishedTime}
       type={type}
     />
+    <meta name="description" content="Astro description" />
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/aos/aos.css" rel="stylesheet" />
     <ViewTransitions />
   </head>
   <body
-    class="overflow-x-hidden w-full dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.4] relative"
+    class="overflow-x-hidden w-full dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] bg-fixed relative"
   >
-    <Header />
+    <div id="page-content">
+      <Header />
+      <div
+        class="fixed h-full pointer-events-none inset-0 flex items-center justify-center dark:bg-black/80 bg-white/80 [mask-image:radial-gradient(ellipse_at_center,transparent_40%,black)]"
+      >
+      </div>
+      <div class="min-h-screen w-full overflow-hidden">
+        <slot />
+      </div>
+      <button
+        id="back-to-top"
+        class="shape fixed bottom-5 right-5 bg-primary text-white p-5 z-10 max-sm:p-4 max-sm:right-3 "
+      >
+        <Icon name="tabler:chevron-up" />
+      </button>
+      <Footer />
+    </div>
     <div
-      class="fixed h-full pointer-events-none inset-0 flex items-center justify-center dark:bg-black/80 bg-white/80 [mask-image:radial-gradient(ellipse_at_center,transparent_40%,black)]"
+      id="loading-state"
+      class="load dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] bg-fixed"
+      transition:persist
     >
+      <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <span id="state">Loading ...</span>
     </div>
-    <div class="min-h-screen">
-      <slot />
-    </div>
-    <Footer />
     <div id="loading">
       <div class="spinner">
         <div></div>
@@ -64,8 +92,26 @@ const {
         <div></div>
       </div>
     </div>
-    <script src="/script.js" is:inline></script>
+
+    <!-- Vendor JS Files -->
+    <script src="/vendor/aos/aos.js" defer></script>
+    <script src="/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+
+    <script src="/script.js" is:inline defer></script>
     <style>
+      #page-content.hide {
+        display: none;
+      }
+      #back-to-top {
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.4s;
+      }
+      #back-to-top.active {
+        visibility: visible;
+        opacity: 1;
+      }
+      #loading-state,
       #loading {
         visibility: hidden;
         position: fixed;
@@ -75,11 +121,22 @@ const {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+      }
+      #loading.show {
         background-color: rgba(211, 211, 211, 0.582);
       }
       :global(.dark) #loading {
         background-color: rgba(36, 36, 36, 0.582);
       }
+      #loading-state.load,
+      #loading.load {
+        visibility: visible;
+      }
+      #loading-state.load #state {
+        margin-top: 20px;
+      }
+
       #loading.show {
         visibility: visible;
       }
@@ -141,12 +198,38 @@ const {
       }
     </style>
     <script is:inline>
+      const elt = document.querySelector("#loading-state");
+      const page = document.querySelector("#page-content");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        page.classList.add("hide");
+      });
+      document.addEventListener("astro:page-load", () => {
+        elt.classList.remove("load");
+        page.classList.remove("hide");
+      });
       document.addEventListener("astro:before-preparation", () => {
         document.querySelector("#loading").classList.add("show");
       });
       document.addEventListener("astro:after-preparation", () => {
         document.querySelector("#loading").classList.remove("show");
       });
+      /*
+      document.addEventListener("astro:before-swap", () => {
+        console.table("after-preparation",elt)
+        elt.classList.remove("load")
+      });
+      document.addEventListener("astro:after-swap", () => {
+        console.table("after-swap",elt)
+        elt.classList.remove("load")
+      });
+      document.addEventListener("readystatechange", () => {
+        console.table("after-swap",elt)
+        if(document.readyState==="interactive"){
+          elt.classList.remove("load")
+        }
+        
+      }); */
     </script>
   </body>
 </html>

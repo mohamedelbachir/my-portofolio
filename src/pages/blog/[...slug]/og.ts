@@ -1,10 +1,10 @@
 import satori from "satori";
 import { html } from "satori-html";
-import { readFileSync } from "fs";
+import fs from "fs";
 import sharp from "sharp";
-import { basename } from "path";
+import path from "path";
 import type { ReactNode } from "react";
-import type { APIRoute, MarkdownInstance } from "astro";
+import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 export const generateOGImage = async (postData: any) => {
   // HTML template for OG image
@@ -19,10 +19,13 @@ export const generateOGImage = async (postData: any) => {
       </div>
     </div>
   `);
-  return markup;
-  /* const fs = require("fs").promises;
-  const fontFilePath = `${process.cwd()}/public/fonts/Michroma-Regular.ttf`;
-  const fontFile = await fs.readFile(fontFilePath);
+  const fontFilePath = path.join(
+    process.cwd(),
+    "/public/fonts/Michroma-Regular.ttf"
+  );
+  return fontFilePath;
+  const fontFile = fs.readFileSync(fontFilePath);
+
   // Render HTML template to SVG
   const svg = await satori(markup as ReactNode, {
     width: 1200,
@@ -39,7 +42,7 @@ export const generateOGImage = async (postData: any) => {
   // Convert SVG to PNG
   const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
 
-  return pngBuffer; */
+  return pngBuffer;
 };
 
 export const GET: APIRoute = async ({ params }) => {

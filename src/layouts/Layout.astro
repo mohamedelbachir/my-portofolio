@@ -19,7 +19,7 @@ import { Icon } from "astro-icon/components";
 const {
   title,
   description = "My amazing portofolio where i share thoughts and my works ",
-  image = "/social-image.png",
+  image = `${import.meta.env.SITE}/social-image.png`,
   canonicalUrl = import.meta.env.SITE,
   publishedTime,
   type = "website",
@@ -61,7 +61,7 @@ const {
       </div>
       <button
         id="back-to-top"
-        class="shape fixed bottom-5 right-5 bg-primary text-white p-5 z-10 max-sm:p-4 max-sm:right-3 "
+        class="shape fixed bottom-5 right-5 bg-primary text-white p-5 z-10 max-sm:p-4 max-sm:right-3"
       >
         <Icon name="tabler:chevron-up" />
       </button>

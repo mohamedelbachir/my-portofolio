@@ -19,8 +19,9 @@ export const generateOGImage = async (postData: any) => {
       </div>
     </div>
   `);
+  const fs = require("fs").promises;
   const fontFilePath = `${process.cwd()}/public/fonts/Michroma-Regular.ttf`;
-  const fontFile = readFileSync(fontFilePath);
+  const fontFile = await fs.readFile(fontFilePath);
   // Render HTML template to SVG
   const svg = await satori(markup as ReactNode, {
     width: 1200,

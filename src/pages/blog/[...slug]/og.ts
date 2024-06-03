@@ -1,10 +1,37 @@
 import satori from "satori";
 import { html } from "satori-html";
-const fs = require("fs").promises;
-import type { APIRoute, MarkdownInstance } from "astro";
+import { readFileSync } from "fs";
 import sharp from "sharp";
 import { basename } from "path";
 import type { ReactNode } from "react";
+import type { APIRoute, MarkdownInstance } from "astro";
+
+export const generateOGImage = async (postData: any) => {
+  // HTML template for OG image
+  const markup = html(`
+    <div
+      style="height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: rgb(45,26,84); font-size: 32px; font-weight: 600;"
+    >
+      <div
+        style="font-size: 70px; margin-top: 38px; display: flex; flex-direction: column; color: white;"
+      >
+        ${postData.frontmatter.title}
+      </div>
+    </div>
+  `);
+
+  // Render HTML template to SVG
+  const svg = await satori(markup as ReactNode, {
+    width: 1200,
+    height: 630,
+    fonts: [],
+  });
+
+  // Convert SVG to PNG
+  const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
+
+  return pngBuffer;
+};
 
 export const GET: APIRoute = async ({ params }) => {
   const { slug } = params;
@@ -19,45 +46,29 @@ export const GET: APIRoute = async ({ params }) => {
   }));
 
   const post = postPaths.find((p) => p.slug === String(slug));
-  let postTitle = `My Blog`; // Default title if post not found
-  if (post) {
-    const postData = (await post.loadPost()) as MarkdownInstance<
-      Record<string, any>
-    >;
-    postTitle = postData.frontmatter.title;
+
+  if (!post) {
+    return new Response("Post not found", { status: 404 });
   }
 
-  const fontFilePath = `${process.cwd()}/public/fonts/TitilliumWeb-Regular.ttf`;
-  const fontFile = await fs.readFile(fontFilePath);
-  const markup = html(`<div
-    style="height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: rgb(45,26,84); font-size: 32px; font-weight: 600;"
-  >
-    <div
-      style="font-size: 70px; margin-top: 38px; display: flex; flex-direction: column; color: white;"
-    >
-      ${postTitle}
-    </div>
-  </div>`);
-  const svg = await satori(markup as ReactNode, {
-    width: 1200,
-    height: 630,
-    fonts: [
-      {
-        name: "Optimistic Display",
-        data: fontFile,
-        style: "normal",
+  const postData = (await post.loadPost()) as MarkdownInstance<
+    Record<string, any>
+  >;
+
+  try {
+    // Generate OG image with dynamic content
+    const ogImageBuffer = await generateOGImage(postData);
+
+    // Serve the image
+    return new Response(ogImageBuffer, {
+      status: 200,
+      headers: {
+        "Content-Type": "image/png",
+        "Cache-Control": "s-maxage=1, stale-while-revalidate=59",
       },
-    ],
-  });
-
-  const png = sharp(Buffer.from(svg)).png();
-  const response = await png.toBuffer();
-
-  return new Response(response, {
-    status: 200,
-    headers: {
-      "Content-Type": "image/png",
-      "Cache-Control": "s-maxage=1, stale-while-revalidate=59",
-    },
-  });
+    });
+  } catch (error) {
+    console.error("Error generating OG image:", error);
+    return new Response("Internal Server Error", { status: 500 });
+  }
 };

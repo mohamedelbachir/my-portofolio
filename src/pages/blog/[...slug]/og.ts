@@ -19,14 +19,36 @@ export const generateOGImage = async (postData: any) => {
       </div>
     </div>
   `);
-  const fontFilePath = path.join(
-    process.cwd(),
-    "/public/fonts/Michroma-Regular.ttf"
+  const fontFilePath = new URL(
+    "../../../../public/fonts/Michroma-Regular.ttf",
+    import.meta.url
   );
-  const fontFile = fs.readFileSync(fontFilePath);
+  console.log(import.meta.url);
+
+  try {
+    const fontFile = fs.readFileSync(fontFilePath);
+    const svg = await satori(markup as ReactNode, {
+      width: 1200,
+      height: 630,
+      fonts: [
+        {
+          name: "Michroma-Regular",
+          data: fontFile,
+          style: "normal",
+        },
+      ],
+    });
+
+    // Convert SVG to PNG
+    const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
+    console.log(fontFile);
+    return pngBuffer;
+  } catch (error) {
+    return "file not found : " + error;
+  }
 
   // Render HTML template to SVG
-  const svg = await satori(markup as ReactNode, {
+  /* const svg = await satori(markup as ReactNode, {
     width: 1200,
     height: 630,
     fonts: [
@@ -41,7 +63,7 @@ export const generateOGImage = async (postData: any) => {
   // Convert SVG to PNG
   const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
 
-  return pngBuffer;
+  return pngBuffer; */
 };
 
 export const GET: APIRoute = async ({ params }) => {

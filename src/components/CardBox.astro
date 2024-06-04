@@ -1,5 +1,4 @@
 ﻿---
-import { Image } from "astro:assets";
 import clsx from "clsx";
 interface Props {
   url: string;
@@ -14,6 +13,7 @@ interface Props {
   description?: string;
   isBlog?: boolean;
   index?: number;
+  demo?: string;
 }
 const {
   url,
@@ -23,6 +23,7 @@ const {
   description,
   isBlog = false,
   index = 1,
+  demo = "",
 } = Astro.props;
 ---
 
@@ -35,24 +36,20 @@ const {
   data-aos-delay={70 * index}
 >
   <div class={"shape card-wrapper"}>
-    <div class={clsx("card shape p-1", !isBlog && "preview")}>
-      <img
-        class="w-full bg-primay shadow-lg image-border transition-all max-sm:h-[200px] object-cover"
-        width={img?.width}
-        height={img?.height}
-        src={img?.src}
-        alt={description || ""}
-	loading="lazy"
-      />
-    </div>
+    <a href={!isBlog ? demo : `/blog/${url}`} target={isBlog ? "" : "_blank"}>
+      <div class={clsx("card shape p-1", !isBlog && "preview")}>
+        <img
+          class="w-full bg-primay shadow-lg image-border transition-all h-[200px] object-cover"
+          width={img?.width}
+          height={img?.height}
+          src={img?.src}
+          alt={description || ""}
+          loading="lazy"
+        />
+      </div>
+    </a>
     <div class="inline-flex gap-2 flex-wrap my-2">
-      {
-        tag?.map((t) => (
-          <span class="chip">
-            {t}
-          </span>
-        ))
-      }
+      {tag?.map((t) => <span class="chip">{t}</span>)}
     </div>
     <h5 class="font-heading text-primary hover:underline">
       <a href={`${isBlog ? "/blog" : "/project"}/${url}`}>{title}</a>

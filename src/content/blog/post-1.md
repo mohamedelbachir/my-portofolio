@@ -2,14 +2,11 @@
 title: My First Blog Post
 pubDate: 2022-07-01
 description: This is the first post of my new Astro blog.
-author: Astro Learner
-image: ./preview/free.png
+author: Mohamed el bachir
+preview: ./preview/learn.png
 tags:
-  - web
-preview: ../../assets/images/Preview.png
+  - Astro
 ---
-
-![](../../assets/images/Preview.png)
 
 # My First Blog Post
 
@@ -26,5 +23,9 @@ Welcome to my _new blog_ about learning Astro! Here, I will share my learning jo
 3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
 
 ## What's next
+
+```js {1, 2-3, 10} /highlight-this-word/
+Upgragre my skill in astro
+```
 
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.

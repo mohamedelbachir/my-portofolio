@@ -19,10 +19,7 @@ export const generateOGImage = async (postData: any) => {
       </div>
     </div>
   `);
-  const fontFilePath = new URL(
-    "../../../public/fonts/Michroma-Regular.ttf",
-    import.meta.url
-  );
+  const fontFilePath = new URL("./Michroma-Regular.ttf", import.meta.url);
   console.log(import.meta.url);
 
   try {

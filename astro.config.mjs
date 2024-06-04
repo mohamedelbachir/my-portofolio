@@ -3,13 +3,40 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
-
+import { remarkReadingTime } from "./remark-reading-time.mjs";
 import vercel from "@astrojs/vercel/serverless";
+import sectionize from "@hbsnow/rehype-sectionize";
+import rehypePrettyCode from "rehype-pretty-code";
+import theme from "./syntax-theme.json";
+
+const prettyCodeOptions = {
+  theme,
+  onVisitHighlightedLine(node) {
+    node?.properties?.className?.push("highlighted");
+  },
+  onVisitHighlightedChars(node) {
+    console.log(node);
+    node?.properties?.className
+      ? node.properties.className.push("highlighted-chars")
+      : (node.properties.className = ["highlighted-chars"]);
+  },
+  tokensMap: {},
+};
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://bachdev.vercel.app",
-server: { port: 8080, host: true},
+  server: { port: 8080, host: true },
+  markdown: {
+    syntaxHighlight: false,
+    shikiConfig: {
+      theme,
+      wrap: true,
+    },
+    extendDefaultPlugins: true,
+    rehypePlugins: [sectionize, [rehypePrettyCode, prettyCodeOptions]],
+    remarkPlugins: [remarkReadingTime],
+  },
   integrations: [
     tailwind(),
     react(),

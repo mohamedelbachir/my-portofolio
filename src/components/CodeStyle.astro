@@ -1,0 +1,10 @@
+---
+// grab a reference to the programming language specified in the {.mdx, .md} files
+const { "data-language": lang } = Astro.props;
+---
+
+<figcaption class="custom-figcaption">
+  <slot />
+  <span class="custom-figcaption__lang">{lang}</span>
+  <button class="custom-figcaption__copy">Copy</button>
+</figcaption>

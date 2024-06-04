@@ -2,16 +2,19 @@
 import MarkdownPostLayout from "../../../layouts/LayoutMarkdown.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { getEntryBySlug } from "astro:content";
-import { TracingBeam } from "@/components/libs/WrapperTracer";
-
+import ImageAuthor from "@/assets/images/me.jpeg";
+import { Image } from "astro:assets";
 const { slug } = Astro.params;
 const blog = await getEntryBySlug("blog", slug as string);
 if (!blog) {
   return Astro.redirect("/404");
 }
 
-const { Content } = await blog.render();
-console.log(blog.data.image.src);
+const { Content, headings, remarkPluginFrontmatter } = await blog.render();
+import CodeStyle from "@/components/CodeStyle.astro";
+import Brand from "@/components/Brand.astro";
+import { Icon } from "astro-icon/components";
+const components = { CodeStyle };
 ---
 
 <Layout
@@ -21,12 +24,89 @@ console.log(blog.data.image.src);
   publishedTime={blog.data.pubDate.toISOString()}
   type="article"
 >
-  <MarkdownPostLayout>
+  <MarkdownPostLayout headings={headings}>
     <Fragment slot="header">
-      {blog.data.tags.map((t) => <span class="chip">{t}</span>)}
+      <div
+        class="bg-[var(--light-bg)] dark:bg-[var(--dark-bg)] py-2 border-b border-b-primary mb-5 prose-figure:w-full shape"
+      >
+        <div class="px-2">
+          <h1 class="font-heading text-2xl my-2">
+            {blog.data.title}
+          </h1>
+          <p class="text-gray-400">{blog.data.description}</p>
+          {blog.data.tags.map((t) => <span class="chip">{t}</span>)}
+        </div>
+        <img
+          class="h-80 w-full object-cover my-2 border-y border-primary"
+          {...blog.data.preview}
+          alt={"BLOG POST COVER"}
+        />
+        <div>
+          <div class="flex px-2 justify-between items-center">
+            <div class="author flex gap-2 items-center">
+              <Image
+                src={ImageAuthor}
+                alt={"mohamed el achir"}
+                class={"w-14 object-cover rounded-full border-2 border-primary"}
+              />
+              <div class="flex justify-between">
+                <div class="flex flex-col text-sm">
+                  <span class="text-primary">MOHAMED EL BACHIR</span>
+                  <span class="text-gray-400"
+                    >{blog.data.pubDate.toLocaleDateString()}&ensp;<span
+                      class="text-lg font-bold leading-none">&middot;</span
+                    >&ensp;{remarkPluginFrontmatter.minutesRead}</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="social flex gap-2">
+              <button
+                data-aw-social-share="facebook"
+                data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
+                data-aw-text={blog.data.description}
+                class="size-10 shape bg-blue-500 flex justify-center items-center"
+              >
+                <Icon name="tabler:brand-facebook" class="size-6 text-white" />
+              </button>
+              <button
+                class="size-10 shape bg-blue-500 flex justify-center items-center"
+                data-aw-social-share="twitter"
+                data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
+                data-aw-text={blog.data.description}
+              >
+                <Icon
+                  name="tabler:brand-twitter-filled"
+                  class="size-5 text-white"
+                />
+              </button>
+              <button
+                data-aw-social-share="linkedin"
+                data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
+                data-aw-text={blog.data.description}
+                class="size-10 shape bg-blue-500 flex justify-center items-center"
+              >
+                <Icon name="tabler:brand-linkedin" class="size-5 text-white" />
+              </button>
+              <button
+                data-aw-social-share="whatsapp"
+                data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
+                data-aw-text={blog.data.description}
+                class="size-10 shape bg-blue-500 flex justify-center items-center"
+              >
+                <Icon name="tabler:brand-whatsapp" class="size-5 text-white" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </Fragment>
     <Fragment slot="content">
-      <Content />
+      <Content
+        components={{
+          ...components,
+        }}
+      />
     </Fragment>
   </MarkdownPostLayout>
 </Layout>

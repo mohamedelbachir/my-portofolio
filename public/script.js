@@ -111,22 +111,83 @@
   document.addEventListener("astro:page-load", init);
   document.addEventListener("astro:after-swap", init);
   document.addEventListener("load", init);
+  function addIntersectionObserver() {
+    const observer = new IntersectionObserver(
+      (sections) => {
+        sections.forEach((section) => {
+          const heading = section.target.querySelector("h2, h3, h4, h5");
+          if (!heading) return;
+          const id = heading.getAttribute("id");
 
+          // Get the link to this section's heading
+          const link = document.querySelector(
+            `nav.article-toc li a[href="#${id}"]`
+          );
+          if (!link) return;
+
+          // Add/remove the .active class based on whether the
+          // section is visible
+          const addRemove = section.intersectionRatio > 0 ? "add" : "remove";
+          link.classList[addRemove]("active");
+        });
+      },
+      {
+        threshold: 0.0001,
+      }
+    );
+    document.querySelectorAll(".article-content section").forEach((section) => {
+      observer.observe(section);
+    });
+  }
+  function fixHiddingHeader() {
+    // Get the header element
+    var header = document.querySelector("header");
+
+    // Get the height of the header
+    var headerHeight = header.offsetHeight;
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        // Get the target element that
+        // the anchor link points to
+        var target = document.querySelector(this.getAttribute("href"));
+
+        var targetPosition =
+          target.getBoundingClientRect().top - headerHeight - 10;
+
+        window.scrollTo({
+          top: targetPosition + window.pageYOffset,
+          behavior: "smooth",
+        });
+      });
+    });
+  }
   const onLoad = function () {
+    addIntersectionObserver();
+    fixHiddingHeader();
     attachEvent("#menu", "click", () => {
       const nav = document.querySelector("nav");
       nav?.classList.toggle("open");
     });
     attachEvent("[data-download-cv]", "click", function (_, elem) {
       const newlink = document.createElement("a");
-      newlink.target = "_blank";
       newlink.href = "/CV/CV EL BACHIR.pdf";
       newlink.click();
     });
-     attachEvent("[data-hire-me]", "click", function (_, elem) {
+    attachEvent("[data-hire-me]", "click", function (_, elem) {
       const newlink = document.createElement("a");
       newlink.target = "_blank";
-      newlink.href = "mailto:bachdev237@gmail.com?subject=Hi, Bachir are you looking for a job";
+      newlink.href =
+        "mailto:bachdev237@gmail.com?subject=Hi, Bachir are you looking for a job";
+      newlink.click();
+    });
+    attachEvent("[data-blog]", "click", function (_, elem) {
+      const newlink = document.createElement("a");
+      const url = encodeURIComponent(elem.getAttribute("data-demo"));
+      newlink.target = "_blank";
+      newlink.href = url;
+      console.log("clicked");
       newlink.click();
     });
     attachEvent("[data-aw-social-share]", "click", function (_, elem) {
@@ -134,10 +195,10 @@
       const url = encodeURIComponent(elem.getAttribute("data-aw-url"));
       const text = encodeURIComponent(elem.getAttribute("data-aw-text"));
 
-      let href;
+      let href = "";
       switch (network) {
         case "facebook":
-          href = `https://www.facebook.com/sharer.php?u=${url}`;
+          href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
           break;
         case "twitter":
           href = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;

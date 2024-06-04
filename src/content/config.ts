@@ -8,9 +8,9 @@ const projectCollection = defineCollection({
       title: z.string(),
       pubDate: z.date(),
       description: z.string(),
-      author: z.string(),
-      image: image(),
+      preview: image(),
       tags: z.array(z.string()),
+      demoLink: z.string(),
     }),
 });
 
@@ -21,8 +21,7 @@ const blogCollection = defineCollection({
       title: z.string(),
       pubDate: z.date(),
       description: z.string(),
-      author: z.string(),
-      image: image(),
+      preview: image(),
       tags: z.array(z.string()),
     }),
 });

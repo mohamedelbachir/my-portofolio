@@ -1,0 +1,20 @@
+---
+import { buildHierarchy } from "@/helper/function";
+import TOCHeading from "@/components/TOCHeading.astro";
+
+const { headings } = Astro.props;
+
+const toc = buildHierarchy(headings);
+---
+
+{
+  toc && toc.length > 0 && (
+    <nav class="article-toc">
+      <ul class="list-item list-inside py-4 px-2">
+        {toc.map((heading) => (
+          <TOCHeading heading={heading} />
+        ))}
+      </ul>
+    </nav>
+  )
+}

@@ -15,10 +15,11 @@ allProjects = allProjects.slice(0, max);
       <CardBox
         url={slug}
         title={data.title}
-        img={data.image}
+        img={data.preview}
         description={data.description}
         tag={data.tags}
         index={i + 1}
+        demo={data.demoLink}
       />
     ))
   }

@@ -9,11 +9,17 @@ if (!project) {
   return Astro.redirect("/404");
 }
 
-const { Content } = await project.render();
+const { Content, headings } = await project.render();
 ---
 
 <Layout title={project.data.title}>
-  <MarkdownPostLayout frontmatter={project.data}>
+  <MarkdownPostLayout headings={headings}>
+    <Fragment slot="preview">
+      <button class="btn"
+        ><a href={project.data.demoLink} target="_blank">Go to the project</a
+        ></button
+      >
+    </Fragment>
     <Fragment slot="content">
       <Content />
     </Fragment>

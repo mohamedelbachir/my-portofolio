@@ -1,8 +1,70 @@
+---
+import TOC from "@/components/TOC.astro";
+import type { MarkdownHeading } from "astro";
+export interface Props {
+  headings?: MarkdownHeading[];
+}
+const { headings = [] } = Astro.props;
+---
+
 <div class="screen-wrapper pb-20 max-sm:pt-20" data-aos="fade-up">
-  <slot name="header" />
-  <div
-    class="prose max-w-none dark:prose-invert prose-headings:font-heading prose-img:w-full prose-img:bg-blue-500 w-full"
-  >
-    <slot name="content" />
-  </div>
+  <article class="relative flex h-full gap-5 items-start">
+    <div class="grow article-content">
+      <slot name="header" />
+      <div
+        class="prose max-w-none dark:prose-invert prose-headings:font-heading prose-img:w-full prose-img:bg-blue-500 w-full prose-img:my-2"
+      >
+        <slot name="content" />
+      </div>
+    </div>
+    {
+      headings && headings.length > 0 && (
+        <div class="sticky w-[40%] top-[5.5rem] nav shape p-2 max-lg:hidden">
+          <h3 class="font-heading my-0 font-bold whitespace-nowrap">
+            Table of content
+          </h3>
+          <TOC headings={headings} />
+        </div>
+      )
+    }
+  </article>
+  <slot name="preview" class="absolute top-5 left-1/2 -translate-x-1/2" />
 </div>
+<style>
+  .nav {
+    --light-bg: rgba(249, 249, 251, 0.95);
+    --dark-bg: rgba(35, 38, 47, 0.95);
+    background-color: var(--light-bg);
+    z-index: 3;
+    border: 1px solid var(--primary-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.4s;
+  }
+
+  :global(.dark) .nav {
+    background-color: var(--dark-bg);
+  }
+  .nav::before {
+    position: absolute;
+    top: -10px;
+    left: -15px;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    transform: rotate(135deg);
+    border: 1px solid var(--primary-color);
+  }
+  .nav::after {
+    position: absolute;
+    bottom: -10px;
+    right: -15px;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    transform: rotate(135deg);
+    border: 1px solid var(--primary-color);
+  }
+</style>

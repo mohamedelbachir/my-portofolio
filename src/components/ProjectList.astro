@@ -6,7 +6,9 @@ interface Props {
   max: number;
 }
 const { max } = Astro.props;
-allProjects = allProjects.filter((p)=>["Jumper","Scheduler","Chair Rental"].includes(p.data.title)).slice(0, max);
+allProjects = allProjects
+  .filter((p) => ["Jumper", "Scheduler", "Chair Rental"].includes(p.data.title))
+  .slice(0, max);
 ---
 
 <div class="flex flex-wrap gap-3 w-full justify-center mt-10">
@@ -25,7 +27,7 @@ allProjects = allProjects.filter((p)=>["Jumper","Scheduler","Chair Rental"].incl
   }
 </div>
 <div class="flex justify-center w-full mt-5">
-  <a href="/project" class="btn">See more</a>
+  <a href="/projects" class="btn">See more</a>
 </div>
 
 <!-- tag={p.tags}

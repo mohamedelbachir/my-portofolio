@@ -12,7 +12,6 @@ if (!blog) {
 
 const { Content, headings, remarkPluginFrontmatter } = await blog.render();
 import CodeStyle from "@/components/CodeStyle.astro";
-import Brand from "@/components/Brand.astro";
 import { Icon } from "astro-icon/components";
 const components = { CodeStyle };
 ---
@@ -22,7 +21,7 @@ const components = { CodeStyle };
   description={blog.data.description}
   canonicalUrl={`${import.meta.env.SITE}/blog/${slug}/`}
   publishedTime={blog.data.pubDate.toISOString()}
-  image={`${import.meta.env.SITE}/blog/${slug}/og.png`}
+  image={`${import.meta.env.SITE}/blog/${slug}/og`}
   type="article"
 >
   <MarkdownPostLayout headings={headings} isBlog={true}>

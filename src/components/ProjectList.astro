@@ -6,7 +6,7 @@ interface Props {
   max: number;
 }
 const { max } = Astro.props;
-allProjects = allProjects.slice(0, max);
+allProjects = allProjects.filter((p)=>["Jumper","Scheduler","Chair Rental"].includes(p.data.title)).slice(0, max);
 ---
 
 <div class="flex flex-wrap gap-3 w-full justify-center mt-10">

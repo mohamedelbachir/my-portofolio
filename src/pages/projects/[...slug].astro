@@ -15,7 +15,7 @@ const { Content, headings } = await project.render();
 <Layout title={project.data.title}>
   <MarkdownPostLayout headings={headings}>
     <Fragment slot="preview">
-      <button class="btn"
+      <button class="btn max-sm:ml-3"
         ><a href={project.data.demoLink} target="_blank">Go to the project</a
         ></button
       >

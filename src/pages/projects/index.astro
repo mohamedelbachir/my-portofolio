@@ -7,7 +7,7 @@ import Layout from "./../../layouts/Layout.astro";
 ---
 
 <Layout title="project">
-  <section id="education" class="screen-wrapper py-16 mb-24" data-aos="fade-up">
+  <section id="education" class="screen-wrapper max-lg:py-10 max-sm:py-16 mb-24" data-aos="fade-up">
     <Heading> MY PROJECTS </Heading>
     <p class="text-center">
       Projects that i made with passion and ambition to learn.
@@ -21,6 +21,7 @@ import Layout from "./../../layouts/Layout.astro";
             img={data.preview}
             description={data.description}
             tag={data.tags}
+            demo={data.demoLink}
           />
         ))
       }

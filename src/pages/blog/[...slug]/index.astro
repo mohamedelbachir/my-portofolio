@@ -24,10 +24,10 @@ const components = { CodeStyle };
   publishedTime={blog.data.pubDate.toISOString()}
   type="article"
 >
-  <MarkdownPostLayout headings={headings}>
+  <MarkdownPostLayout headings={headings} isBlog={true}>
     <Fragment slot="header">
       <div
-        class="bg-[var(--light-bg)] dark:bg-[var(--dark-bg)] py-2 border-b border-b-primary mb-5 prose-figure:w-full shape"
+        class="bg-[var(--light-bg)] dark:bg-[var(--dark-bg)] py-2 border-b border-b-primary mb-5 prose-figure:w-full shape dark:border-none max-sm:pt-20"
       >
         <div class="px-2">
           <h1 class="font-heading text-2xl my-2">
@@ -37,13 +37,15 @@ const components = { CodeStyle };
           {blog.data.tags.map((t) => <span class="chip">{t}</span>)}
         </div>
         <img
-          class="h-80 w-full object-cover my-2 border-y border-primary"
+          class="h-80 w-full object-cover my-2 border-y border-primary max-sm:h-48"
           {...blog.data.preview}
           alt={"BLOG POST COVER"}
         />
         <div>
-          <div class="flex px-2 justify-between items-center">
-            <div class="author flex gap-2 items-center">
+          <div
+            class="flex px-2 justify-between items-center max-[500px]:flex-col"
+          >
+            <div class="author flex gap-2 items-center max-[500px]:w-full">
               <Image
                 src={ImageAuthor}
                 alt={"mohamed el achir"}
@@ -51,16 +53,20 @@ const components = { CodeStyle };
               />
               <div class="flex justify-between">
                 <div class="flex flex-col text-sm">
-                  <span class="text-primary">MOHAMED EL BACHIR</span>
+                  <a class="text-primary font-heading hover:underline" href="/"
+                    >MOHAMED EL BACHIR</a
+                  >
                   <span class="text-gray-400"
-                    >{blog.data.pubDate.toLocaleDateString()}&ensp;<span
+                    >{blog.data.pubDate.toDateString()}&ensp;<span
                       class="text-lg font-bold leading-none">&middot;</span
                     >&ensp;{remarkPluginFrontmatter.minutesRead}</span
                   >
                 </div>
               </div>
             </div>
-            <div class="social flex gap-2">
+            <div
+              class="social flex gap-2 max-[500px]:w-full max-[500px]:justify-end"
+            >
               <button
                 data-aw-social-share="facebook"
                 data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
@@ -110,3 +116,8 @@ const components = { CodeStyle };
     </Fragment>
   </MarkdownPostLayout>
 </Layout>
+<style>
+  .no-shape{
+    clip-path:var(--bottom-shape)
+   }
+</style>

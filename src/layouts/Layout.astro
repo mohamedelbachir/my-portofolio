@@ -56,7 +56,7 @@ const {
         class="fixed h-full pointer-events-none inset-0 flex items-center justify-center dark:bg-black/80 bg-white/80 [mask-image:radial-gradient(ellipse_at_center,transparent_40%,black)]"
       >
       </div>
-      <div class="min-h-screen w-full">
+      <div class="min-h-screen w-full overflow-x-clip">
         <slot />
       </div>
       <button
@@ -98,7 +98,7 @@ const {
     <script src="/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
 
     <script src="/script.js" is:inline defer></script>
-    <style>
+    <style is:global>
       #page-content.hide {
         display: none;
       }
@@ -197,6 +197,7 @@ const {
         }
       }
     </style>
+
     <script is:inline>
       const elt = document.querySelector("#loading-state");
       const page = document.querySelector("#page-content");

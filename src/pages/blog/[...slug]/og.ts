@@ -16,7 +16,7 @@ export const GET: APIRoute = async ({ params }) => {
     }),
     {
       width: 1200,
-      height: 600,
+      height: 630,
     }
   );
 };

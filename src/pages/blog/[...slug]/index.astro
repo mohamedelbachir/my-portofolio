@@ -22,6 +22,7 @@ const components = { CodeStyle };
   description={blog.data.description}
   canonicalUrl={`${import.meta.env.SITE}/blog/${slug}/`}
   publishedTime={blog.data.pubDate.toISOString()}
+  image={`${import.meta.env.SITE}/blog/${slug}/og.png`}
   type="article"
 >
   <MarkdownPostLayout headings={headings} isBlog={true}>
@@ -117,7 +118,7 @@ const components = { CodeStyle };
   </MarkdownPostLayout>
 </Layout>
 <style>
-  .no-shape{
-    clip-path:var(--bottom-shape)
-   }
+  .no-shape {
+    clip-path: var(--bottom-shape);
+  }
 </style>

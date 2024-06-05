@@ -17,7 +17,7 @@ const { headings = [], isBlog = false } = Astro.props;
     <div class="grow article-content">
       <slot name="header" />
       <div
-        class="prose max-w-none dark:prose-invert prose-headings:font-heading prose-img:w-full prose-img:bg-blue-500 w-full prose-img:my-2 prose-img:min-h-20 max-sm:px-3"
+        class="prose max-w-none dark:prose-invert prose-headings:font-heading prose-h1:text-3xl max-sm:prose-h1:text-2xl prose-img:w-full prose-img:bg-blue-500 w-full prose-img:my-2 prose-img:min-h-20 max-sm:px-3"
       >
         <slot name="content" />
       </div>

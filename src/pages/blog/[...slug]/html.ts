@@ -25,8 +25,8 @@ export default function html({
           type: "img",
           props: {
             src: "https://cdndev.lnk.bi/themes/628b21768b49a-dev.svgz",
-            width: "90%",
-            height: "90%",
+            width: "100%",
+            height: "100%",
             style: {
               position: "absolute",
               background: "lightblue",
@@ -45,16 +45,16 @@ export default function html({
               justifyContent: "center",
               padding: "20px 50px",
               margin: "0 42px",
-              fontSize: 40,
+              fontSize: 60,
               width: "auto",
               maxWidth: 550,
               textAlign: "center",
-              backgroundColor: "rgba(0,0,0,0.5)",
+              backgroundColor: "rgba(0,0,0,0.35)",
               color: "white",
               lineHeight: 1.4,
               position: "absolute",
-              clipPath:
-                "polygon(25px 0,100% 0,100% 90%,94% 100%,0 100%,0 20px)",
+              border: "1px solid rgb(37, 99, 235)",
+              borderRadius: "15px",
             },
             children: title,
           },
@@ -63,8 +63,8 @@ export default function html({
           type: "div",
           props: {
             style: {
-              left: 80,
-              top: 50,
+              left: 40,
+              top: 40,
               position: "absolute",
               display: "flex",
               alignItems: "center",
@@ -75,9 +75,9 @@ export default function html({
                 type: "span",
                 props: {
                   style: {
-                    width: 24,
-                    height: 24,
-                    background: "darkblue",
+                    width: 35,
+                    height: 35,
+                    background: "rgb(37, 99, 235)",
                   },
                 },
               },
@@ -93,7 +93,7 @@ export default function html({
                     "-webkit-background-clip": "text",
                     color: "transparent",
                   },
-                  children: "BACHDEV| BLOG",
+                  children: "BACHDEV | BLOG",
                 },
               },
             ],
@@ -102,8 +102,8 @@ export default function html({
         {
           type: "svg",
           props: {
-            width: 98,
-            height: 96,
+            width: 110,
+            height: 110,
             style: {
               position: "absolute",
               top: 15,

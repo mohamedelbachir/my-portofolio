@@ -53,7 +53,7 @@ export default function html({
               color: "white",
               lineHeight: 1.4,
               position: "absolute",
-              border: "1px solid rgb(37, 99, 235)",
+              border: "5px solid rgb(37, 99, 235)",
               borderRadius: "15px",
             },
             children: title,

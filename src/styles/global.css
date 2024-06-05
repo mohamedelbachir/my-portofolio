@@ -11,7 +11,7 @@
   body {
     @apply text-lg dark:text-white;
   }
-  .chip{
+  .chip {
     @apply bg-primary btn-shape text-white text-xs w-fit px-4 py-1 whitespace-nowrap;
   }
 }
@@ -36,7 +36,15 @@
 }
 
 :root {
-  --primary-color: #2563eb;
+  --primary-color: rgb(37, 99, 235);
+  --bottom-shape: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
 }
 
 ::view-transition-old(root),
@@ -105,4 +113,10 @@ body {
 
 .btn-no-shape {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+img[alt="screen"] {
+  height: 400px;
+  object-fit: cover;
+  width: auto;
 }

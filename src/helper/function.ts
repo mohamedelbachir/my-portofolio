@@ -14,5 +14,7 @@ export function buildHierarchy(headings: any) {
       parentHeadings.get(heading.depth - 1).subheadings.push(heading);
     }
   });
+
+  toc[0].subheadings.shift();
   return toc;
 }

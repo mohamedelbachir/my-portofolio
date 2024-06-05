@@ -112,29 +112,24 @@
   document.addEventListener("astro:after-swap", init);
   document.addEventListener("load", init);
   function addIntersectionObserver() {
-    const observer = new IntersectionObserver(
-      (sections) => {
-        sections.forEach((section) => {
-          const heading = section.target.querySelector("h2, h3, h4, h5");
-          if (!heading) return;
-          const id = heading.getAttribute("id");
+    const observer = new IntersectionObserver((sections) => {
+      sections.forEach((section) => {
+        const heading = section.target.querySelector("h2, h3, h4, h5");
+        if (!heading) return;
+        const id = heading.getAttribute("id");
 
-          // Get the link to this section's heading
-          const link = document.querySelector(
-            `nav.article-toc li a[href="#${id}"]`
-          );
-          if (!link) return;
+        // Get the link to this section's heading
+        const link = document.querySelector(
+          `nav.article-toc li a[href="#${id}"]`
+        );
+        if (!link) return;
 
-          // Add/remove the .active class based on whether the
-          // section is visible
-          const addRemove = section.intersectionRatio > 0 ? "add" : "remove";
-          link.classList[addRemove]("active");
-        });
-      },
-      {
-        threshold: 0.0001,
-      }
-    );
+        // Add/remove the .active class based on whether the
+        // section is visible
+        const addRemove = section.intersectionRatio > 0 ? "add" : "remove";
+        link.classList[addRemove]("active");
+      });
+    });
     document.querySelectorAll(".article-content section").forEach((section) => {
       observer.observe(section);
     });
@@ -282,7 +277,7 @@
           ],
         },
         {
-          duration: 500,
+          duration: 600,
           easing: "ease-in-out",
           pseudoElement: "::view-transition-new(root)",
         }

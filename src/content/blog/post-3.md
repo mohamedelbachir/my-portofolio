@@ -53,7 +53,7 @@ import Footer from '../components/Footer.astro';
 
 In my `tailwind.config.mjs`, I defined custom colors and extended the theme:
 
-```javascript
+```js title="somethingComponent.ts" {1-2, 5-8}
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {

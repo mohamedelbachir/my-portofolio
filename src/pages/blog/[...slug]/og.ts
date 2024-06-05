@@ -1,4 +1,27 @@
-import satori from "satori";
+import { ImageResponse } from "@vercel/og";
+import type { APIRoute } from "astro";
+import { getCollection } from "astro:content";
+import html from "./html";
+export const GET: APIRoute = async ({ params }) => {
+  const { slug } = params;
+  // Find the slug in content dir
+  const blogs = await getCollection("blog");
+
+  const pages = blogs.map((b) => b);
+
+  const post = pages.find((p) => p.slug === String(slug));
+  return new ImageResponse(
+    html({
+      title: post!.data.title,
+    }),
+    {
+      width: 1200,
+      height: 600,
+    }
+  );
+};
+
+/* import satori from "satori";
 import { html } from "satori-html";
 import fs from "fs";
 import sharp from "sharp";
@@ -45,7 +68,7 @@ export const generateOGImage = async (postData: any) => {
   }
 
   // Render HTML template to SVG
-  /* const svg = await satori(markup as ReactNode, {
+  const svg = await satori(markup as ReactNode, {
     width: 1200,
     height: 630,
     fonts: [
@@ -60,7 +83,7 @@ export const generateOGImage = async (postData: any) => {
   // Convert SVG to PNG
   const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
 
-  return pngBuffer; */
+  return pngBuffer; 
 };
 
 export const GET: APIRoute = async ({ params }) => {
@@ -94,3 +117,4 @@ export const GET: APIRoute = async ({ params }) => {
     return new Response("Internal Server Error", { status: 500 });
   }
 };
+ */

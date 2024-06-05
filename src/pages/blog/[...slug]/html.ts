@@ -24,7 +24,7 @@ export default function html({
         {
           type: "img",
           props: {
-            src: "https://img.freepik.com/premium-photo/cool-futuristic-gradient-color-grid-pattern-dark-black-background_617720-135.jpg",
+            src: "https://cdndev.lnk.bi/themes/628b21768b49a-dev.svgz",
             width: "90%",
             height: "90%",
             style: {

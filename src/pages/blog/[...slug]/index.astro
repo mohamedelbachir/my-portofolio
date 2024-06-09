@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import MarkdownPostLayout from "../../../layouts/LayoutMarkdown.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { getEntryBySlug } from "astro:content";
@@ -11,9 +12,9 @@ if (!blog) {
 }
 
 const { Content, headings, remarkPluginFrontmatter } = await blog.render();
-import CodeStyle from "@/components/CodeStyle.astro";
-import { Icon } from "astro-icon/components";
-const components = { CodeStyle };
+const date = new Intl.DateTimeFormat("en-GB", {
+  dateStyle: "full",
+}).format(blog.data.pubDate);
 ---
 
 <Layout
@@ -27,7 +28,7 @@ const components = { CodeStyle };
   <MarkdownPostLayout headings={headings} isBlog={true}>
     <Fragment slot="header">
       <div
-        class="bg-[var(--light-bg)] dark:bg-[var(--dark-bg)] py-2 border-b border-b-primary mb-5 prose-figure:w-full shape dark:border-none max-sm:pt-20"
+        class="bg-[var(--light-bg)] dark:bg-[var(--dark-bg)] py-2 border-b border-b-primary mb-5 prose-figure:w-full dark:border-none max-sm:pt-20"
       >
         <div class="px-2">
           <h1 class="font-heading text-2xl my-2">
@@ -57,8 +58,8 @@ const components = { CodeStyle };
                     >MOHAMED EL BACHIR</a
                   >
                   <span class="text-gray-400"
-                    >{blog.data.pubDate.toDateString()}&ensp;<span
-                      class="text-lg font-bold leading-none">&middot;</span
+                    >{date}&ensp;<span class="text-lg font-bold leading-none"
+                      >&middot;</span
                     >&ensp;{remarkPluginFrontmatter.minutesRead}</span
                   >
                 </div>
@@ -71,12 +72,12 @@ const components = { CodeStyle };
                 data-aw-social-share="facebook"
                 data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
                 data-aw-text={blog.data.description}
-                class="size-10 shape bg-blue-500 flex justify-center items-center"
+                class="size-10 shape-sm bg-blue-500 flex justify-center items-center"
               >
                 <Icon name="tabler:brand-facebook" class="size-6 text-white" />
               </button>
               <button
-                class="size-10 shape bg-blue-500 flex justify-center items-center"
+                class="size-10 shape-sm bg-blue-500 flex justify-center items-center"
                 data-aw-social-share="twitter"
                 data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
                 data-aw-text={blog.data.description}
@@ -90,7 +91,7 @@ const components = { CodeStyle };
                 data-aw-social-share="linkedin"
                 data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
                 data-aw-text={blog.data.description}
-                class="size-10 shape bg-blue-500 flex justify-center items-center"
+                class="size-10 shape-sm bg-blue-500 flex justify-center items-center"
               >
                 <Icon name="tabler:brand-linkedin" class="size-5 text-white" />
               </button>
@@ -98,7 +99,7 @@ const components = { CodeStyle };
                 data-aw-social-share="whatsapp"
                 data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
                 data-aw-text={blog.data.description}
-                class="size-10 shape bg-blue-500 flex justify-center items-center"
+                class="size-10 shape-sm bg-blue-500 flex justify-center items-center"
               >
                 <Icon name="tabler:brand-whatsapp" class="size-5 text-white" />
               </button>
@@ -108,11 +109,7 @@ const components = { CodeStyle };
       </div>
     </Fragment>
     <Fragment slot="content">
-      <Content
-        components={{
-          ...components,
-        }}
-      />
+      <Content />
     </Fragment>
   </MarkdownPostLayout>
 </Layout>

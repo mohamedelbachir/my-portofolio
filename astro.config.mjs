@@ -6,22 +6,8 @@ import icon from "astro-icon";
 import { remarkReadingTime } from "./remark-reading-time.mjs";
 import vercel from "@astrojs/vercel/serverless";
 import sectionize from "@hbsnow/rehype-sectionize";
-import rehypePrettyCode from "rehype-pretty-code";
 import theme from "./syntax-theme.json";
 import expressiveCode from "astro-expressive-code";
-const prettyCodeOptions = {
-  theme,
-  onVisitHighlightedLine(node) {
-    node?.properties?.className?.push("highlighted");
-  },
-  onVisitHighlightedChars(node) {
-    console.log(node);
-    node?.properties?.className
-      ? node.properties.className.push("highlighted-chars")
-      : (node.properties.className = ["highlighted-chars"]);
-  },
-  tokensMap: {},
-};
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,7 +16,10 @@ export default defineConfig({
     port: 8080,
     host: true,
   },
-
+  markdown: {
+    rehypePlugins: [sectionize],
+    remarkPlugins: [remarkReadingTime],
+  },
   integrations: [
     tailwind(),
     react(),
@@ -41,6 +30,7 @@ export default defineConfig({
         preserveIndent: false,
       },
     }),
+
     mdx(),
     icon({
       include: {
@@ -49,10 +39,5 @@ export default defineConfig({
     }),
   ],
   output: "server",
-  adapter: vercel({
-    includeFiles: [
-      "./public/fonts/Michroma-Regular.ttf",
-      "./public/fonts/TitilliumWeb-Regular.ttf",
-    ],
-  }),
+  adapter: vercel(),
 });

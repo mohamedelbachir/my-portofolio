@@ -12,7 +12,7 @@
     @apply text-lg dark:text-white;
   }
   .chip {
-    @apply bg-primary btn-shape text-white text-xs w-fit px-4 py-1 whitespace-nowrap;
+    @apply bg-primary btn-shape shape-sm text-white text-xs w-fit px-4 py-1 whitespace-nowrap;
   }
 }
 
@@ -37,13 +37,14 @@
 
 :root {
   --primary-color: rgb(37, 99, 235);
+  --shape-size: 10px;
   --bottom-shape: polygon(
-    10px 0,
+    var(--shape-size) 0,
     100% 0,
-    100% calc(100% - 10px),
-    calc(100% - 10px) 100%,
+    100% calc(100% - var(--shape-size)),
+    calc(100% - var(--shape-size)) 100%,
     0 100%,
-    0 10px
+    0 var(--shape-size)
   );
 }
 
@@ -84,23 +85,28 @@ body {
 .btn-shape {
   position: relative;
   clip-path: polygon(
-    10px 0,
+    var(--shape-size) 0,
     100% 0,
-    100% calc(100% - 10px),
-    calc(100% - 10px) 100%,
+    100% calc(100% - var(--shape-size)),
+    calc(100% - var(--shape-size)) 100%,
     0 100%,
-    0 10px
+    0 var(--shape-size)
   );
 }
-.shape {
+
+.shape,
+.shape-sm {
   clip-path: polygon(
-    10px 0,
+    var(--shape-size) 0,
     100% 0,
-    100% calc(100% - 10px),
-    calc(100% - 10px) 100%,
+    100% calc(100% - var(--shape-size)),
+    calc(100% - var(--shape-size)) 100%,
     0 100%,
-    0 10px
+    0 var(--shape-size)
   );
+}
+.shape-sm {
+  --shape-size: 5px;
 }
 .btn-shape::after {
   position: absolute;

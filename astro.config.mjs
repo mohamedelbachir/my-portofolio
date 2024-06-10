@@ -10,39 +10,34 @@ import theme from "./syntax-theme.json";
 import expressiveCode from "astro-expressive-code";
 import partytown from "@astrojs/partytown";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://bachdev.vercel.app",
   server: {
     port: 8080,
-    host: true,
+    host: true
   },
   markdown: {
     rehypePlugins: [sectionize],
-    remarkPlugins: [remarkReadingTime],
+    remarkPlugins: [remarkReadingTime]
   },
-  integrations: [
-    tailwind(),
-    react(),
-    expressiveCode({
-      themes: theme,
-      defaultProps: {
-        wrap: true,
-        preserveIndent: false,
-      },
-    }),
-    partytown({
-      config: {
-        forward: ["dataLayer.push"],
-      },
-    }),
-    mdx(),
-    icon({
-      include: {
-        tabler: ["*"],
-      },
-    }),
-  ],
+  integrations: [tailwind(), react(), expressiveCode({
+    themes: theme,
+    defaultProps: {
+      wrap: true,
+      preserveIndent: false
+    }
+  }), partytown({
+    config: {
+      forward: ["dataLayer.push"]
+    }
+  }), mdx(), icon({
+    include: {
+      tabler: ["*"]
+    }
+  }), sitemap()],
   output: "server",
-  adapter: vercel(),
+  adapter: vercel()
 });

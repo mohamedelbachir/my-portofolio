@@ -13,6 +13,8 @@ export default {
       colors: {
         primary: "var(--primary-color)",
         secondary: "#e5e5e5",
+	light:"var(--light-bg)",
+        dark:"var(--dark-bg)"
       },
       animation: {
         "meteor-effect": "meteor 5s linear infinite",

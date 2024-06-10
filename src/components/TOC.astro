@@ -9,7 +9,7 @@ const toc = buildHierarchy(headings);
 
 {
   toc && toc.length > 0 && (
-    <nav class="article-toc">
+    <nav class="article-toc text-sm">
       <ul class="list-item list-inside py-4">
         {toc.map((heading) => (
           <TOCHeading heading={heading} />

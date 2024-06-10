@@ -10,11 +10,11 @@ const { headings = [], isBlog = false } = Astro.props;
 ---
 
 <div
-  class={clsx("screen-wrapper pb-20 max-sm:!px-0", !isBlog && "pt-20")}
+  class={clsx("screen-wrapper pb-20 max-sm:!px-0", !isBlog && "max-sm:pt-20")}
   data-aos="fade-up"
 >
   <article class="relative flex h-full gap-5 items-start">
-    <div class="w-[70%] max-lg:w-full article-content">
+    <div class="w-[75%] max-lg:w-full article-content">
       <slot name="header" />
       <div
         class="prose max-w-none dark:prose-invert prose-headings:font-heading prose-h1:text-3xl max-sm:prose-h1:text-2xl prose-img:w-full prose-img:bg-blue-500 w-full prose-img:my-2 prose-img:min-h-20 max-sm:px-3"
@@ -24,10 +24,10 @@ const { headings = [], isBlog = false } = Astro.props;
     </div>
     {
       headings && headings.length > 0 && (
-        <div class="sticky w-[27%] top-[5.5rem] nav shape p-4 max-lg:hidden">
-          <h3 class="font-heading my-0 font-bold whitespace-nowrap">
+        <div class="sticky w-[23%] top-[5rem] nav shape p-2 max-lg:hidden">
+          <span class="font-heading my-0 font-bold whitespace-nowrap !text-lg">
             Table of content
-          </h3>
+          </span>
           <TOC headings={headings} />
         </div>
       )

@@ -8,6 +8,7 @@ import vercel from "@astrojs/vercel/serverless";
 import sectionize from "@hbsnow/rehype-sectionize";
 import theme from "./syntax-theme.json";
 import expressiveCode from "astro-expressive-code";
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,7 +31,11 @@ export default defineConfig({
         preserveIndent: false,
       },
     }),
-
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
     mdx(),
     icon({
       include: {

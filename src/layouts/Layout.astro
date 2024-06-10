@@ -15,7 +15,7 @@ import Footer from "@/components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 import MetaData from "@/components/MetaData.astro";
 import { Icon } from "astro-icon/components";
-
+import toast, { Toaster } from "react-hot-toast";
 const {
   title,
   description = "My amazing portofolio where i share thoughts and my works ",
@@ -45,11 +45,32 @@ const {
     <meta name="description" content="Astro description" />
     <!-- Vendor CSS Files -->
     <link href="/vendor/aos/aos.css" rel="stylesheet" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZY30B7BPBH"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-ZY30B7BPBH");
+    </script>
     <ViewTransitions />
   </head>
   <body
     class="overflow-x-hidden w-full dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] bg-fixed relative"
   >
+    <Toaster
+      toastOptions={{ className: "dark:text-white bg-light dark:bg-dark" }}
+      containerStyle={{
+        top: 90,
+      }}
+      client:load
+    />
     <div id="page-content">
       <Header />
       <div
@@ -65,6 +86,7 @@ const {
       >
         <Icon name="tabler:chevron-up" />
       </button>
+
       <Footer />
     </div>
     <div

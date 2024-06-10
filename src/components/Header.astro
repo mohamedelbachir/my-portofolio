@@ -41,11 +41,14 @@ const currentPath = pathname.slice(1);
       <a class={currentPath === "contact" ? "text-primary" : ""} href="/contact"
         >Contact</a
       >
+      <button class="btn shape-sm !hidden !w-1/2 max-sm:!block" data-hire-me>
+        Hire me
+      </button>
     </nav>
     <div class="flex gap-3">
       <!-- <ButtonSwitcher client:only /> -->
       <ButtonTheme />
-      <button class="btn max-sm:!hidden" data-hire-me> hire me </button>
+      <button class="btn max-sm:!hidden" data-hire-me> Hire me </button>
       <button
         id="menu"
         class="hidden text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 items-center max-sm:inline-flex"

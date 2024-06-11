@@ -9,7 +9,9 @@ const { max } = Astro.props;
 allBlogs = allBlogs.slice(0, max);
 ---
 
-<div class="flex flex-wrap gap-3 w-full justify-center mt-10">
+<div
+  class="filter-card-container w-full ml-5 max-lg:ml-2 max-sm:ml-0 !flex flex-wrap justify-center items-center mt-10"
+>
   {
     allBlogs.map(({ slug, data }, i) => (
       <CardBox

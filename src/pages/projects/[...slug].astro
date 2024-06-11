@@ -12,7 +12,7 @@ if (!project) {
 const { Content, headings } = await project.render();
 ---
 
-<Layout title={project.data.title}>
+<Layout title={project.data.title} description="List of project that i made">
   <MarkdownPostLayout headings={headings}>
     <Fragment slot="preview">
       <button class="btn max-sm:ml-3"

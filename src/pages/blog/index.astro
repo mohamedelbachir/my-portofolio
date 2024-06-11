@@ -1,22 +1,58 @@
 ---
 import { getCollection } from "astro:content";
-const allProjects = await getCollection("blog");
+const allBlogs = await getCollection("blog");
 import CardBox from "@/components/CardBox.astro";
 import Heading from "@/components/Heading.astro";
 import Layout from "./../../layouts/Layout.astro";
+import clsx from "clsx";
+const uniqueTags = [
+  "All",
+  ...new Set(
+    allBlogs
+      .map((post) => post.data.tags)
+      .flat()
+      .map((t) => t.toLowerCase())
+  ),
+];
 ---
 
-<Layout title="Blog">
-  <section id="education" class="screen-wrapper max-lg:py-10 max-sm:py-16" data-aos="fade-up">
+<Layout title="Blog" description="list of blog where i share my tought">
+  <section
+    id="education"
+    class="screen-wrapper max-lg:py-10 max-sm:py-16"
+    data-aos="fade-up"
+  >
     <Heading> All blog posts </Heading>
     <p class="text-center">
       A collection of useful articles i have written. You can select a specific
       post tag to filter posts for that topic
     </p>
 
-    <div class="flex flex-wrap gap-3 w-full justify-center mt-10">
+    <div
+      class="filter-container flex w-full justify-center gap-2 mt-4 flex-wrap"
+    >
       {
-        allProjects.map(({ slug, data }) => (
+        uniqueTags?.map((t) => (
+          <a
+            href={`#${t}`}
+            data-filter={t === "All" ? "*" : "." + t.replaceAll(" ", "-")}
+            class={clsx(
+              "filter-chip chip !text-lg max-sm:!text-sm !bg-slate-400",
+              {
+                active: t == "All",
+              }
+            )}
+          >
+            {t}
+          </a>
+        ))
+      }
+    </div>
+    <div
+      class="filter-card-container w-full ml-5 max-lg:ml-2 max-sm:ml-0 !flex justify-center items-center mt-10"
+    >
+      {
+        allBlogs.map(({ slug, data }) => (
           <CardBox
             url={slug}
             title={data.title}

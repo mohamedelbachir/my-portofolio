@@ -11,7 +11,9 @@ allProjects = allProjects
   .slice(0, max);
 ---
 
-<div class="flex flex-wrap gap-3 w-full justify-center mt-10">
+<div
+  class="filter-card-container w-full ml-5 max-lg:ml-2 max-sm:ml-0 !flex justify-center items-center mt-10"
+>
   {
     allProjects.map(({ slug, data }, i) => (
       <CardBox

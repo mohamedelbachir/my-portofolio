@@ -19,9 +19,20 @@ const EmailForm = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    setIsLoading(true);
     const { email, subject, message } = formData;
-    const finalHtml = render(<ContactMail userFirstname={email} />, {
+    const newlink = document.createElement("a");
+    const subjectMe = encodeURIComponent(subject);
+    const body = encodeURIComponent(message);
+    const mailtoLink = `mailto:bachdev237@gmail.com?subject=${subjectMe}&body=${body}`;
+    newlink.target = "_blank";
+    newlink.href = mailtoLink;
+    newlink.click();
+    setFormData({
+      email: "",
+      subject: "",
+      message: "",
+    });
+    /* const finalHtml = render(<ContactMail userFirstname={email} />, {
       pretty: true,
     });
     const toClient = await fetch("/api/sendEmail.json", {
@@ -55,7 +66,7 @@ const EmailForm = () => {
     } catch (error) {
       toast.error("error " + error);
       console.log(error);
-    }
+    } */
   };
 
   return (

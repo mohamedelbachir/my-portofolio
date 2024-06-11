@@ -4,7 +4,7 @@ author: Astro Learner
 description: "A little plateformer game with a minimal gameplay and pretty fun to play"
 preview: ./preview/jumper.png
 pubDate: 2022-07-08
-tags: ["game"]
+tags: ["Game"]
 demoLink: https://mohamedelbachir.itch.io/jumper
 ---
 

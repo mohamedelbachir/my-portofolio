@@ -72,16 +72,16 @@
   /**
    * isotope and filter
    */
-  window.addEventListener("load", () => {
-    let postContainer = document.querySelector(".post-container");
+  /*  window.addEventListener("load", () => {
+    let postContainer = document.querySelector(".filter-container");
     if (postContainer) {
       let postIsotope = new Isotope(postContainer, {
-        itemSelector: ".post-item",
+        itemSelector: ".card",
       });
 
-      let postFilters = document.querySelectorAll("#post-filter li");
+      let postFilters = document.querySelectorAll("#filter-item");
 
-      attachEvent("click", "#post-filter li", function (e) {
+      attachEvent("click", "#filter-item", function (e) {
         e.preventDefault();
         postFilters.forEach(function (el) {
           el.classList.remove("filter-active");
@@ -96,10 +96,31 @@
         });
       });
     }
-  });
+  }); */
+
+  /**isotope */
+  // init Isotope
+
+  const isoDeclaration = () => {
+    // bind filter button click
+    var iso = new Isotope(".filter-card-container", {
+      itemSelector: ".card",
+      layoutMode: "fitRows",
+    });
+    var filtersElem = document.querySelectorAll(".filter-chip");
+    filtersElem.forEach((e) => {
+      e.addEventListener("click", function () {
+        filtersElem.forEach((e) => {
+          e.classList.remove("active");
+        });
+        var filterValue = e.getAttribute("data-filter");
+        e.classList.add("active");
+        iso.arrange({ filter: filterValue });
+      });
+    });
+  };
 
   /**AOS configuratiion */
-
   const init = () =>
     AOS.init({
       duration: 1000,
@@ -161,6 +182,7 @@
   const onLoad = function () {
     addIntersectionObserver();
     fixHiddingHeader();
+    isoDeclaration();
     attachEvent("#menu", "click", () => {
       const nav = document.querySelector("nav");
       nav?.classList.toggle("open");

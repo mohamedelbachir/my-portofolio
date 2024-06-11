@@ -29,15 +29,14 @@ const {
 
 <div
   class={clsx(
-    "card shape w-[32%] max-lg:w-[48%] max-sm:w-full h-full shadow-md",
+    "card shape w-[31%] max-lg:w-[47%] max-sm:w-full shadow-md h-fit m-2 max-sm:mx-0",
+    tag?.map((t) => t.replaceAll(" ", "-").toLowerCase()),
     isBlog && "isBlog"
   )}
-  data-aos="fade-up"
-  data-aos-delay={70 * index}
 >
   <div class={"shape card-wrapper"}>
     <a href={!isBlog ? demo : `/blog/${url}`} target={isBlog ? "" : "_blank"}>
-      <div class={clsx("card shape p-1", !isBlog && "preview")}>
+      <div class={clsx("card-s w-full z-1 shape", !isBlog && "preview")}>
         <img
           class="w-full bg-primay shadow-lg image-border transition-all h-[200px] object-cover"
           width={img?.width}
@@ -59,6 +58,12 @@ const {
   </div>
 </div>
 <style>
+  .card-s {
+    position: relative;
+    padding: 1px;
+    overflow: hidden;
+    background: var(--primary-color);
+  }
   .shape {
     clip-path: polygon(
       20px 0,
@@ -77,11 +82,11 @@ const {
     padding: 8px;
     user-select: none;
   }
-  .isBlog .card-wrapper {
+  .isBlog.card-wrapper {
     padding: 10px;
   }
-  .isBlog.card::before,
-  .isBlog.card::after {
+  .isBlog .card-s::before,
+  .isBlog .card-s::after {
     content: "";
     position: absolute;
     pointer-events: none;
@@ -92,16 +97,16 @@ const {
     z-index: 2;
     border-style: dashed;
   }
-  :global(.dark) .isBlog.card::before,
-  :global(.dark) .isBlog.card::after {
+  :global(.dark) .isBlog .card-s::before,
+  :global(.dark) .isBlog .card-s::after {
     border-color: rgb(77, 77, 77) !important;
   }
-  .isBlog.card::before {
+  .isBlog .card-s::before {
     top: 5px;
     border-left: none;
     border-bottom: none;
   }
-  .isBlog.card::after {
+  .isBlog .card-s::after {
     bottom: 5px;
     left: 5px;
     width: 50%;
@@ -113,6 +118,7 @@ const {
     overflow: hidden;
     background: var(--primary-color);
   }
+
   .card-wrapper::after {
     content: "";
     position: absolute;
@@ -121,7 +127,7 @@ const {
     z-index: -1;
     height: 100%;
   }
-  .card:hover.preview::before {
+  .card-s:hover.preview::before {
     content: "Go to the project ↗";
     cursor: pointer;
     position: absolute;
@@ -133,16 +139,17 @@ const {
     color: white;
     z-index: 3;
   }
-  :global(.dark) .card:hover.preview::before {
+  :global(.dark) .card-s:hover.preview::before {
     background-color: rgba(85, 85, 85, 0.616);
   }
-  .card:hover.preview > img {
+  .card-s:hover.preview > img {
     transform: scale(1.2);
   }
   :global(.dark) .card-wrapper::after {
     background-color: transparent;
   }
-  :global(.dark) .card {
+  :global(.dark) .card,
+  :global(.dark) .card-s {
     background-color: transparent;
 
     background-image: linear-gradient(

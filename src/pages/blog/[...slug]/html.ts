@@ -40,14 +40,13 @@ export default function html({
           type: "div",
           props: {
             style: {
-              display: "flex",
               flexWrap: "wrap",
               justifyContent: "center",
               padding: "20px 50px",
               margin: "0 42px",
               fontSize: 60,
               width: "auto",
-              maxWidth: 550,
+              maxWidth: "90%",
               textAlign: "center",
               backgroundColor: "rgba(0,0,0,0.35)",
               color: "white",
@@ -55,6 +54,10 @@ export default function html({
               position: "absolute",
               border: "5px solid rgb(37, 99, 235)",
               borderRadius: "15px",
+              overflow: "hidden",
+              display: "-webkit-box",
+              "-webkit-box-orient": "vertical",
+              "-webkit-line-clamp": 2,
             },
             children: title,
           },
@@ -63,8 +66,8 @@ export default function html({
           type: "div",
           props: {
             style: {
-              left: 40,
-              top: 40,
+              left: 120,
+              top: 50,
               position: "absolute",
               display: "flex",
               alignItems: "center",
@@ -75,25 +78,42 @@ export default function html({
                 type: "span",
                 props: {
                   style: {
-                    width: 35,
-                    height: 35,
-                    background: "rgb(37, 99, 235)",
+                    marginLeft: 8,
+                    fontSize: 40,
+                    color: "white",
                   },
+                  children: "BACHDEV | BLOG",
+                },
+              },
+            ],
+          },
+        },
+        {
+          type: "svg",
+          props: {
+            viewBox: "0 0 256 256",
+            xmlns: "http://www.w3.org/2000/svg",
+            preserveAspectRatio: "xMinYMin meet",
+            style: {
+              left: 40,
+              top: 20,
+              position: "absolute",
+              zIndex: "10",
+              width: 100,
+              height: 100,
+            },
+            fill: "white",
+            children: [
+              {
+                type: "path",
+                props: {
+                  d: "M178.496 124.737l-14.205-14.205 7.306-30.035-30.441 6.9-13.8-13.8 68.187-17.047-17.047 68.187z",
                 },
               },
               {
-                type: "span",
+                type: "path",
                 props: {
-                  style: {
-                    marginLeft: 8,
-                    fontSize: 40,
-                    backgroundImage:
-                      "linear-gradient(to bottom, #e5e5e5, #2563eb)",
-                    backgroundClip: "text",
-                    "-webkit-background-clip": "text",
-                    color: "transparent",
-                  },
-                  children: "BACHDEV | BLOG",
+                  d: "M154.956 218.901L33.192 97.138 101.38 80.09l13.8 13.8-48.706 12.176 27.6 27.6 32.064-7.712-8.117 31.658 27.6 27.6 12.176-48.705 14.205 14.206-17.046 68.187z",
                 },
               },
             ],

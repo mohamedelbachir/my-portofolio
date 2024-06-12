@@ -35,7 +35,9 @@ const date = new Intl.DateTimeFormat("en-GB", {
             {blog.data.title}
           </h1>
           <p class="text-gray-400">{blog.data.description}</p>
-          {blog.data.tags.map((t) => <span class="chip">{t}</span>)}
+          <div class="flex gap-2 flex-wrap">
+            {blog.data.tags.map((t: string) => <span class="chip">{t}</span>)}
+          </div>
         </div>
         <img
           class="h-80 w-full object-cover my-2 border-y border-primary max-sm:h-48"

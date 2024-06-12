@@ -50,7 +50,7 @@ const {
     <div class="inline-flex gap-2 flex-wrap my-2">
       {tag?.map((t) => <span class="chip">{t}</span>)}
     </div>
-    <h5 class="font-heading text-primary hover:underline">
+    <h5 class="font-heading text-primary hover:underline line-clamp-1">
       <a href={`${isBlog ? "/blog" : "/projects"}/${url}`}>{title}</a>
     </h5>
 

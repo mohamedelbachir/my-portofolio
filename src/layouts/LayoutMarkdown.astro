@@ -2,6 +2,7 @@
 import TOC from "@/components/TOC.astro";
 import type { MarkdownHeading } from "astro";
 import { clsx } from "clsx";
+import TableOfContents from "@/components/libs/TOC";
 export interface Props {
   headings?: MarkdownHeading[];
   isBlog?: boolean;
@@ -22,54 +23,24 @@ const { headings = [], isBlog = false } = Astro.props;
         <slot name="content" />
       </div>
     </div>
-    {
-      headings && headings.length > 0 && (
-        <div class="sticky w-[23%] top-[5rem] nav shape p-2 max-lg:hidden">
+    <TableOfContents headers={headings} />
+    <!--
+      {headings && headings.length > 0 && (
+        <div class="sticky w-[23%] top-[5.5rem] nav shape p-2 max-lg:hidden">
           <span class="font-heading my-0 font-bold whitespace-nowrap !text-lg">
             Table of content
           </span>
           <TOC headings={headings} />
         </div>
-      )
-    }
+      )}
+      --
+    />
+    <slot name="preview" />
   </article>
-  <slot name="preview" />
+  <style>
+    
+  </style>
 </div>
-<style>
-  .nav {
-    --light-bg: rgba(249, 249, 251, 0.95);
-    --dark-bg: rgba(35, 38, 47, 0.95);
-    background-color: var(--light-bg);
-    z-index: 3;
-    border: 1px solid var(--primary-color);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    transition: all 0.4s;
-  }
-
-  :global(.dark) .nav {
-    background-color: var(--dark-bg);
-  }
-  .nav::before {
-    position: absolute;
-    top: -10px;
-    left: -15px;
-    content: "";
-    width: 20px;
-    height: 20px;
-    background-color: var(--primary-color);
-    transform: rotate(135deg);
-    border: 1px solid var(--primary-color);
-  }
-  .nav::after {
-    position: absolute;
-    bottom: -10px;
-    right: -15px;
-    content: "";
-    width: 20px;
-    height: 20px;
-    background-color: var(--primary-color);
-    transform: rotate(135deg);
-    border: 1px solid var(--primary-color);
-  }
-</style>
+-->
+  </article>
+</div>

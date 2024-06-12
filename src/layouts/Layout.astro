@@ -222,6 +222,43 @@ const {
           transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
         }
       }
+
+      :global(.dark) .nav {
+        background-color: var(--dark-bg) !important;
+      }
+
+      .nav {
+        --light-bg: rgba(249, 249, 251, 0.95);
+        --dark-bg: rgba(35, 38, 47, 0.95);
+        background-color: var(--light-bg);
+        z-index: 3;
+        border: 1px solid var(--primary-color);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+      }
+
+      .nav::before {
+        position: absolute;
+        top: -10px;
+        left: -15px;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: var(--primary-color);
+        transform: rotate(135deg);
+        border: 1px solid var(--primary-color);
+      }
+      .nav::after {
+        position: absolute;
+        bottom: -10px;
+        right: -15px;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: var(--primary-color);
+        transform: rotate(135deg);
+        border: 1px solid var(--primary-color);
+      }
     </style>
 
     <script is:inline>

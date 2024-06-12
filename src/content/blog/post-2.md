@@ -1,6 +1,6 @@
 ---
 title: My Second Blog Post
-author: Mohamed el bachir
+
 description: "After learning some Astro, I couldn't stop!"
 preview: ./preview/learnII.jpg
 pubDate: 2022-07-08

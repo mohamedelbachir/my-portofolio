@@ -5,10 +5,13 @@ export interface LogoType {
 }
 interface Props {
   name: string;
-  className: string;
+  className?: string;
+  pClass?: string;
 }
-const { name, className } = Astro.props;
+const { name, className, pClass = "" } = Astro.props;
 const logoList = Logo as LogoType;
 ---
 
-<Fragment class:list={className} set:html={logoList[name]} />
+<div class={pClass}>
+  <Fragment class:list={className} set:html={logoList[name]} />
+</div>

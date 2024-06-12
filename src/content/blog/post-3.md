@@ -1,6 +1,6 @@
 ---
 title: My Third Blog Post
-author: Mohamed el bachir
+
 description: "I had some challenges, but asking in the community really helped!"
 preview: "./preview/make-it.avif"
 pubDate: 2022-07-15

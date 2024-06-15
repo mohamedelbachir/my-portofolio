@@ -74,7 +74,7 @@ const { item } = Astro.props;
                 selectedIndex += 1;
                 rotateCarousel();
               }
-            }, 500);
+            }, 650);
             //}, 500);
           } else {
             cellCount = 3;
@@ -92,7 +92,7 @@ const { item } = Astro.props;
     );
 
     function rotateCarousel() {
-      var angle = theta * selectedIndex * 1;
+      var angle = theta * selectedIndex * 0.5;
       carousel.style.transform =
         "translateZ(" + -radius + "px) " + rotateFn + "(" + angle + "deg)";
     }

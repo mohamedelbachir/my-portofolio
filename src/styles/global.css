@@ -6,7 +6,7 @@
   }
 
   .screen-wrapper {
-    @apply max-w-screen-lg mx-auto max-lg:px-5 max-sm:w-full;
+    @apply max-w-screen-lg mx-auto max-lg:px-5 max-sm:w-full max-sm:px-3;
   }
   body {
     @apply text-lg dark:text-white;

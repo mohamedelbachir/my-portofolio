@@ -18,12 +18,15 @@ const { headings = [], isBlog = false } = Astro.props;
     <div class="w-[75%] max-lg:w-full article-content">
       <slot name="header" />
       <div
-        class="prose max-w-none dark:prose-invert prose-headings:font-heading prose-h1:text-3xl max-sm:prose-h1:text-2xl prose-img:w-full prose-img:bg-blue-500 w-full prose-img:my-2 prose-img:min-h-20 max-sm:px-3"
+        class="relative prose max-w-none dark:prose-invert prose-headings:font-heading prose-h1:text-3xl max-sm:prose-h1:text-2xl prose-img:w-full prose-img:bg-blue-500 w-full prose-img:my-2 prose-img:min-h-20 max-sm:px-3"
       >
         <slot name="content" />
+        <slot name="preview" />
       </div>
     </div>
+
     <TableOfContents headers={headings} />
+
     <!--
       {headings && headings.length > 0 && (
         <div class="sticky w-[23%] top-[5.5rem] nav shape p-2 max-lg:hidden">
@@ -35,7 +38,7 @@ const { headings = [], isBlog = false } = Astro.props;
       )}
       --
     />
-    <slot name="preview" />
+    
   </article>
   <style>
     

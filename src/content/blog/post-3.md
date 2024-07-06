@@ -1,10 +1,10 @@
 ---
 title: My Third Blog Post
-
-description: "I had some challenges, but asking in the community really helped!"
-preview: "./preview/make-it.avif"
+description: I had some challenges, but asking in the community really helped!
+preview: ./preview/make-it.avif
 pubDate: 2022-07-15
-tags: ["astro"]
+tags:
+  - Astro
 ---
 
 # My Astro-React-Tailwind Journey

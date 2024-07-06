@@ -5,7 +5,7 @@ const TableOfContents: React.FC<{ headers: any[] }> = ({ headers = [] }) => {
   const [activeId, setActiveId] = useState<string | undefined>(undefined);
 
   return (
-    <div className="sticky w-[23%] top-[5.5rem] nav shape p-2 max-lg:hidden dark:bg-dark">
+    <div className="sticky w-[23%]  top-[5.5rem] nav shape p-2 max-lg:hidden dark:bg-dark">
       <ul>
         <li
           className={`header-link depth-2 font-heading my-0 font-bold whitespace-nowrap !text-lg ${
@@ -14,9 +14,8 @@ const TableOfContents: React.FC<{ headers: any[] }> = ({ headers = [] }) => {
         >
           <a href="#overview">Overview</a>
         </li>
-        {headers
-          .filter(({ depth }) => depth > 1 && depth < 4)
-          .map((header) => (
+        <div className="max-h-52">
+        {headers.filter(({ depth }) => depth > 1 && depth < 4).map((header) => (
             <li
               key={header.slug}
               className={clsx(
@@ -51,6 +50,8 @@ const TableOfContents: React.FC<{ headers: any[] }> = ({ headers = [] }) => {
               </a>
             </li>
           ))}
+        </div>
+        
       </ul>
     </div>
   );

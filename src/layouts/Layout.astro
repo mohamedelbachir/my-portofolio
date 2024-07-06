@@ -63,7 +63,7 @@ const {
     <ViewTransitions />
   </head>
   <body
-    class="overflow-x-hidden w-full dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] relative"
+    class="overflow-x-hidden w-full dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.15] bg-grid-small-black/[0.2] relative"
   >
     <Toaster
       toastOptions={{ className: "dark:text-white bg-light dark:bg-dark" }}
@@ -122,6 +122,9 @@ const {
 
     <script src="/script.js" is:inline defer></script>
     <style is:global>
+      p code,ul code{
+        background-color:var(--tw-prose-bullets);
+      }
       .filter-chip.active {
         background-color: var(--primary-color) !important;
       }

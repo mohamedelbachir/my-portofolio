@@ -28,22 +28,37 @@ const date = new Intl.DateTimeFormat("en-GB", {
   <MarkdownPostLayout headings={headings} isBlog={true}>
     <Fragment slot="header">
       <div
-        class="bg-[var(--light-bg)] dark:bg-[var(--dark-bg)] py-2 border-b border-b-primary mb-5 prose-figure:w-full dark:border-none max-sm:pt-20"
+        class="relative bg-[var(--light-bg)] dark:bg-[var(--dark-bg)] pb-2 border-b border-b-primary mb-5 prose-figure:w-full dark:border-none max-sm:pt-20 mt-3 max-sm:mt-0"
       >
-        <div class="px-2">
-          <h1 class="font-heading text-2xl my-2">
-            {blog.data.title}
-          </h1>
-          <p class="text-gray-400">{blog.data.description}</p>
-          <div class="flex gap-2 flex-wrap">
-            {blog.data.tags.map((t: string) => <span class="chip">{t}</span>)}
+        <div
+          class="relative h-80 w-full my-2 border-y border-primary max-sm:h-48"
+        >
+          <img
+            class="w-full h-full object-cover"
+            {...blog.data.preview}
+            alt={"BLOG POST COVER"}
+          />
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-black/85 px-5"
+          >
+            <div class="text-center">
+              <a href="/blog" class="my-1 text-primary inline-flex items-center"
+                ><Icon name="tabler:chevron-left" /><span>All blogs</span></a
+              >
+              <h1 class="font-heading text-2xl text-white line-clamp-2">
+                {blog.data.title}
+              </h1>
+              <div class="flex gap-2 flex-wrap w-full justify-center mt-3">
+                {
+                  blog.data.tags.map((t: string) => (
+                    <span class="chip">{t}</span>
+                  ))
+                }
+              </div>
+            </div>
           </div>
         </div>
-        <img
-          class="h-80 w-full object-cover my-2 border-y border-primary max-sm:h-48"
-          {...blog.data.preview}
-          alt={"BLOG POST COVER"}
-        />
+
         <div>
           <div
             class="flex px-2 justify-between items-center max-[500px]:flex-col"

@@ -1,7 +1,10 @@
 import { ImageResponse } from "@vercel/og";
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
-import html from "./html";
+import { /* html, */ htmlJSX } from "./_html";
+import Michroma from "./_fonts/Michroma-Regular.ttf";
+import Default from "./_fonts/TitilliumWeb-Regular.ttf";
+
 export const GET: APIRoute = async ({ params }) => {
   const { slug } = params;
   // Find the slug in content dir
@@ -11,14 +14,56 @@ export const GET: APIRoute = async ({ params }) => {
 
   const post = pages.find((p) => p.slug === String(slug));
   return new ImageResponse(
-    html({
+    htmlJSX({
       title: post!.data.title,
+      tags: post!.data.tags,
     }),
     {
       width: 1200,
       height: 630,
+      fonts: [
+        {
+          name: "Default",
+          data: Buffer.from(Default),
+          style: "normal",
+        },
+        {
+          name: "Michroma",
+          data: Buffer.from(Michroma),
+        },
+      ],
     }
   );
+
+  /* let svg = await satori(
+    html({
+      title: post!.data.title,
+    }) as unknown as ReactNode,
+    {
+      fonts: [
+        {
+          name: "Default",
+          data: Buffer.from(Default),
+          style: "normal",
+        },
+        {
+          name: "Michroma",
+          data: Buffer.from(Michroma),
+          style: "normal",
+        },
+      ],
+      height: 630,
+      width: 1200,
+    }
+  );
+  const resvg = new Resvg(svg);
+  const image = resvg.render();
+  return new Response(image.asPng(), {
+    headers: {
+      "Content-Type": "image/png",
+      "Cache-Control": "public, max-age=31536000, immutable",
+    },
+  }); */
 };
 
 /* import satori from "satori";

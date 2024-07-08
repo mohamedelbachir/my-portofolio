@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useState } from "react";
 
 const TableOfContents: React.FC<{ headers: any[] }> = ({ headers = [] }) => {
-  const [activeId, setActiveId] = useState<string | undefined>(undefined);
+  const [activeId] = useState<string | undefined>(undefined);
 
   return (
     <div className="sticky w-[23%]  top-[5.5rem] nav shape p-2 max-lg:hidden dark:bg-dark">
@@ -44,8 +44,8 @@ const TableOfContents: React.FC<{ headers: any[] }> = ({ headers = [] }) => {
                       d="M0 0L3 3L0 6"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
                     />
                   </svg>
                   {header.text}

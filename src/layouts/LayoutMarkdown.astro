@@ -1,5 +1,4 @@
 ---
-import TOC from "@/components/TOC.astro";
 import type { MarkdownHeading } from "astro";
 import { clsx } from "clsx";
 import TableOfContents from "@/components/libs/TOC";
@@ -7,7 +6,7 @@ export interface Props {
   headings?: MarkdownHeading[];
   isBlog?: boolean;
 }
-const { headings = [], isBlog = false } = Astro.props;
+const { headings = [] } = Astro.props;
 //
 //
 ---

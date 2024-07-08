@@ -41,6 +41,13 @@ const currentPath = pathname.slice(1);
       <a class={currentPath === "contact" ? "text-primary" : ""} href="/contact"
         >Contact</a
       >
+      <a
+        class={clsx(
+          "hidden min-[920px]:block max-[640px]:block",
+          currentPath.includes("community") ? "text-primary" : ""
+        )}
+        href="/community">Community</a
+      >
       <button class="btn shape-sm !hidden !w-1/2 max-sm:!block" data-hire-me>
         Hire me
       </button>
@@ -72,7 +79,7 @@ const currentPath = pathname.slice(1);
       flex-direction: column;
       align-items: center;
       width: 95%;
-      top: -350%;
+      top: -390%;
       left: 50%;
       padding: 10px 0;
       transform: translateX(-50%);

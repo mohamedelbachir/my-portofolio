@@ -1,10 +1,7 @@
-import { render } from "@react-email/render";
-import { ContactMail } from "@/email/Sample.tsx";
 import { useState } from "react";
-import toast from "react-hot-toast";
 
 const EmailForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     subject: "",
@@ -19,7 +16,7 @@ const EmailForm = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const { email, subject, message } = formData;
+    const { subject, message } = formData;
     const newlink = document.createElement("a");
     const subjectMe = encodeURIComponent(subject);
     const body = encodeURIComponent(message);

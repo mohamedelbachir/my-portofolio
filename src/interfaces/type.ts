@@ -1,5 +1,3 @@
-import type { Theme, LineElement, CharsElement } from "rehype-pretty-code";
-
 export interface Item {
   title: string;
   at?: string;

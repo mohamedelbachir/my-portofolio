@@ -9,6 +9,9 @@ node_modules/
 
 .vercel/
 
+#some annoying file
+Thumbs.db
+
 # logs
 npm-debug.log*
 yarn-debug.log*

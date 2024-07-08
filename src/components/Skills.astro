@@ -27,7 +27,7 @@ const { item } = Astro.props;
   <div class="scene scene--carousel">
     <div class="carousel carousel--dynamic">
       {
-        item.map((s, i) => (
+        item.map((s) => (
           <div class="carousel__cell" style={`--bg:${s.color}`}>
             <Brand name={s.skill} className="size-5" />
           </div>

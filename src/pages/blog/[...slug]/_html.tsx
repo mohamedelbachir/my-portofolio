@@ -1,11 +1,135 @@
+/* import { html } from "satori-html";
+type props = {
+  title: string;
+};
+const out = ({ title }: props) => html`<div
+  tw="flex flex-col w-full h-full bg-white"
+>
+  <h1 tw="text-6xl text-center line-clamp-2 font-[Michroma]" style={{fontFamily:"Michroma"}}>${title}</h1>
+</div>`;
+export default out; */
+const Label = ({ className }: { className?: string }) => {
+  return (
+    <svg
+      width="30"
+      height="30"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_305_27995)">
+        <path
+          d="M13.9659 20.9528C13.5754 21.3433 12.9422 21.3433 12.5517 20.9528L3.03952 11.4407C2.80798 11.2091 2.70447 10.8789 2.76241 10.5566L3.94858 3.95856L10.556 2.76311C10.8786 2.70474 11.2094 2.80821 11.4412 3.04002L20.9528 12.5517C21.3433 12.9422 21.3433 13.5754 20.9528 13.9659L13.9659 20.9528Z"
+          stroke="rgb(37, 99, 235)"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <circle cx="8" cy="8" r="1" fill="rgb(37, 99, 235)" />
+      </g>
+      <defs>
+        <clipPath id="clip0_305_27995">
+          <rect width="24" height="24" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
 import type { JSXElementConstructor, ReactElement } from "react";
-
-export default function html({
+export function htmlJSX({
   title,
+  tags,
 }: {
   title: string;
+  tags: string[];
 }): ReactElement<any, string | JSXElementConstructor<any>> {
-  return {
+  return (
+    <div tw="flex flex-col w-full h-full bg-[#17181C] relative  py-10">
+      <span
+        tw="px-10 text-2xl font-bold"
+        style={{ fontFamily: "Michroma", color: "rgb(37, 99, 235)" }}
+      >
+        BACHDEV BLOG
+      </span>
+      <div
+        tw="flex flex-col px-10"
+        style={{
+          height: "80%",
+        }}
+      >
+        <h1 tw="text-7xl pt-8 text-white" style={{ fontFamily: "Default" }}>
+          {title}
+        </h1>
+        <div
+          tw="rotate-90"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+          }}
+        >
+          <Label />
+          {tags.map((t, i) => (
+            <span
+              tw="text-gray-500 text-2xl"
+              style={{
+                fontFamily: "Michroma",
+              }}
+            >
+              {t}
+              <span>{i < tags.length - 1 ? <span>&ensp;,</span> : ""}</span>
+            </span>
+          ))}
+        </div>
+      </div>
+      <div tw="px-10 flex justify-between items-center">
+        <div
+          style={{
+            display: "flex",
+          }}
+        >
+          <span
+            tw=" text-2xl text-gray-500"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+            }}
+          >
+            Written By,
+            <span
+              tw="text-white"
+              style={{
+                fontFamily: "Michroma",
+                fontWeight: "bold",
+              }}
+            >
+              &ensp;MOHAMED EL BACHIR
+            </span>
+          </span>
+        </div>
+        <div tw="flex items-start pb-5">
+          <svg
+            width={100}
+            height={100}
+            viewBox="0 0 256 256"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMinYMin meet"
+            fill="rgb(37, 99, 235)"
+          >
+            <path d="M178.496 124.737l-14.205-14.205 7.306-30.035-30.441 6.9-13.8-13.8 68.187-17.047-17.047 68.187z" />
+            <path d="M154.956 218.901L33.192 97.138 101.38 80.09l13.8 13.8-48.706 12.176 27.6 27.6 32.064-7.712-8.117 31.658 27.6 27.6 12.176-48.705 14.205 14.206-17.046 68.187z" />
+          </svg>
+        </div>
+      </div>
+      <div
+        tw="flex w-full h-10 absolute bottom-0 left-0"
+        style={{
+          background: "#245EDD",
+        }}
+      ></div>
+    </div>
+  ); /* {
     type: "div",
     props: {
       tw: " bg-[#141519]",
@@ -81,6 +205,7 @@ export default function html({
                     marginLeft: 8,
                     fontSize: 40,
                     color: "white",
+                    fontFamily: "Michroma",
                   },
                   children: "BACHDEV | BLOG",
                 },
@@ -88,6 +213,7 @@ export default function html({
             ],
           },
         },
+        generateTag(["hello"]),
         {
           type: "svg",
           props: {
@@ -202,5 +328,5 @@ export default function html({
         },
       ],
     },
-  } as ReactElement<any, string | JSXElementConstructor<any>>;
+  } as ReactElement<any, string | JSXElementConstructor<any>>; */
 }

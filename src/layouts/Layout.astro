@@ -15,7 +15,7 @@ import Footer from "@/components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 import MetaData from "@/components/MetaData.astro";
 import { Icon } from "astro-icon/components";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 const {
   title,
   description = "My amazing portofolio where i share thoughts and my works ",
@@ -43,15 +43,15 @@ const {
       publishedTime={publishedTime}
       type={type}
     />
-    <meta name="description" content="Astro description" />
     <!-- Vendor CSS Files -->
     <link href="/vendor/aos/aos.css" rel="stylesheet" />
     <!-- Google tag (gtag.js) -->
     <script
       type="text/partytown"
       async
-      src="https://www.googletagmanager.com/gtag/js?id=G-ZY30B7BPBH"></script>
-    <script type="text/partytown">
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZY30B7BPBH"
+      is:inline></script>
+    <script type="text/partytown" is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -63,7 +63,7 @@ const {
     <ViewTransitions />
   </head>
   <body
-    class="overflow-x-hidden w-full dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] relative"
+    class="overflow-x-hidden w-full dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.15] bg-grid-small-black/[0.2] relative"
   >
     <Toaster
       toastOptions={{ className: "dark:text-white bg-light dark:bg-dark" }}
@@ -117,11 +117,17 @@ const {
     </div>
 
     <!-- Vendor JS Files -->
-    <script src="/vendor/aos/aos.js" defer></script>
-    <script src="/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
-
+    <script src="/vendor/aos/aos.js" defer is:inline></script>
+    <script src="/vendor/isotope-layout/isotope.pkgd.min.js" defer is:inline
+    ></script>
+    <script src="https://cdn.lordicon.com/lordicon.js" is:inline defer></script>
+    <!--<script src="/vendor/lordicon/lordicon.js" defer></script>-->
     <script src="/script.js" is:inline defer></script>
     <style is:global>
+      p code,
+      ul code {
+        background-color: var(--tw-prose-bullets);
+      }
       .filter-chip.active {
         background-color: var(--primary-color) !important;
       }

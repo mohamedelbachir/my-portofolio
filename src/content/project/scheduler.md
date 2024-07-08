@@ -2,7 +2,7 @@
 title: "Scheduler"
 pubDate: 2022-07-01
 description: "The Software to visualizing GRANT diagram of scheduling algorithm in UNIX System."
-preview: ./preview/scheduler.png
+preview: preview/scheduler.png
 tags: ["Software"]
 demoLink: https://github.com/mohamedelbachir/Scheduler
 ---

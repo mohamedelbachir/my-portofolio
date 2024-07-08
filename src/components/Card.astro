@@ -1,131 +1,75 @@
 ---
-
+import clsx from "clsx";
+import Tilt from "react-parallax-tilt";
+import Brand from "./Brand.astro";
+interface Props {
+  icon?: string;
+  image?: ImageMetadata;
+  url?: string;
+  labelURL?: string;
+  title: string;
+  description: string;
+}
+const { icon, url, labelURL, image, title, description } = Astro.props;
 ---
 
-<div class="plan-card shadow-xl shadow-red-500 outline-2 outline-red-500">
-  <div class="plan-ctn">
-    <div class="plan-header">
-      <div class="plan-icon">⨀</div>
-      <h1>Basic Plan</h1>
-      <h2>Survivor's Starter Pack</h2>
-    </div>
-    <div class="plan-price">
-      <p>$29.99<span>/mo</span></p>
-      <button>Buy Game</button>
-    </div>
-    <div class="plan-features">
-      <ul>
-        <li>Access to the full game with all core features.</li>
-        <li>Single-player mode available.</li>
-        <li>Limited selection of character customization options.</li>
-        <li>Exclusive in-game items: "Rookie's Rations" supply pack.</li>
-        <li>Feature text goes here</li>
-      </ul>
+<Tilt
+  client:load
+  className={clsx("parallax-effect", url && "!mb-14 !h-[210px]")}
+  tiltReverse
+  perspective={500}
+  glareEnable={true}
+  glareMaxOpacity={0.45}
+  glareColor="var(--glare-color)"
+  scale={1.02}
+>
+  <div class="inner-element w-1/2 h-1/2">
+    <div
+      class="wrapper-tilt bg-primary after:bg-[#f9f9fb] dark:after:bg-[#23262f]"
+    >
+      {
+        icon && (
+          <lord-icon
+            src={icon}
+            trigger="loop"
+            delay="2000"
+            class="w-full h-full"
+          />
+        )
+      }
+      {
+        image && (
+          <img
+            class="shape-header w-full h-full object-cover object-center"
+            {...image}
+            alt={title}
+          />
+        )
+      }
     </div>
   </div>
-</div>
-<style>
-  .plan-card,
-  .plan-ctn {
-    position: relative;
-    display: block;
-    z-index: 1;
-    clip-path: polygon(
-      20px 0,
-      100% 0,
-      100% calc(100% - 20px),
-      calc(100% - 20px) 100%,
-      0 100%,
-      0 20px
-    );
+  <div
+    class="wrapper-tilt bg-primary after:bg-[#f9f9fb] dark:after:bg-[#23262f]"
+  >
+    <div class="mt-[90px] text-center w-full px-1">
+      <h5 class="font-heading text-primary whitespace-nowrap">
+        {title}
+      </h5>
+      <p class="line-clamp-3 text-sm">
+        <Fragment set:html={description} />
+      </p>
+    </div>
+  </div>
+  {
+    url && (
+      <a
+        href={url}
+        target="_blank"
+        class="absolute -bottom-[16px] left-1/2 -translate-x-1/2 flex items-center px-3 py-1 text-white gap-2 bg-primary shape-header shape-header-sm"
+      >
+        <Brand name="whatsapp" pClass="size-6" />
+        {labelURL}
+      </a>
+    )
   }
-  .plan-card {
-    width: 320px;
-    text-align: center;
-    padding: 1px;
-    overflow: hidden;
-    background: white;
-  }
-  .plan-ctn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: green;
-    z-index: -1;
-  }
-
-  .plan-ctn {
-    padding: 5px;
-    backdrop-filter: blur(3px);
-    background: white;
-    z-index: -2;
-  }
-
-  .plan-header {
-    margin-bottom: 20px;
-  }
-
-  .plan-icon {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  .plan-header h1 {
-    font-size: 24px;
-    color: #3b3bff;
-    margin: 0;
-  }
-
-  .plan-header h2 {
-    font-size: 14px;
-    color: #666;
-    margin: 5px 0 0 0;
-  }
-
-  .plan-price {
-    margin: 20px 0;
-  }
-
-  .plan-price p {
-    font-size: 32px;
-    color: #000;
-    margin: 0;
-  }
-
-  .plan-price p span {
-    font-size: 16px;
-    color: #666;
-  }
-
-  .plan-price button {
-    background: #3b3bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-
-  .plan-price button:hover {
-    background: #2a2abf;
-  }
-
-  .plan-features ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: left;
-    margin: 0;
-  }
-
-  .plan-features li {
-    padding: 10px 0;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 14px;
-  }
-
-  .plan-features li:last-child {
-    border-bottom: none;
-  }
-</style>
+</Tilt>

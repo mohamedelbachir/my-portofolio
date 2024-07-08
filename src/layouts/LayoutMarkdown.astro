@@ -1,5 +1,4 @@
 ---
-import TOC from "@/components/TOC.astro";
 import type { MarkdownHeading } from "astro";
 import { clsx } from "clsx";
 import TableOfContents from "@/components/libs/TOC";
@@ -7,18 +6,17 @@ export interface Props {
   headings?: MarkdownHeading[];
   isBlog?: boolean;
 }
-const { headings = [], isBlog = false } = Astro.props;
+const { headings = [] } = Astro.props;
+//
+//
 ---
 
-<div
-  class={clsx("screen-wrapper pb-20 max-sm:!px-0", !isBlog && "max-sm:pt-20")}
-  data-aos="fade-up"
->
+<div class={clsx("screen-wrapper pb-20 max-sm:!px-0")} data-aos="fade-up">
   <article class="relative flex h-full gap-5 items-start">
     <div class="w-[75%] max-lg:w-full article-content">
       <slot name="header" />
       <div
-        class="relative prose max-w-none dark:prose-invert prose-headings:font-heading prose-h1:text-3xl max-sm:prose-h1:text-2xl prose-img:w-full prose-img:bg-blue-500 w-full prose-img:my-2 prose-img:min-h-20 max-sm:px-3"
+        class="relative prose max-w-none dark:prose-invert prose-headings:font-heading prose-h1:text-3xl max-sm:prose-h1:text-2xl prose-img:w-full prose-img:bg-blue-500 w-full prose-img:my-2 prose-img:min-h-20 prose-img:max-h-[300px] prose-img:object-cover max-sm:px-3 prose-headings:font-light prose-strong:font-normal prose-code:after:contain-none prose-code:before:contain-none prose-code:p-1 prose-code:rounded-md"
       >
         <slot name="content" />
         <slot name="preview" />

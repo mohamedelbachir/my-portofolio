@@ -37,6 +37,7 @@
 
 :root {
   --primary-color: rgb(37, 99, 235);
+  --glare-color: rgba(37, 100, 235, 0.253);
   --shape-size: 10px;
   --bottom-shape: polygon(
     var(--shape-size) 0,
@@ -46,6 +47,8 @@
     0 100%,
     0 var(--shape-size)
   );
+  --default-stripe-color: red;
+  --default-stripe-bg-color: blue;
 }
 
 ::view-transition-old(root),
@@ -125,4 +128,79 @@ img[alt="screen"] {
   height: 400px;
   object-fit: cover;
   width: auto;
+}
+
+.parallax-effect {
+  position: relative;
+  transform-style: preserve-3d !important;
+  user-select: none;
+  width: 24%;
+  min-height: 200px;
+  margin-bottom: 30px;
+}
+@media only screen and (max-width: 900px) {
+  .parallax-effect {
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .parallax-effect {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .parallax-effect {
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .parallax-effect {
+    width: 100%;
+  }
+}
+.inner-element,
+.wrapper-tilt {
+  position: absolute;
+}
+.inner-element {
+  top: 0;
+  left: 0;
+  transform: translateX(50%) translateY(-20px) translateZ(30px);
+}
+
+.wrapper-tilt,
+.wrapper-tilt::after,
+.shape-header {
+  clip-path: polygon(
+    var(--shape-size) 0,
+    calc(100% - var(--shape-size)) 0,
+    100% var(--shape-size),
+    100% calc(100% - var(--shape-size)),
+    calc(100% - var(--shape-size)) 100%,
+    var(--shape-size) 100%,
+    0 calc(100% - var(--shape-size)),
+    0 var(--shape-size)
+  );
+}
+.shape-header-sm {
+  --shape-size: 5px;
+}
+.wrapper-tilt,
+.wrapper-tilt::after {
+  inset: 0;
+}
+
+.wrapper-tilt {
+  transform: translateZ(0px);
+  /* background: var(--primary-color); */
+  padding: 1px;
+}
+
+.wrapper-tilt::after {
+  content: "";
+  position: absolute;
+  /*  background-color: white; */
+  z-index: -1;
+  inset: 0;
+  margin: 1px;
 }

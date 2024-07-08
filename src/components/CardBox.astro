@@ -22,7 +22,6 @@ const {
   img,
   description,
   isBlog = false,
-  index = 1,
   demo = "",
 } = Astro.props;
 ---
@@ -38,7 +37,7 @@ const {
     <a href={!isBlog ? demo : `/blog/${url}`} target={isBlog ? "" : "_blank"}>
       <div class={clsx("card-s w-full z-1 shape", !isBlog && "preview")}>
         <img
-          class="w-full bg-primay shadow-lg image-border transition-all h-[200px] object-cover"
+          class="shape w-full bg-primay shadow-lg image-border transition-all h-[200px] object-cover"
           width={img?.width}
           height={img?.height}
           src={img?.src}

@@ -7,6 +7,7 @@ import Heading from "@/components/Heading.astro";
 import Skills from "@/components/Skills.astro";
 import ProjectList from "@/components/ProjectList.astro";
 import BlogList from "@/components/BlogList.astro";
+import Card from "@/components/Card.astro";
 ---
 
 <Layout title="Home">
@@ -79,6 +80,43 @@ import BlogList from "@/components/BlogList.astro";
             },
           },
         ]}
+      />
+    </div>
+  </section>
+  <section id="services" class="screen-wrapper my-10" data-aos="fade-up">
+    <Heading> MY SERVICES </Heading>
+    <p class="text-center">List of services that i can offer.</p>
+    <div
+      class="flex flex-wrap w-full mt-14 justify-center items-center gap-3"
+      data-aos="fade-up"
+    >
+      <Card
+        description="I specialize in creating robust and user-friendly mobile applications for both Android and iOS platforms."
+        title="Mobile Application"
+        icon={"/lottie/wired-lineal-471-ebook-reader.json"}
+        data-aos="fade-up"
+        data-aos-delay="100"
+      />
+      <Card
+        description=" I develop high-performance desktop applications tailored to your specific requirements."
+        title="Desktop Application"
+        icon={"/lottie/wired-lineal-478-computer-display.json"}
+        data-aos="fade-up"
+        data-aos-delay="200"
+      />
+      <Card
+        description="Passionate about gaming, I create engaging and interactive games."
+        title="Game Development"
+        icon={"/lottie/wired-lineal-1461-joistick-alt.json"}
+        data-aos="fade-up"
+        data-aos-delay="300"
+      />
+      <Card
+        description="I design and develop dynamic and responsive web applications. "
+        title="Web Application"
+        icon={"/lottie/wired-lineal-27-globe.json"}
+        data-aos="fade-up"
+        data-aos-delay="400"
       />
     </div>
   </section>
@@ -167,7 +205,7 @@ import BlogList from "@/components/BlogList.astro";
   </section>
   <section id="education" class="screen-wrapper mt-10 mb-20" data-aos="fade-up">
     <Heading> MY LATEST BLOG </Heading>
-    <p class="text-center">Here where i have fun to share my thought .</p>
+    <p class="text-center">Here is where i have fun to share my thought .</p>
     <div data-aos="fade-up"><BlogList max={3} /></div>
   </section>
 </Layout>

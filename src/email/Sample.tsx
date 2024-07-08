@@ -5,7 +5,6 @@ import {
   Head,
   Hr,
   Html,
-  Img,
   Preview,
   Section,
   Text,
@@ -150,10 +149,6 @@ const main = {
 const container = {
   margin: "0 auto",
   padding: "20px 0 48px",
-};
-
-const logo = {
-  margin: "0 auto",
 };
 
 const paragraph = {

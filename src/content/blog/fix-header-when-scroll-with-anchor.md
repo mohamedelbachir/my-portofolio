@@ -15,6 +15,12 @@ En développement web, un problème courant lors de l'utilisation de liens d'anc
 Lorsque vous cliquez sur un lien d'ancrage, il fait défiler la page jusqu'à l'élément cible. Cependant, si votre site Web a un en-tête fixe, l'élément cible peut se retrouver caché derrière, par exemple ici notre titre de section est caché par l'entête.
 Voici un exemple :
 
+<iframe height="500" style="width: 100%;" scrolling="no" title="BUG HEADER" src="https://codepen.io/console-mohamed/embed/preview/gONOYom?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/console-mohamed/pen/gONOYom">
+  BUG HEADER</a> by console mohamed (<a href="https://codepen.io/console-mohamed">@console-mohamed</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
 ## La Solution
 
 Pour résoudre ce problème, vous definissiez juste le selecteur `html` dans votre balise `<style>` ou dans un fichier style externe:
@@ -33,6 +39,12 @@ Après avoir ajouter juste ce petit bout de code vous constaterez deux choses :
 - votre section n'est pas obstrué par le `header`
 
 ### Le resultat
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Fixed Header" src="https://codepen.io/console-mohamed/embed/preview/KKjKEpG?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/console-mohamed/pen/KKjKEpG">
+  Fixed Header</a> by console mohamed (<a href="https://codepen.io/console-mohamed">@console-mohamed</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 ### Exemple Complet
 

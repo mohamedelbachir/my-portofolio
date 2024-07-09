@@ -46,13 +46,13 @@ export function htmlJSX({
   return (
     <div tw="flex flex-col w-full h-full bg-[#17181C] relative  py-10">
       <span
-        tw="px-10 text-2xl font-bold"
+        tw="px-10 pl-15 text-2xl font-bold"
         style={{ fontFamily: "Michroma", color: "rgb(37, 99, 235)" }}
       >
         BACHDEV BLOG
       </span>
       <div
-        tw="flex flex-col px-10"
+        tw="flex flex-col px-10 pl-15"
         style={{
           height: "80%",
         }}
@@ -71,7 +71,7 @@ export function htmlJSX({
           <Label />
           {tags.map((t, i) => (
             <span
-              tw="text-gray-500 text-2xl"
+              tw="text-gray-500 text-3xl"
               style={{
                 fontFamily: "Michroma",
               }}
@@ -82,14 +82,14 @@ export function htmlJSX({
           ))}
         </div>
       </div>
-      <div tw="px-10 flex justify-between items-center">
+      <div tw="px-10 pl-15 flex justify-between items-center">
         <div
           style={{
             display: "flex",
           }}
         >
           <span
-            tw=" text-2xl text-gray-500"
+            tw=" text-3xl text-gray-500"
             style={{
               display: "flex",
               alignItems: "center",

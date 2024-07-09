@@ -189,7 +189,10 @@
     });
     attachEvent("[data-download-cv]", "click", function (_, elem) {
       const newlink = document.createElement("a");
-      newlink.href = "/CV/CV EL BACHIR.pdf";
+      var userLang = navigator.language || navigator.userLanguage;
+      newlink.href = userLang.includes("fr")
+        ? "/CV/CV EL BACHIR.pdf"
+        : "/CV/CV EL BACHIR en.pdf";
       newlink.click();
     });
     attachEvent("[data-hire-me]", "click", function (_, elem) {

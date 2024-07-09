@@ -2,7 +2,7 @@
 title: Résoudre le problème de section cachée par le header en position "fixed" ou "sticky"
 pubDate: 2024-07-06T17:27:15.097Z
 type: blog
-description: Comment résoudre le problème de section caché derriere les headers de votre page simplement avec du css en quelque ligne
+description: Comment résoudre le problème de section cachée derriere les headers de votre page simplement avec du css en quelque ligne
 preview: preview/css-tips-and-tricks.avif
 tags:
   - CSS

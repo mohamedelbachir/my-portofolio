@@ -5,15 +5,16 @@ import ButtonTheme from "./ButtonTheme.astro";
 import { Icon } from "astro-icon/components";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
+//data-aos="slide-down"
 ---
-
+ 
 <header
   id="header"
   data-aw-sticky-header
   class={clsx(
     "w-full sticky z-10 top-0 left-0 transition-all dark:text-white max-sm:fixed "
   )}
-  data-aos="slide-down"
+ 
 >
   <div
     class="flex justify-between items-center screen-wrapper py-4 max-sm:!px-2"

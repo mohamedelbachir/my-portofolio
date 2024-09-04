@@ -5,6 +5,7 @@ import { getEntryBySlug } from "astro:content";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import ImageAuthor from "@/assets/images/me.jpeg";
+import Language from "@/components/Language.astro"
 const { slug } = Astro.params;
 const project = await getEntryBySlug("project", slug as string);
 if (!project) {
@@ -56,7 +57,7 @@ const { Content, headings } = await project.render();
 
         <div>
           <div
-            class="flex px-2 justify-between items-center max-[500px]:flex-col"
+            class="flex px-2 justify-between items-center max-[500px]:flex-col max-[500px]:items-end"
           >
             <div class="author flex gap-2 items-center max-[500px]:w-full">
               <Image
@@ -71,8 +72,10 @@ const { Content, headings } = await project.render();
                   >
                   <span class="text-gray-400">author</span>
                 </div>
+               
               </div>
-            </div>
+            </div> 
+            <Language datas={project.data.languages}/>
           </div>
         </div>
       </div>

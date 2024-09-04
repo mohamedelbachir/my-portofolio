@@ -8,6 +8,10 @@ import Skills from "@/components/Skills.astro";
 import ProjectList from "@/components/ProjectList.astro";
 import BlogList from "@/components/BlogList.astro";
 import Card from "@/components/Card.astro";
+import LogoReader from "@/assets/icons/services/wired-flat-471-ebook-reader.svg?raw";
+import LogoJoystick from "@/assets/icons/services/wired-flat-1461-joistick-alt.svg?raw";
+import LogoGlobe from "@/assets/icons/services/wired-lineal-27-globe.svg?raw";
+import LogoPC from "@/assets/icons/services/wired-lineal-1326-command-window-line.svg?raw";
 ---
 
 <Layout title="Home">
@@ -88,35 +92,28 @@ import Card from "@/components/Card.astro";
     <p class="text-center">List of services that i can offer.</p>
     <div
       class="flex flex-wrap w-full mt-14 justify-center items-center gap-3"
+      data-aos-delay="100"
       data-aos="fade-up"
     >
       <Card
         description="I specialize in creating robust and user-friendly mobile applications for both Android and iOS platforms."
         title="Mobile Application"
-        icon={"/lottie/wired-lineal-471-ebook-reader.json"}
-        data-aos="fade-up"
-        data-aos-delay="100"
+        svgImage={LogoReader}
       />
       <Card
         description=" I develop high-performance desktop applications tailored to your specific requirements."
         title="Desktop Application"
-        icon={"/lottie/wired-lineal-478-computer-display.json"}
-        data-aos="fade-up"
-        data-aos-delay="200"
+        svgImage={LogoPC}
       />
       <Card
         description="Passionate about gaming, I create engaging and interactive games."
         title="Game Development"
-        icon={"/lottie/wired-lineal-1461-joistick-alt.json"}
-        data-aos="fade-up"
-        data-aos-delay="300"
+        svgImage={LogoJoystick}
       />
       <Card
         description="I design and develop dynamic and responsive web applications. "
         title="Web Application"
-        icon={"/lottie/wired-lineal-27-globe.json"}
-        data-aos="fade-up"
-        data-aos-delay="400"
+        svgImage={LogoGlobe}
       />
     </div>
   </section>
@@ -179,11 +176,11 @@ import Card from "@/components/Card.astro";
           {
             skill: "vscode",
             color: "#4faff0",
-          },
+          } /*,
           {
             skill: "qt",
             color: "#6dc46d",
-          },
+          }*/,
           {
             skill: "godot_engine",
             color: "#7cacd1",

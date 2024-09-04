@@ -9,20 +9,6 @@ interface Props {
 }
 const { item } = Astro.props;
 ---
-
-<!-- <div data-itemLenght={item.length}>
-  <div class="scene scene--carousel">
-    <div class="carousel carousel--dynamic">
-      {
-        item.map(({ skill, image }, i) => (
-          <div class="carousel__cell" style={`--v:${10 * i},200,150`}>
-            {skill}
-          </div>
-        ))
-      }
-    </div>
-  </div>
-</div> -->
 <div class="dynamic-carousel">
   <div class="scene scene--carousel">
     <div class="carousel carousel--dynamic">
@@ -118,27 +104,6 @@ const { item } = Astro.props;
 
       rotateCarousel();
     }
-
-    /* var orientationRadios = demo.querySelectorAll('input[name="orientation"]');
-    (function () {
-      for (var i = 0; i < orientationRadios.length; i++) {
-        var radio = orientationRadios[i];
-        radio.addEventListener("change", onOrientationChange);
-      }
-    })();
-
-    function onOrientationChange() {
-      var checkedRadio = demo.querySelector(
-        'input[name="orientation"]:checked'
-      );
-      isHorizontal = checkedRadio.value == "horizontal";
-      rotateFn = isHorizontal ? "rotateY" : "rotateX";
-      changeCarousel();
-    }
-
-    // set initials
-    onOrientationChange(); */
-
     //observe
     observer.observe(demo);
   })();
@@ -183,34 +148,6 @@ const { item } = Astro.props;
   .carousel__cell {
     background-color: var(--bg);
   }
-  /*   .carousel__cell:nth-child(9n + 1) {
-    background: hsla(0, 100%, 50%, 0.8);
-    color: var(--v);
-  }
-  .carousel__cell:nth-child(9n + 2) {
-    background: hsla(40, 100%, 50%, 0.8);
-  }
-  .carousel__cell:nth-child(9n + 3) {
-    background: hsla(80, 100%, 50%, 0.8);
-  }
-  .carousel__cell:nth-child(9n + 4) {
-    background: hsla(120, 100%, 50%, 0.8);
-  }
-  .carousel__cell:nth-child(9n + 5) {
-    background: hsla(160, 100%, 50%, 0.8);
-  }
-  .carousel__cell:nth-child(9n + 6) {
-    background: hsla(200, 100%, 50%, 0.8);
-  }
-  .carousel__cell:nth-child(9n + 7) {
-    background: hsla(240, 100%, 50%, 0.8);
-  }
-  .carousel__cell:nth-child(9n + 8) {
-    background: hsla(280, 100%, 50%, 0.8);
-  }
-  .carousel__cell:nth-child(9n + 0) {
-    background: hsla(320, 100%, 50%, 0.8);
-  } */
 
   .carousel__cell:nth-child(1) {
     transform: rotateY(0deg) translateZ(288px);

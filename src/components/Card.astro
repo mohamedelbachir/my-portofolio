@@ -5,12 +5,14 @@ import Brand from "./Brand.astro";
 interface Props {
   icon?: string;
   image?: ImageMetadata;
+  svgImage?: string;
   url?: string;
   labelURL?: string;
   title: string;
   description: string;
 }
-const { icon, url, labelURL, image, title, description } = Astro.props;
+const { icon, url, labelURL, image, title, description, svgImage } =
+  Astro.props;
 ---
 
 <Tilt
@@ -25,7 +27,7 @@ const { icon, url, labelURL, image, title, description } = Astro.props;
 >
   <div class="inner-element w-1/2 h-1/2">
     <div
-      class="wrapper-tilt bg-primary after:bg-[#f9f9fb] dark:after:bg-[#23262f]"
+      class="wrapper-tilt bg-primary after:bg-[#f9f9fb] dark:after:bg-[#23262f] flex items-center justify-center"
     >
       {
         icon && (
@@ -46,6 +48,7 @@ const { icon, url, labelURL, image, title, description } = Astro.props;
           />
         )
       }
+      {svgImage && <Fragment set:html={svgImage} />}
     </div>
   </div>
   <div

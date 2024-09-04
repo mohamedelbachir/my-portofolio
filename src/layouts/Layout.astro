@@ -15,7 +15,7 @@ import Footer from "@/components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 import MetaData from "@/components/MetaData.astro";
 import { Icon } from "astro-icon/components";
-import { Toaster } from "react-hot-toast";
+import LoadingIndicator from "astro-loading-indicator/component"
 const {
   title,
   description = "My amazing portofolio where i share thoughts and my works ",
@@ -61,17 +61,11 @@ const {
       gtag("config", "G-ZY30B7BPBH");
     </script>
     <ViewTransitions />
+    <LoadingIndicator color="var(--primary-color)" animationDuration={500} height="4px" threshold={400}/>
   </head>
   <body
     class="overflow-x-hidden w-full dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.15] bg-grid-small-black/[0.2] relative"
   >
-    <Toaster
-      toastOptions={{ className: "dark:text-white bg-light dark:bg-dark" }}
-      containerStyle={{
-        top: 90,
-      }}
-      client:load
-    />
     <div id="page-content">
       <Header />
       <div
@@ -105,7 +99,7 @@ const {
       </div>
       <span id="state">Loading ...</span>
     </div>
-    <div id="loading">
+    <!--<div id="loading">
       <div class="spinner">
         <div></div>
         <div></div>
@@ -114,13 +108,13 @@ const {
         <div></div>
         <div></div>
       </div>
-    </div>
+    </div>-->
 
     <!-- Vendor JS Files -->
     <script src="/vendor/aos/aos.js" defer is:inline></script>
     <script src="/vendor/isotope-layout/isotope.pkgd.min.js" defer is:inline
     ></script>
-    <script src="https://cdn.lordicon.com/lordicon.js" is:inline defer></script>
+    <!-- <script src="https://cdn.lordicon.com/lordicon.js" is:inline defer></script> -->
     <!--<script src="/vendor/lordicon/lordicon.js" defer></script>-->
     <script src="/script.js" is:inline defer></script>
     <style is:global>
@@ -272,18 +266,18 @@ const {
       const page = document.querySelector("#page-content");
 
       document.addEventListener("DOMContentLoaded", () => {
-        page.classList.add("hide");
+        //page.classList.add("hide");
       });
       document.addEventListener("astro:page-load", () => {
         elt.classList.remove("load");
         page.classList.remove("hide");
       });
-      document.addEventListener("astro:before-preparation", () => {
+      /*document.addEventListener("astro:before-preparation", () => {
         document.querySelector("#loading").classList.add("show");
       });
       document.addEventListener("astro:after-preparation", () => {
         document.querySelector("#loading").classList.remove("show");
-      });
+      });*/
       /*
       document.addEventListener("astro:before-swap", () => {
         console.table("after-preparation",elt)

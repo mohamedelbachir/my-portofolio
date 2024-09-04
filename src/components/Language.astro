@@ -1,0 +1,21 @@
+---
+import { Icon } from "astro-icon/components";
+interface Props {
+  datas?: string[]
+}
+const{ 
+  datas
+} = Astro.props;
+---
+<div class="flex flex-col items-end">
+  <span class="text-sm mb-2 text-gray-500 dark:text-gray-400 font-heading">Build with</span>
+  <div class="flex gap-1">
+     {datas?.map((l) => (
+        <Icon
+          name={l}
+          class={"size-9"}
+          stroke-width={1}
+        />
+      ))} 
+  </div>
+</div>

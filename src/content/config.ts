@@ -10,6 +10,7 @@ const projectCollection = defineCollection({
       description: z.string(),
       preview: image(),
       tags: z.array(z.string()),
+      languages:z.array(z.string()),
       demoLink: z.string(),
     }),
 });

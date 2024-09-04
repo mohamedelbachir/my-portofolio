@@ -35,6 +35,11 @@
           "type": "tags"
         },
         {
+          "title": "Languages",
+          "name": "languages",
+          "type": "tags"
+        },
+        {
           "title": "demoLink",
           "name": "demoLink",
           "default": "https://",

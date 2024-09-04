@@ -11,6 +11,7 @@
     }
   }
 
+
   function applyTheme(theme) {
     //const btnToggleTheme = document.querySelector("[data-aw-theme-switcher]");
     document.documentElement.classList.remove("light", "dark");
@@ -26,6 +27,7 @@
       : "light";
 
     applyTheme(theme || systemTheme);
+    //changeGiscusTheme(theme || systemTheme)
   };
 
   initTheme();
@@ -119,6 +121,25 @@
       });
     });
   };
+  
+  const fetchMetric=()=>{
+      const Likes = document.querySelectorAll(".like");
+      const Views = document.querySelectorAll(".view");
+      Likes.forEach(async(l)=>{
+        const slug=l.getAttribute('data-slug')
+        const response = await fetch(`/api/like?slug=${slug}`);
+        const result=await response.json()
+        l.innerHTML=result.total??0;
+      })
+      Views.forEach(async(v)=>{
+        const slug=v.getAttribute('data-slug')
+        const response = await fetch(`/api/views?slug=${slug}`);
+        const result=await response.json()
+        v.innerText=result.total??0;
+      })
+      //c
+  }
+  
 
   /**AOS configuratiion */
   const init = () =>
@@ -183,6 +204,7 @@
     addIntersectionObserver();
     fixHiddingHeader();
     isoDeclaration();
+    fetchMetric();
     attachEvent("#menu", "click", () => {
       const nav = document.querySelector("nav");
       nav?.classList.toggle("open");
@@ -191,15 +213,15 @@
       const newlink = document.createElement("a");
       var userLang = navigator.language || navigator.userLanguage;
       newlink.href = userLang.includes("fr")
-        ? "/CV/CV EL BACHIR.pdf"
-        : "/CV/CV EL BACHIR en.pdf";
+        ? "/CV/CV EL BACHIR_fr.pdf"
+        : "/CV/CV EL BACHIR_en.pdf";
       newlink.click();
     });
     attachEvent("[data-hire-me]", "click", function (_, elem) {
       const newlink = document.createElement("a");
       newlink.target = "_blank";
       newlink.href =
-        "mailto:bachdev237@gmail.com?subject=Hi, Bachir are you looking for a job";
+        "mailto:mohamedelbachirboubanganadakou@gmail.com?subject=Hi, Bachir are you looking for a job";
       newlink.click();
     });
     attachEvent("[data-blog]", "click", function (_, elem) {
@@ -325,5 +347,6 @@
     initTheme();
     onLoad();
     onPageShow();
+    fetchMetric();
   });
 })();

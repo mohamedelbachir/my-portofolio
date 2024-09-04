@@ -1,9 +1,11 @@
 ﻿---
 import clsx from "clsx";
+import { Icon } from "astro-icon/components";
 interface Props {
   url: string;
   title: string;
   tag?: string[];
+  languages?: string[];
   img?: {
     src: string;
     width: number;
@@ -23,7 +25,11 @@ const {
   description,
   isBlog = false,
   demo = "",
+  languages,
 } = Astro.props;
+
+//const res = await fetch(`/api/views?slug=${url}`)
+//const data = await res.json();
 ---
 
 <div
@@ -37,7 +43,7 @@ const {
     <a href={!isBlog ? demo : `/blog/${url}`} target={isBlog ? "" : "_blank"}>
       <div class={clsx("card-s w-full z-1 shape", !isBlog && "preview")}>
         <img
-          class="shape w-full bg-primay shadow-lg image-border transition-all h-[200px] object-cover"
+          class="shape w-full bg-primay shadow-lg image-border transition-all h-[140px] object-cover"
           width={img?.width}
           height={img?.height}
           src={img?.src}
@@ -52,10 +58,49 @@ const {
     <h5 class="font-heading text-primary hover:underline line-clamp-1">
       <a href={`${isBlog ? "/blog" : "/projects"}/${url}`}>{title}</a>
     </h5>
+    {
+      languages && (
+        <div class="flex gap-1 items-center mt-1">
+          <span class="text-gray-500 dark:text-gray-400 text-sm font-heading">
+            Built with :&ensp;
+          </span>
+          {languages?.map((l) => (
+            <Icon name={l} class={"size-6 mt-[0.10rem]"} stroke-width={1} />
+          ))}
+        </div>
+      )
+    }
+    {
+      isBlog && (
+        <>
+          <div
+            class="flex items-center text-gray-500 dark:text-gray-400"
+            data-slug={url}
+          >
+            <div class="flex items-center gap-1">
+              <Icon name="tabler:eye" />
+              <span data-slug={url} class="view pr-1">
+                -
+              </span>
+            </div>
+            <span class="mr-4">views</span>
+            <div class="flex gap-1 items-center">
+              <Icon name="tabler:thumb-up" />
+              <span data-slug={url} class="like">
+                -
+              </span>
+            </div>
+          </div>
+        </>
+      )
+    }
 
-    <p class="line-clamp-2 my-2">{description}</p>
+    <p class={clsx("line-clamp-1 mt-1 mb-2")}>
+      {description}
+    </p>
   </div>
 </div>
+
 <style>
   .card-s {
     position: relative;

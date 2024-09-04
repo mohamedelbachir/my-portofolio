@@ -4,6 +4,7 @@ import MarkdownPostLayout from "../../../layouts/LayoutMarkdown.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { getEntryBySlug } from "astro:content";
 import ImageAuthor from "@/assets/images/me.jpeg";
+import PostComment from "@/components/PostComment"
 import { Image } from "astro:assets";
 const { slug } = Astro.params;
 const blog = await getEntryBySlug("blog", slug as string);
@@ -25,7 +26,7 @@ const date = new Intl.DateTimeFormat("en-GB", {
   image={`${import.meta.env.SITE}/blog/${slug}/og`}
   type="article"
 >
-  <MarkdownPostLayout headings={headings} isBlog={true}>
+  <MarkdownPostLayout headings={headings} isBlog={true} slug={slug}>
     <Fragment slot="header">
       <div
         class="relative bg-[var(--light-bg)] dark:bg-[var(--dark-bg)] pb-2 border-b border-b-primary mb-5 prose-figure:w-full dark:border-none max-sm:pt-20 mt-3 max-sm:mt-0"
@@ -87,7 +88,7 @@ const date = new Intl.DateTimeFormat("en-GB", {
             >
               <button
                 data-aw-social-share="facebook"
-                data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
+                data-aw-url={`{${import.meta.env.SITE}/blog/${slug}/}`}
                 data-aw-text={blog.data.description}
                 class="size-10 shape-sm bg-blue-500 flex justify-center items-center"
               >
@@ -96,7 +97,7 @@ const date = new Intl.DateTimeFormat("en-GB", {
               <button
                 class="size-10 shape-sm bg-blue-500 flex justify-center items-center"
                 data-aw-social-share="twitter"
-                data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
+                data-aw-url={`{${import.meta.env.SITE}/blog/${slug}/}`}
                 data-aw-text={blog.data.description}
               >
                 <Icon
@@ -106,7 +107,7 @@ const date = new Intl.DateTimeFormat("en-GB", {
               </button>
               <button
                 data-aw-social-share="linkedin"
-                data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
+                data-aw-url={`{${import.meta.env.SITE}/blog/${slug}/}`}
                 data-aw-text={blog.data.description}
                 class="size-10 shape-sm bg-blue-500 flex justify-center items-center"
               >
@@ -114,7 +115,7 @@ const date = new Intl.DateTimeFormat("en-GB", {
               </button>
               <button
                 data-aw-social-share="whatsapp"
-                data-aw-url=`{${import.meta.env.SITE}/blog/${slug}/}`
+                data-aw-url={`{${import.meta.env.SITE}/blog/${slug}/}`}
                 data-aw-text={blog.data.description}
                 class="size-10 shape-sm bg-blue-500 flex justify-center items-center"
               >
@@ -127,6 +128,9 @@ const date = new Intl.DateTimeFormat("en-GB", {
     </Fragment>
     <Fragment slot="content">
       <Content />
+    </Fragment>
+    <Fragment slot="comment">
+      <PostComment client:only/>
     </Fragment>
   </MarkdownPostLayout>
 </Layout>

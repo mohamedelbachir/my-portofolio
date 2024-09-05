@@ -65,7 +65,7 @@ const Like = ({ slug }) => {
           onClick={() => updateLike(slug, 'add')}
           disabled={likeStatus === true} 
         >
-          {!likeStatus?<IconArrowBigUp stroke={1} className="size-5"/>:<IconArrowBigUpFilled  stroke={1} className="size-5"/>}
+          {likeStatus==false||likeStatus==null?<IconArrowBigUp stroke={1} className="size-5"/>:<IconArrowBigUpFilled  stroke={1} className="size-5"/>}
         </button>
         <span>{totalLikes!==undefined?totalLikes:'-'}</span>
         <button
@@ -74,7 +74,7 @@ const Like = ({ slug }) => {
           onClick={() => updateLike(slug, 'remove')}
           disabled={likeStatus === false} 
         >
-          {likeStatus?<IconArrowBigDown stroke={1} className="size-5"/>:<IconArrowBigDownFilled  stroke={1} className="size-5"/>}
+          {likeStatus==true||likeStatus==null?<IconArrowBigDown stroke={1} className="size-5"/>:<IconArrowBigDownFilled  stroke={1} className="size-5"/>}
         </button>
       </div>
     </div>

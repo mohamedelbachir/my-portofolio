@@ -11,8 +11,8 @@ export default out; */
 const Label = ({ className }: { className?: string }) => {
   return (
     <svg
-      width="30"
-      height="30"
+      width="45"
+      height="45"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -44,20 +44,20 @@ export function htmlJSX({
   tags: string[];
 }): ReactElement<any, string | JSXElementConstructor<any>> {
   return (
-    <div tw="flex flex-col w-full h-full bg-[#17181C] relative  py-10">
+    <div tw="flex flex-col w-full h-full bg-white relative  py-10">
       <span
-        tw="px-10 pl-15 text-2xl font-bold"
+        tw="px-10 pl-13 text-4xl font-bold"
         style={{ fontFamily: "Michroma", color: "rgb(37, 99, 235)" }}
       >
         BACHDEV BLOG
       </span>
       <div
-        tw="flex flex-col px-10 pl-15"
+        tw="flex flex-col px-10 pl-13"
         style={{
           height: "80%",
         }}
       >
-        <h1 tw="text-7xl pt-8 text-white" style={{ fontFamily: "Default" }}>
+        <h1 tw="text-7xl pt-8 text-black" style={{ fontFamily: "Default" }}>
           {title}
         </h1>
         <div
@@ -71,9 +71,10 @@ export function htmlJSX({
           <Label />
           {tags.map((t, i) => (
             <span
-              tw="text-gray-500 text-3xl"
+              tw="text-4xl"
               style={{
                 fontFamily: "Michroma",
+                color: "rgb(37, 99, 235)" 
               }}
             >
               {t}
@@ -82,14 +83,14 @@ export function htmlJSX({
           ))}
         </div>
       </div>
-      <div tw="px-10 pl-15 flex justify-between items-center">
+      <div tw="px-10 pl-13 flex justify-between items-center">
         <div
           style={{
             display: "flex",
           }}
         >
           <span
-            tw=" text-3xl text-gray-500"
+            tw=" text-4xl text-gray-500"
             style={{
               display: "flex",
               alignItems: "center",
@@ -98,7 +99,7 @@ export function htmlJSX({
           >
             Written By,
             <span
-              tw="text-white"
+              tw="text-black text-3xl"
               style={{
                 fontFamily: "Michroma",
                 fontWeight: "bold",

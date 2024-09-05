@@ -25,7 +25,7 @@ const { headings = [], isBlog = false, slug } = Astro.props;
           isBlog && (
             <div
               id="viewbar"
-              class="sticky bottom-3 left-1/2 max-lg:-translate-x-1/2 lg:translate-x-[-120%] lg:left-[50%] size-10 bg-red-500"
+              class="sticky bottom-3 max-sm:-translate-x-[40%] left-1/2 max-lg:-translate-x-1/2 lg:translate-x-[-120%] lg:left-[50%] size-10 bg-red-500"
             >
               <div class="flex items-center w-full h-full px-4">
                 <ViewCounter client:only slug={slug} />
@@ -34,7 +34,10 @@ const { headings = [], isBlog = false, slug } = Astro.props;
             </div>
           )
         }
-        <slot name="comment" />
+        <div class="mt-10">
+          <slot name="comment" />
+        </div>
+        
       </div>
     </div>
 
@@ -62,9 +65,7 @@ const { headings = [], isBlog = false, slug } = Astro.props;
 </div>
 <style>
   #viewbar {
-
     height: 40px;
-    min-width: 100px;
     width:fit-content;
     pointer-events: auto;
     z-index: 20;
@@ -74,13 +75,6 @@ const { headings = [], isBlog = false, slug } = Astro.props;
       rgba(249, 249, 251, 0.88) 100%
     );
     border-radius: 9999px;
-    box-shadow:
-      0px 0px 0px 0px rgba(58, 114, 237, 0.3),
-      0px 1px 2px 0px rgba(58, 114, 237, 0.29),
-      0px 4px 4px 0px rgba(58, 114, 237, 0.26),
-      0px 10px 6px 0px rgba(58, 114, 237, 0.15),
-      0px 17px 7px 0px rgba(58, 114, 237, 0.04),
-      0px 26px 7px 0px rgba(58, 114, 237, 0.01);
     border: 1px solid var(--primary-color);
   }
 

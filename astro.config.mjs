@@ -11,7 +11,7 @@ import expressiveCode from "astro-expressive-code";
 import partytown from "@astrojs/partytown";
 import astroRemark from "@astrojs/markdown-remark";
 import sitemap from "@astrojs/sitemap";
-
+import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections'
 // https://astro.build/config
 export default defineConfig({
   site: "https://bachdev.vercel.app",
@@ -47,7 +47,8 @@ export default defineConfig({
     defaultProps: {
       wrap: true,
       preserveIndent: false
-    }
+    },
+    plugins: [pluginCollapsibleSections()],
   }), partytown({
     config: {
       forward: ["dataLayer.push"]

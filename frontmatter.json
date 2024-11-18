@@ -93,17 +93,22 @@
     {
       "title": "project",
       "path": "[[workspace]]/src/content/project",
-      "contentTypes": ["project"]
+      "contentTypes": [
+        "project"
+      ]
     },
     {
       "title": "blog",
       "path": "[[workspace]]/src/content/blog",
-      "contentTypes": ["blog"]
+      "contentTypes": [
+        "blog"
+      ]
     }
   ],
   "frontMatter.content.publicFolder": {
     "path": "src/content",
     "relative": true
   },
-  "frontMatter.git.enabled": true
+  "frontMatter.git.enabled": true,
+  "frontMatter.dashboard.openOnStart": true
 }

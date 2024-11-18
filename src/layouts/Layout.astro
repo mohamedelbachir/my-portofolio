@@ -86,7 +86,7 @@ const {
     </div>
     <div
       id="loading-state"
-      class="load dark:bg-[#17181C] bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] bg-fixed"
+      class="load dark:bg-[#17181C] top-0 left-0 bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] bg-fixed"
       transition:persist
     >
       <div class="spinner">
@@ -263,21 +263,21 @@ const {
 
     <script is:inline>
       const elt = document.querySelector("#loading-state");
-      const page = document.querySelector("#page-content");
+      //const header = document.querySelector("#header");
 
       document.addEventListener("DOMContentLoaded", () => {
         //page.classList.add("hide");
       });
       document.addEventListener("astro:page-load", () => {
         elt.classList.remove("load");
-        page.classList.remove("hide");
+        //header.classList.remove("hidden");
       });
-      /*document.addEventListener("astro:before-preparation", () => {
-        document.querySelector("#loading").classList.add("show");
+      document.addEventListener("astro:before-preparation", () => {
+        //page.classList.add("hide");
       });
       document.addEventListener("astro:after-preparation", () => {
-        document.querySelector("#loading").classList.remove("show");
-      });*/
+        //page.classList.remove("hide");
+      });
       /*
       document.addEventListener("astro:before-swap", () => {
         console.table("after-preparation",elt)

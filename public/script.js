@@ -213,8 +213,8 @@
       const newlink = document.createElement("a");
       var userLang = navigator.language || navigator.userLanguage;
       newlink.href = userLang.includes("fr")
-        ? "/CV/CV EL BACHIR_fr.pdf"
-        : "/CV/CV EL BACHIR_en.pdf";
+        ? "/CV/CV_fr.pdf"
+        : "/CV/CV_en.pdf";
       newlink.click();
     });
     attachEvent("[data-hire-me]", "click", function (_, elem) {

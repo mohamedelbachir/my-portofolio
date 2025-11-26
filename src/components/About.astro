@@ -3,6 +3,9 @@ import { Image } from "astro:assets";
 import MyPhoto from "@/assets/images/me.jpeg";
 import { Icon } from "astro-icon/components";
 import Brand from "./Brand.astro";
+import userData from "@/data/userData.json";
+
+const { profile, contact } = userData;
 ---
 
 <section id="about" class="screen-wrapper my-14">
@@ -19,7 +22,7 @@ import Brand from "./Brand.astro";
         widths={[400, 768]}
         sizes="(max-width: 768px) 100vw, 432px"
         src={MyPhoto}
-        alt={"Mohamed el bachir profile"}
+        alt={`${profile.name} profile`}
       />
     </div>
     <div class="w-2/3 max-sm:w-full" data-aos="fade-up" data-aos-delay="250">
@@ -32,11 +35,7 @@ import Brand from "./Brand.astro";
         Why hire me for your next project ?
       </h3>
       <p class="text-justify dark:text-white text-lg">
-        As a Master's student in Computer Science specializing in software
-        systems and distributed environments, I offer a strong academic
-        background and a deep passion for programming. I am eager to apply my
-        technical skills to drive innovation and contribute meaningfully to
-        challenging projects
+        {profile.bio}
       </p>
       <h3
         class="font-heading leading-none text-xl text-primary py-4"
@@ -45,17 +44,17 @@ import Brand from "./Brand.astro";
       </h3>
       <div class="flex gap-3 mt-2">
         <a
-          href="http://github.com/mohamedelbachir"
+          href={contact.github}
           target="_blank"
           rel="noopener noreferrer"><Brand name="github" pClass="size-10" /></a
         >
         <a
-          href="https://www.linkedin.com/in/mohamed-el-bachir"
+          href={contact.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           ><Brand name="linkedin" pClass="size-10" /></a
         >
-        <a href="https://wa.me/+237698340664"
+        <a href={contact.whatsapp}
           ><Brand name="whatsapp" pClass="size-10" /></a
         >
       </div>
@@ -67,6 +66,7 @@ import Brand from "./Brand.astro";
     </div>
   </div>
 </section>
+
 <style>
   .profile::after,
   .profile::before {

@@ -1,0 +1,157 @@
+{
+    "profile": {
+      "name": "Mohamed El Bachir",
+      "title": "Software Engineer",
+      "image": "@/assets/images/me.jpeg",
+      "bio": "As a Master's student in Computer Science specializing in software systems and distributed environments, I offer a strong academic background and a deep passion for programming. I am eager to apply my technical skills to drive innovation and contribute meaningfully to challenging projects"
+    },
+    "contact": {
+      "github": "http://github.com/mohamedelbachir",
+      "linkedin": "https://www.linkedin.com/in/mohamed-el-bachir",
+      "whatsapp": "https://wa.me/+237698340664"
+    },
+    "roles": [
+      "A Software engineer",
+      "An AI enthousiast",
+      "A Game developer"
+    ],
+    "workExperience": [
+      {
+        "id": 1,
+        "title": "Frontend Developer internship",
+        "company": "Sygalin SAS",
+        "location": "Ngaoundere",
+        "dateRange": "february 2024 - 2025",
+        "description": "Create visually appealing user interfaces for websites.",
+        "icon": "tabler:briefcase"
+      },
+      {
+        "id": 2,
+        "title": "Web Developer internship",
+        "company": "Generalite informatique",
+        "location": "Garoua",
+        "dateRange": "August 2020 - September 2020",
+        "description": "Create landing page and learn hardware webcam security.",
+        "icon": "tabler:briefcase"
+      }
+    ],
+    "education": [
+      {
+        "id": 1,
+        "degree": "Master II in software systems and distributed environments",
+        "institution": "University of Ngaoundéré",
+        "dateRange": "2023 - 2024",
+        "icon": "tabler:school"
+      },
+      {
+        "id": 2,
+        "degree": "Bachelor in Computer science",
+        "institution": "University of Ngaoundéré",
+        "dateRange": "2021 - 2022",
+        "icon": "tabler:school"
+      }
+    ],
+    "skills": [
+      {
+        "name": "c++",
+        "color": "lightblue",
+        "category": "programming"
+      },
+      {
+        "name": "c",
+        "color": "lightblue",
+        "category": "programming"
+      },
+      {
+        "name": "javascript",
+        "color": "#fff3a7",
+        "category": "programming"
+      },
+      {
+        "name": "typescript",
+        "color": "lightblue",
+        "category": "programming"
+      },
+      {
+        "name": "python",
+        "color": "#8699a8",
+        "category": "programming"
+      },
+      {
+        "name": "react",
+        "color": "#c4e8ee",
+        "category": "framework"
+      },
+      {
+        "name": "tailwindcss",
+        "color": "#68d7e4",
+        "category": "framework"
+      },
+      {
+        "name": "astro",
+        "color": "black",
+        "category": "framework"
+      },
+      {
+        "name": "nextjs",
+        "color": "black",
+        "category": "framework"
+      },
+      {
+        "name": "supabase",
+        "color": "#8ad8b5",
+        "category": "backend"
+      },
+      {
+        "name": "firebase",
+        "color": "#fff3a7",
+        "category": "backend"
+      },
+      {
+        "name": "react-query",
+        "color": "#ff6978",
+        "category": "library"
+      },
+      {
+        "name": "vscode",
+        "color": "#4faff0",
+        "category": "tool"
+      },
+      {
+        "name": "godot-engine",
+        "color": "#7cacd1",
+        "category": "game-development"
+      },
+      {
+        "name": "git",
+        "color": "#dd7160",
+        "category": "tool"
+      }
+    ],
+    "services": [
+      {
+        "id": 1,
+        "title": "Mobile Application",
+        "description": "I specialize in creating robust and user-friendly mobile applications for both Android and iOS platforms.",
+        "icon": "wired-flat-471-ebook-reader"
+      },
+      {
+        "id": 2,
+        "title": "Desktop Application",
+        "description": "I develop high-performance desktop applications tailored to your specific requirements.",
+        "icon": "wired-lineal-1326-command-window-line"
+      },
+      {
+        "id": 3,
+        "title": "Game Development",
+        "description": "Passionate about gaming, I create engaging and interactive games.",
+        "icon": "wired-flat-1461-joistick-alt"
+      },
+      {
+        "id": 4,
+        "title": "Web Application",
+        "description": "I design and develop dynamic and responsive web applications.",
+        "icon": "wired-lineal-27-globe"
+      }
+    ]
+  }

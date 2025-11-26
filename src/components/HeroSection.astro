@@ -1,21 +1,15 @@
 ---
 import Text from "@/components/Text.astro";
-//import Grid from "animated-grid-lines";
 import { Icon } from "astro-icon/components";
 import TextSlide from "@/components/TextSlide.astro";
+import userData from "@/data/userData.json";
+
+const { profile, roles } = userData;
 ---
 
 <div
   class="screen-wrapper relative text-center h-[90vh] flex items-center flex-col justify-center dark:text-white max-sm:h-screeen"
 >
-  <!-- <Grid
-  squareSize={8}
-  lineWidth={1}
-  className="absolute top-0 left-0 z-[1] w-full h-full"
-  gridColor="transparent"
-  client:only
-/> -->
-
   <div class="blob"></div>
   <div
     class="flex flex-col items-center justify-center h-full"
@@ -26,7 +20,7 @@ import TextSlide from "@/components/TextSlide.astro";
     >
       <span class="max-sm:text-3xl">Hi, my name is&ensp;</span>
       <Text
-        text="MOHAMED EL BACHIR"
+        text={profile.name}
         className=" lining-nums max-sm:text-xl  leading-normal  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-primary py-8 max-sm:py-4 max-sm:font-bold"
       />
     </div>
@@ -40,7 +34,7 @@ import TextSlide from "@/components/TextSlide.astro";
       <TextSlide
         speed={2}
         textClassName="max-sm:text-xl max-sm:self-center max-sm:text-center whitespace-nowrap leading-2 uppercase outline-2 text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-indigo-600"
-        data={["A Software engineer", "An AI enthousiast", "A Game developer"]}
+        data={roles}
       />
     </div>
     <div class="flex gap-3 mt-3">

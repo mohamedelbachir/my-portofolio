@@ -7,7 +7,9 @@ interface Props {
 }
 const { max } = Astro.props;
 allProjects = allProjects
-  .filter((p) => ["Jumper", "Scheduler", "Chair Rental"].includes(p.data.title))
+  .filter((p) =>
+    ["4dealx", "GNDC website", "Chair Rental"].includes(p.data.title)
+  )
   .slice(0, max);
 ---
 

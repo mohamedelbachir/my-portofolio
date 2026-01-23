@@ -1,0 +1,216 @@
+{
+    "Navigation": {
+        "home": "Home",
+        "about": "About",
+        "work": "Work",
+        "blog": "Blog",
+        "projects": "Projects",
+        "stack": "Stack",
+        "contact": "Contact"
+    },
+    "Hero": {
+        "title": "MOHAMED EL BACHIR",
+        "subtitle": "A developer passionate about building innovative software.",
+        "caption": "Software Engineer & AI Enthusiast",
+        "viewProjects": "View my projects",
+        "contact": "Get in touch"
+    },
+    "Sections": {
+        "SelectedWork": {
+            "title": "Selected Work",
+            "subtitle": "Some of my recent projects.",
+            "viewAll": "View all"
+        },
+        "Writing": {
+            "title": "Writing",
+            "subtitle": "Thoughts on software, design, and everything in between.",
+            "readAll": "Read all"
+        },
+        "About": {
+            "label": "About Me",
+            "title": "Building digital products with passion and precision.",
+            "description": "I am a software engineer focused on creating accessible, performant, and delightful web experiences. With a background in distributed systems and a love for clean code, I turn complex problems into elegant solutions.",
+            "more": "More about me",
+            "experience": "Years of Experience"
+        },
+        "Stack": {
+            "label": "My Stack",
+            "title": "Technologies I work with",
+            "viewFull": "View full stack",
+            "more": "more"
+        }
+    },
+    "About": {
+        "hero": {
+            "about": "About",
+            "title": "I am MOHAMED EL BACHIR",
+            "subtitle": "Software Engineer and AI enthusiast.",
+            "downloadCV": "Download CV",
+            "talkWork": "Let's talk about work"
+        },
+        "content": {
+            "label": "About me",
+            "title": "Why hire me for your next project?",
+            "description": "As a Master's student in Computer Science specializing in software systems and distributed environments, I offer a strong academic background and a deep passion for programming. I am eager to apply my technical skills to drive innovation and contribute meaningfully to challenging projects.",
+            "education": "Education",
+            "items": {
+                "master": {
+                    "degree": "Master II in software systems and distributed environments"
+                },
+                "bachelor": { "degree": "Bachelor in Computer science" }
+            }
+        },
+        "experience": {
+            "title": "Work Experience",
+            "subtitle": "My professional journey and career milestones.",
+            "items": {
+                "4dealx": {
+                    "role": "Web developer",
+                    "description": "Create the marketplace website and dashboard."
+                },
+                "woilasoft": {
+                    "role": "Founder & CEO",
+                    "description": "A digital website agency."
+                },
+                "mit": {
+                    "role": "Web developper (Part-time)",
+                    "description": "Create visually appealing user interfaces for websites."
+                },
+                "sygalin": {
+                    "role": "Frontend Developer internship",
+                    "description": "Create visually appealing user interfaces for websites."
+                },
+                "gi": {
+                    "role": "Web Developer internship",
+                    "description": "Create landing page and learn hardware webcam security."
+                }
+            }
+        },
+        "skills": {
+            "title": "Skills",
+            "subtitle": "Discover the proficiencies that allow me to bring imagination to life."
+        },
+        "certifications": {
+            "title": "Certifications",
+            "subtitle": "Professional certifications and achievements."
+        }
+    },
+    "Work": {
+        "hero": {
+            "caption": "Work",
+            "title": "Building robust software systems",
+            "contact": "Let's talk about work"
+        },
+        "experience": {
+            "title": "Experience",
+            "subtitle": "A collection of roles and companies I've worked with."
+        }
+    },
+    "Projects": {
+        "hero": {
+            "caption": "Projects",
+            "title": "Selected Work"
+        },
+        "list": {
+            "title": "Selected Projects",
+            "subtitle": "A showcase of my favorite work and personal projects."
+        },
+        "categories": {
+            "web": "Web Application",
+            "ecommerce": "E-commerce",
+            "community": "Community",
+            "saas": "SaaS",
+            "mobile": "Mobile App",
+            "desktop": "Desktop App",
+            "other": "Autre"
+        },
+        "github": {
+            "title": "Want to see more?",
+            "description": "I have many more projects on my GitHub profile, including open-source contributions and experimental prototypes.",
+            "button": "View on GitHub"
+        }
+    },
+    "Blog": {
+        "metadata": {
+            "title": "Blog",
+            "description": "My blog posts."
+        },
+        "empty": "No posts found."
+    },
+    "Stack": {
+        "hero": {
+            "caption": "Stack",
+            "title": "The tools and tech I use everyday"
+        },
+        "list": {
+            "title": "Technology Stack",
+            "subtitle": "A collection of tools and frameworks I use to build digital products."
+        }
+    },
+    "Contact": {
+        "hero": {
+            "caption": "Contact",
+            "title": "Let's build something together"
+        },
+        "form": {
+            "name": "Full name",
+            "namePlaceholder": "Jane Doe",
+            "email": "Email address",
+            "emailPlaceholder": "jane@example.com",
+            "message": "Message",
+            "messagePlaceholder": "Hi there! I wanted to reach out to you about...",
+            "type": "Type",
+            "typePlaceholder": "What do you want to talk about?",
+            "submit": "Send message",
+            "submitting": "Sending message...",
+            "options": {
+                "general": {
+                    "label": "General inquiry",
+                    "subtitle": "I have a question / feedback or just want to say hi."
+                },
+                "work": {
+                    "label": "Work (contract or employment)",
+                    "subtitle": "I want to hire you!"
+                },
+                "advisory": {
+                    "label": "Advisory role",
+                    "subtitle": "Can you join my board or be an advisor?"
+                },
+                "agency": {
+                    "label": "Agency introduction",
+                    "subtitle": "I'm looking for an good design / dev agency."
+                },
+                "event": {
+                    "label": "Event",
+                    "subtitle": "I want to invite you to speak at my event."
+                }
+            }
+        }
+    },
+    "Footer": {
+        "rights": "All rights reserved.",
+        "pages": "Pages",
+        "social": "Social"
+    },
+    "CTA": {
+        "teaser": {
+            "title": "Join [count] readers and get infrequent updates on new projects.",
+            "description": "I'm currently available for freelance work and full-time positions.",
+            "button": "Get in touch"
+        },
+        "newsletter": {
+            "title": "Stay in the loop",
+            "description": "Subscribe to my newsletter to get the latest updates.",
+            "button": "Subscribe",
+            "placeholder": "Email address",
+            "promise": "I promise not to spam you or sell your email address.",
+            "success": "Thanks for subscribing!",
+            "error": "Something went wrong. Please try again."
+        }
+    },
+    "NotFound": {
+        "title": "404 - Page Not Found",
+        "description": "The page you are looking for does not exist.",
+        "button": "Go back home"
+    }
+}

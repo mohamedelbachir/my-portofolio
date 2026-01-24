@@ -1,8 +1,8 @@
 import { Feed } from "./components/feed";
 // import { GitHubActivity } from "./components/github-activity";
 import { Hero } from "./components/hero";
-import { FeaturedProjects } from "./components/featured-projects";
-import { FeaturedPosts } from "./components/featured-posts";
+// import { FeaturedProjects } from "./components/featured-projects";
+// import { FeaturedPosts } from "./components/featured-posts";
 import { AboutTeaser } from "./components/about-teaser";
 import { StackTeaser } from "./components/stack-teaser";
 import { getTranslations } from "next-intl/server";
@@ -19,9 +19,9 @@ export const generateMetadata = async () => {
 const Home = async () => (
     <>
         <Hero />
-        <FeaturedProjects />
+        {/*<FeaturedProjects />*/}
         {/*<Experience />*/}
-        <FeaturedPosts />
+        {/*<FeaturedPosts />*/}
         <AboutTeaser />
         <StackTeaser />
         <Feed />

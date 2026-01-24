@@ -10,11 +10,11 @@ import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
-
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import Script from "next/script";
 type RootLayoutProps = {
     children: ReactNode;
     params: Promise<{ locale: string }>;
@@ -116,6 +116,11 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
                 <link
                     rel="stylesheet"
                     href="https://api.fontshare.com/css?f%5B%5D=jet-brains-mono@400&amp;display=swap"
+                />
+                <Script
+                    src="https://cloud.umami.is/script.js"
+                    data-website-id="fd40b144-fc95-4fae-aa97-808771bc3200"
+                    strategy="afterInteractive"
                 />
             </head>
             <body

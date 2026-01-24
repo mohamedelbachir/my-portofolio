@@ -24,7 +24,7 @@ const Home = async () => (
         <FeaturedPosts />
         <AboutTeaser />
         <StackTeaser />
-        <Feed />
+        {/*<Feed />*/}
         {/*<GitHubActivity />*/}
     </>
 );

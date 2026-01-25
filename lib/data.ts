@@ -312,7 +312,7 @@ export const projects = [
         category: "ecommerce",
         href: "https://chair-rental.vercel.app/",
         tags: ["React", "Redux", "Tailwind CSS"],
-        image: "https://bachdev.vercel.app/_astro/chair-rental.Cp-Qr8xW.png",
+        image: "/images/project/chair-rental.avif",
         description: {
             en: "An e-commerce app that allow you to buy chair and reserve chair for an event",
             fr: "Une application e-commerce qui vous permet d'acheter des chaises et d'en réserver pour un événement",

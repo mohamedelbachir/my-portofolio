@@ -321,8 +321,8 @@ export const projects = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     image: "https://ui.woilasoft.com/opengraph-image.jpg",
     description: {
-      en: "50+ Stunning Sections and Templates made with React, TypeScript, Tailwind CSS.",
-      fr: "Plus de 50 sections et modèles époustouflants réalisés avec React, TypeScript, Tailwind CSS.",
+      en: "50+ Stunning Sections and Templates made with React",
+      fr: "Plus de 50 sections et modèles réalisés avec React.",
     },
   },
   {

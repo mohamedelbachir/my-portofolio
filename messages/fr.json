@@ -1,217 +1,235 @@
 {
-    "Navigation": {
-        "home": "Accueil",
-        "about": "À propos",
-        "work": "Expérience",
-        "blog": "Blog",
-        "projects": "Projets",
-        "stack": "Stack",
-        "contact": "Contact"
+  "Navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "work": "Expérience",
+    "blog": "Blog",
+    "projects": "Projets",
+    "stack": "Stack",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "title": "MOHAMED EL BACHIR",
+    "subtitle": "Un développeur passionné par la création de logiciels innovants.",
+    "caption": "Ingénieur Logiciel & Passionné d'IA",
+    "viewProjects": "Voir mes projets",
+    "contact": "Me contacter"
+  },
+  "Sections": {
+    "SelectedWork": {
+      "title": "Projets Sélectionnés",
+      "subtitle": "Quelques-uns de mes projets récents.",
+      "viewAll": "Voir tout"
     },
-    "Hero": {
-        "title": "MOHAMED EL BACHIR",
-        "subtitle": "Un développeur passionné par la création de logiciels innovants.",
-        "caption": "Ingénieur Logiciel & Passionné d'IA",
-        "viewProjects": "Voir mes projets",
-        "contact": "Me contacter"
-    },
-    "Sections": {
-        "SelectedWork": {
-            "title": "Projets Sélectionnés",
-            "subtitle": "Quelques-uns de mes projets récents.",
-            "viewAll": "Voir tout"
-        },
-        "Writing": {
-            "title": "Articles",
-            "subtitle": "Réflexions sur le logiciel, le design et tout le reste.",
-            "readAll": "Tout lire"
-        },
-        "About": {
-            "label": "À Propos",
-            "title": "Créer des produits numériques avec passion et précision.",
-            "description": "Je suis un ingénieur logiciel concentré sur la création d'expériences web accessibles, performantes et agréables. Avec une expérience dans les systèmes distribués et un amour pour le code propre, je transforme des problèmes complexes en solutions élégantes.",
-            "more": "En savoir plus",
-            "experience": "Années d'expérience"
-        },
-        "Stack": {
-            "label": "Ma Stack",
-            "title": "Technologies avec lesquelles je travaille",
-            "viewFull": "Voir toute la stack",
-            "more": "plus"
-        }
+    "Writing": {
+      "title": "Articles",
+      "subtitle": "Réflexions sur le logiciel, le design et tout le reste.",
+      "readAll": "Tout lire"
     },
     "About": {
-        "hero": {
-            "about": "À propos",
-            "title": "Je suis MOHAMED EL BACHIR",
-            "subtitle": "Ingénieur Logiciel et passionné d'IA.",
-            "downloadCV": "Télécharger CV",
-            "talkWork": "Parlons de travail"
-        },
-        "content": {
-            "label": "À propos de moi",
-            "title": "Pourquoi m'embaucher pour votre prochain projet ?",
-            "description": "En tant qu'étudiant en Master d'Informatique spécialisé dans les systèmes logiciels et les environnements distribués, j'offre un solide bagage académique et une profonde passion pour la programmation. Je suis impatient d'appliquer mes compétences techniques pour stimuler l'innovation et contribuer de manière significative à des projets stimulants.",
-            "education": "Éducation",
-            "items": {
-                "master": {
-                    "degree": "Master II en systèmes logiciels et environnements distribués"
-                },
-                "bachelor": { "degree": "Licence en Informatique" }
-            }
-        },
-        "experience": {
-            "title": "Expérience Professionnelle",
-            "subtitle": "Mon parcours professionnel et mes étapes de carrière.",
-            "items": {
-                "4dealx": {
-                    "role": "Développeur Web",
-                    "description": "Création du site marketplace et du tableau de bord."
-                },
-                "woilasoft": {
-                    "role": "Fondateur & CEO",
-                    "description": "Une agence de création de solutions numériques."
-                },
-                "mit": {
-                    "role": "Développeur Web (Temps partiel)",
-                    "description": "Création d'interfaces utilisateur visuellement attrayantes pour les sites web."
-                },
-                "sygalin": {
-                    "role": "Stage Développeur Frontend",
-                    "description": "Création d'interfaces utilisateur visuellement attrayantes pour les sites web."
-                },
-                "gi": {
-                    "role": "Stage Développeur Web",
-                    "description": "Création de landing page et apprentissage de la sécurité webcam matérielle."
-                }
-            }
-        },
-        "skills": {
-            "title": "Compétences",
-            "subtitle": "Découvrez les compétences qui me permettent de donner vie à l'imagination."
-        },
-        "certifications": {
-            "title": "Certifications",
-            "subtitle": "Certifications professionnelles et accomplissements."
-        }
-    },
-    "Work": {
-        "hero": {
-            "caption": "Travail",
-            "title": "Construire des systèmes logiciels robustes",
-            "contact": "Parlons de travail"
-        },
-        "experience": {
-            "title": "Expérience",
-            "subtitle": "Une collection de rôles et d'entreprises avec lesquelles j'ai travaillé."
-        }
-    },
-    "Projects": {
-        "hero": {
-            "caption": "Projets",
-            "title": "Quelques travaux sélectionnés"
-        },
-        "list": {
-            "title": "Projets Sélectionnés",
-            "subtitle": "Une vitrine de mes travaux préférés et de mes projets personnels."
-        },
-        "categories": {
-            "web": "Application Web",
-            "ecommerce": "E-commerce",
-            "community": "Communauté",
-            "saas": "SaaS",
-            "mobile": "Application Mobile",
-            "desktop": "Application Desktop",
-            "other": "Autre"
-        },
-        "github": {
-            "title": "Vous en voulez plus ?",
-            "description": "J'ai beaucoup d'autres projets sur mon profil GitHub, y compris des contributions open-source et des prototypes expérimentaux.",
-            "button": "Voir sur GitHub"
-        }
-    },
-
-    "Blog": {
-        "metadata": {
-            "title": "Blog",
-            "description": "Mes articles de blog."
-        },
-        "empty": "Aucun article trouvé."
+      "label": "À Propos",
+      "title": "Créer des produits numériques avec passion et précision.",
+      "description": "Je suis un ingénieur logiciel concentré sur la création d'expériences web accessibles, performantes et agréables. Avec une expérience dans les systèmes distribués et un amour pour le code propre, je transforme des problèmes complexes en solutions élégantes.",
+      "more": "En savoir plus",
+      "experience": "Années d'expérience"
     },
     "Stack": {
-        "hero": {
-            "caption": "Stack",
-            "title": "Les outils et technologies que j'utilise au quotidien"
-        },
-        "list": {
-            "title": "Stack Technique",
-            "subtitle": "Une collection d'outils et de frameworks que j'utilise pour construire des produits numériques."
-        }
-    },
-    "Contact": {
-        "hero": {
-            "caption": "Contact",
-            "title": "Construisons quelque chose ensemble"
-        },
-        "form": {
-            "name": "Nom complet",
-            "namePlaceholder": "Jean Dupont",
-            "email": "Adresse e-mail",
-            "emailPlaceholder": "jean@exemple.com",
-            "message": "Message",
-            "messagePlaceholder": "Bonjour ! Je voulais vous contacter à propos de...",
-            "type": "Type",
-            "typePlaceholder": "De quoi voulez-vous parler ?",
-            "submit": "Envoyer le message",
-            "submitting": "Envoi du message...",
-            "options": {
-                "general": {
-                    "label": "Demande générale",
-                    "subtitle": "J'ai une question / un commentaire ou je veux juste dire bonjour."
-                },
-                "work": {
-                    "label": "Travail (contrat ou emploi)",
-                    "subtitle": "Je veux vous embaucher !"
-                },
-                "advisory": {
-                    "label": "Rôle de conseiller",
-                    "subtitle": "Pouvez-vous rejoindre mon conseil d'administration ou être conseiller ?"
-                },
-                "agency": {
-                    "label": "Introduction d'agence",
-                    "subtitle": "Je recherche une bonne agence de design / dev."
-                },
-                "event": {
-                    "label": "Événement",
-                    "subtitle": "Je souhaite vous inviter à prendre la parole lors de mon événement."
-                }
-            }
-        }
-    },
-    "Footer": {
-        "rights": "Tous droits réservés.",
-        "pages": "Pages",
-        "social": "Réseaux"
-    },
-    "CTA": {
-        "teaser": {
-            "title": "Rejoignez [count] lecteurs et recevez des mises à jour sur mes nouveaux projets.",
-            "description": "Je suis actuellement disponible pour du travail en freelance et des postes à temps plein.",
-            "button": "Me contacter"
-        },
-        "newsletter": {
-            "title": "Restez informé",
-            "description": "Abonnez-vous à ma newsletter pour recevoir les dernières mises à jour.",
-            "button": "S'abonner",
-            "placeholder": "Adresse e-mail",
-            "promise": "Je promets de ne pas vous spammer ni de vendre votre adresse e-mail.",
-            "success": "Merci pour votre abonnement !",
-            "error": "Quelque chose s'est mal passé. Veuillez réessayer."
-        }
-    },
-    "NotFound": {
-        "title": "404 - Page non trouvée",
-        "description": "La page que vous recherchez n'existe pas.",
-        "button": "Retourner à l'accueil"
+      "label": "Ma Stack",
+      "title": "Technologies avec lesquelles je travaille",
+      "viewFull": "Voir toute la stack",
+      "more": "plus"
     }
+  },
+  "About": {
+    "hero": {
+      "about": "À propos",
+      "title": "Je suis MOHAMED EL BACHIR",
+      "subtitle": "Ingénieur Logiciel et passionné d'IA.",
+      "downloadCV": "Télécharger CV",
+      "talkWork": "Parlons de travail"
+    },
+    "content": {
+      "label": "À propos de moi",
+      "title": "Pourquoi m'embaucher pour votre prochain projet ?",
+      "description": "En tant qu'étudiant en Master d'Informatique spécialisé dans les systèmes logiciels et les environnements distribués, j'offre un solide bagage académique et une profonde passion pour la programmation. Je suis impatient d'appliquer mes compétences techniques pour stimuler l'innovation et contribuer de manière significative à des projets stimulants.",
+      "education": "Éducation",
+      "items": {
+        "master": {
+          "degree": "Master II en systèmes logiciels et environnements distribués"
+        },
+        "bachelor": { "degree": "Licence en Informatique" }
+      }
+    },
+    "experience": {
+      "title": "Expérience Professionnelle",
+      "subtitle": "Mon parcours professionnel et mes étapes de carrière.",
+      "items": {
+        "4dealx": {
+          "role": "Développeur Web",
+          "description": "Création du site marketplace et du tableau de bord."
+        },
+        "woilasoft": {
+          "role": "Fondateur & CEO",
+          "description": "Une agence de création de solutions numériques."
+        },
+        "mit": {
+          "role": "Développeur Web (Temps partiel)",
+          "description": "Création d'interfaces utilisateur visuellement attrayantes pour les sites web."
+        },
+        "sygalin": {
+          "role": "Stage Développeur Frontend",
+          "description": "Création d'interfaces utilisateur visuellement attrayantes pour les sites web."
+        },
+        "gi": {
+          "role": "Stage Développeur Web",
+          "description": "Création de landing page et apprentissage de la sécurité webcam matérielle."
+        }
+      }
+    },
+    "skills": {
+      "title": "Compétences",
+      "subtitle": "Découvrez les compétences qui me permettent de donner vie à l'imagination."
+    },
+    "certifications": {
+      "title": "Certifications",
+      "subtitle": "Certifications professionnelles et accomplissements."
+    }
+  },
+  "Work": {
+    "hero": {
+      "caption": "Travail",
+      "title": "Construire des systèmes logiciels robustes",
+      "contact": "Parlons de travail"
+    },
+    "experience": {
+      "title": "Expérience",
+      "subtitle": "Une collection de rôles et d'entreprises avec lesquelles j'ai travaillé."
+    }
+  },
+  "Projects": {
+    "hero": {
+      "caption": "Projets",
+      "title": "Quelques travaux sélectionnés"
+    },
+    "list": {
+      "title": "Projets Sélectionnés",
+      "subtitle": "Une vitrine de mes travaux préférés et de mes projets personnels."
+    },
+    "categories": {
+      "web": "Application Web",
+      "ecommerce": "E-commerce",
+      "community": "Communauté",
+      "saas": "SaaS",
+      "mobile": "Application Mobile",
+      "desktop": "Application Desktop",
+      "other": "Autre"
+    },
+    "github": {
+      "title": "Vous en voulez plus ?",
+      "description": "J'ai beaucoup d'autres projets sur mon profil GitHub, y compris des contributions open-source et des prototypes expérimentaux.",
+      "button": "Voir sur GitHub"
+    }
+  },
+
+  "Blog": {
+    "metadata": {
+      "title": "Blog",
+      "description": "Mes articles de blog."
+    },
+    "toc": "Sur cette page",
+    "empty": "Aucun article trouvé.",
+    "stat": "Statistiques",
+    "views": "Vues",
+    "shares": "Partages",
+    "reactions": "Reactions",
+    "checkout": "Consulter ce blog",
+    "message": "Copier le lien de l'article pour le partager"
+  },
+  "Stack": {
+    "metadata": {
+      "title": "Stack",
+      "description": "Ma stack technique."
+    },
+    "hero": {
+      "caption": "Stack",
+      "title": "Les outils et technologies que j'utilise au quotidien"
+    },
+    "list": {
+      "title": "Stack Technique",
+      "subtitle": "Une collection d'outils et de frameworks que j'utilise pour construire des produits numériques."
+    },
+    "categories": {
+      "ai": "Outils IA",
+      "editor": "Éditeur",
+      "languages": "Langages",
+      "frameworks": "Frameworks"
+    },
+    "attribution": "Logos fournis par Logo.dev"
+  },
+  "Contact": {
+    "hero": {
+      "caption": "Contact",
+      "title": "Construisons quelque chose ensemble"
+    },
+    "form": {
+      "name": "Nom complet",
+      "namePlaceholder": "Jean Dupont",
+      "email": "Adresse e-mail",
+      "emailPlaceholder": "jean@exemple.com",
+      "message": "Message",
+      "messagePlaceholder": "Bonjour ! Je voulais vous contacter à propos de...",
+      "type": "Type",
+      "typePlaceholder": "De quoi voulez-vous parler ?",
+      "submit": "Envoyer le message",
+      "submitting": "Envoi du message...",
+      "options": {
+        "general": {
+          "label": "Demande générale",
+          "subtitle": "J'ai une question / un commentaire ou je veux juste dire bonjour."
+        },
+        "work": {
+          "label": "Travail (contrat ou emploi)",
+          "subtitle": "Je veux vous embaucher !"
+        },
+        "advisory": {
+          "label": "Rôle de conseiller",
+          "subtitle": "Pouvez-vous rejoindre mon conseil d'administration ou être conseiller ?"
+        },
+        "agency": {
+          "label": "Introduction d'agence",
+          "subtitle": "Je recherche une bonne agence de design / dev."
+        },
+        "event": {
+          "label": "Événement",
+          "subtitle": "Je souhaite vous inviter à prendre la parole lors de mon événement."
+        }
+      }
+    }
+  },
+  "Footer": {
+    "rights": "Tous droits réservés.",
+    "pages": "Pages",
+    "social": "Réseaux"
+  },
+  "CTA": {
+    "teaser": {
+      "title": "Rejoignez [count] lecteurs et recevez des mises à jour sur mes nouveaux projets.",
+      "description": "Je suis actuellement disponible pour du travail en freelance et des postes à temps plein.",
+      "button": "Me contacter"
+    },
+    "newsletter": {
+      "title": "Restez informé",
+      "description": "Abonnez-vous à ma newsletter pour recevoir les dernières mises à jour.",
+      "button": "S'abonner",
+      "placeholder": "Adresse e-mail",
+      "promise": "Je promets de ne pas vous spammer ni de vendre votre adresse e-mail.",
+      "success": "Merci pour votre abonnement !",
+      "error": "Quelque chose s'est mal passé. Veuillez réessayer."
+    }
+  },
+  "NotFound": {
+    "title": "404 - Page non trouvée",
+    "description": "La page que vous recherchez n'existe pas.",
+    "button": "Retourner à l'accueil"
+  }
 }

@@ -2,6 +2,7 @@
 title: Setting Up a New Blank Window Project with SDL and C++ on Windows
 pubDate: 2024-06-12
 description: In this blog post, we'll walk through setting up a new project using the Simple DirectMedia Layer (SDL) library with C++ on a Windows platform.
+lang: en
 preview: /images/blog/sdl-setup.jpg
 tags:
   - Cpp

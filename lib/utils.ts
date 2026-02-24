@@ -4,6 +4,16 @@ import { twMerge } from 'tailwind-merge';
 
 export const cn = (...inputs: ClassValue[]): string => twMerge(clsx(inputs));
 
+export const slugify = (text: string) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+    .replace(/\-\-+/g, '-'); // Replace multiple - with single -
+};
+
 export const parseError = (error: unknown): string => {
   if (error instanceof Error) {
     return error.message;

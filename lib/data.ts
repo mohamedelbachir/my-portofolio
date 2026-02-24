@@ -1,105 +1,156 @@
 export const stack = [
     {
-        category: "AI Tools",
+        category: "ai",
         items: [
             {
                 name: "ChatGPT",
-                description: "For brainstorming and coding assistance.",
+                description: {
+                    en: "For brainstorming and coding assistance.",
+                    fr: "Pour le remue-méninges et l'aide au codage.",
+                },
                 url: "https://chat.openai.com",
             },
             {
                 name: "Claude",
-                description: "For complex reasoning and writing.",
+                description: {
+                    en: "For complex reasoning and writing.",
+                    fr: "Pour le raisonnement complexe et l'écriture.",
+                },
                 url: "https://claude.ai",
             },
             {
                 name: "GitHub Copilot",
-                description: "My AI pair programmer.",
+                description: {
+                    en: "My AI pair programmer.",
+                    fr: "Mon pair programmer IA.",
+                },
                 url: "https://github.com/features/copilot",
             },
             {
                 name: "Gemini",
-                description: "For multimodal tasks and deep research.",
+                description: {
+                    en: "For multimodal tasks and deep research.",
+                    fr: "Pour les tâches multimodales et la recherche approfondie.",
+                },
                 url: "https://gemini.google.com",
             },
             {
                 name: "Perplexity",
-                description: "For quick and accurate answers.",
+                description: {
+                    en: "For quick and accurate answers.",
+                    fr: "Pour des réponses rapides et précises.",
+                },
                 url: "https://www.perplexity.ai",
             },
         ],
     },
     {
-        category: "Editor",
+        category: "editor",
         items: [
             {
                 name: "VS Code",
-                description: "My daily driver for web development.",
+                description: {
+                    en: "My daily driver for web development.",
+                    fr: "Mon outil quotidien pour le développement web.",
+                },
                 url: "https://code.visualstudio.com",
             },
             {
                 name: "Cursor",
-                description: "AI-first code editor.",
+                description: {
+                    en: "AI-first code editor.",
+                    fr: "Éditeur de code axé sur l'IA.",
+                },
                 url: "https://cursor.sh",
             },
             {
                 name: "Zed",
-                description: "High-performance multiplayer code editor.",
+                description: {
+                    en: "High-performance multiplayer code editor.",
+                    fr: "Éditeur de code haute performance et collaboratif.",
+                },
                 url: "https://zed.dev",
             },
         ],
     },
     {
-        category: "Languages",
+        category: "languages",
         items: [
             {
                 name: "TypeScript",
-                description: "For type-safe web development.",
+                description: {
+                    en: "For type-safe web development.",
+                    fr: "Pour un développement web typé et sécurisé.",
+                },
                 url: "https://www.typescriptlang.org",
             },
             {
                 name: "JavaScript",
-                description: "The language of the web.",
+                description: {
+                    en: "The language of the web.",
+                    fr: "Le langage du web.",
+                },
                 url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
             },
             {
                 name: "Python",
-                description: "For scripting and AI/ML.",
+                description: {
+                    en: "For scripting and AI/ML.",
+                    fr: "Pour le scripting et l'IA/ML.",
+                },
                 url: "https://www.python.org",
             },
             {
                 name: "C++",
-                description: "For performance-critical applications.",
+                description: {
+                    en: "For performance-critical applications.",
+                    fr: "Pour les applications critiques en termes de performance.",
+                },
                 url: "https://isocpp.org",
             },
             {
                 name: "C",
-                description: "For system programming.",
+                description: {
+                    en: "For system programming.",
+                    fr: "Pour la programmation système.",
+                },
                 url: "https://en.wikipedia.org/wiki/C_(programming_language)",
             },
         ],
     },
     {
-        category: "Frameworks",
+        category: "frameworks",
         items: [
             {
                 name: "Next.js",
-                description: "The React Framework for the Web.",
+                description: {
+                    en: "The React Framework for the Web.",
+                    fr: "Le framework React pour le Web.",
+                },
                 url: "https://nextjs.org",
             },
             {
                 name: "React",
-                description: "A library for building user interfaces.",
+                description: {
+                    en: "A library for building user interfaces.",
+                    fr: "Une bibliothèque pour construire des interfaces utilisateur.",
+                },
                 url: "https://react.dev",
             },
             {
                 name: "Tailwind CSS",
-                description: "A utility-first CSS framework.",
+                description: {
+                    en: "A utility-first CSS framework.",
+                    fr: "Un framework CSS axé sur les utilitaires.",
+                },
                 url: "https://tailwindcss.com",
             },
             {
                 name: "Node.js",
-                description: "JavaScript runtime built on Chrome's V8 engine.",
+                description: {
+                    en: "JavaScript runtime built on Chrome's V8 engine.",
+                    fr: "Environnement d'exécution JavaScript construit sur le moteur V8 de Chrome.",
+                },
                 url: "https://nodejs.org",
             },
         ],

@@ -11,7 +11,7 @@ import { getTranslations, getLocale } from 'next-intl/server';
 export const FeaturedPosts = async () => {
   const t = await getTranslations('Sections.Writing');
   const locale = await getLocale();
-  const posts = getSortedPostsData().slice(0, 3);
+  const posts = getSortedPostsData(locale).slice(0, 3);
 
   if (posts.length === 0) return null;
 

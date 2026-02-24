@@ -22,7 +22,7 @@ export const HeroSection = ({
     <Section className="p-4">
         <div
             className={cn(
-                "flex flex-col items-start justify-center gap-4 sm:gap-8 py-8",
+                "flex flex-col items-start justify-center gap-4 py-8",
                 "sm:items-center sm:rounded-lg sm:border sm:bg-muted sm:px-8 sm:py-20 sm:shadow-sm",
             )}
         >

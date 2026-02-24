@@ -4,12 +4,16 @@ import { cn } from '@/lib/utils';
 import { ViewAnimation } from '@/providers/view-animation';
 import { ExternalLink } from 'lucide-react';
 import { Link } from '@/i18n/routing';
+import { getLocale, getTranslations } from 'next-intl/server';
 
-export const Apps = () => {
+export const Apps = async () => {
+  const locale = (await getLocale()) as 'en' | 'fr';
+  const t = await getTranslations('Stack');
+
   return (
     <>
       {stack.map((group) => (
-        <StickyList key={group.category} title={group.category}>
+        <StickyList key={group.category} title={t(`categories.${group.category}`)}>
           <div className="flex flex-col">
             {group.items.map((item, index) => (
               <ViewAnimation
@@ -38,7 +42,7 @@ export const Apps = () => {
                   )}
                 </div>
                 <p className="text-muted-foreground text-sm">
-                  {item.description}
+                  {item.description[locale]}
                 </p>
               </ViewAnimation>
             ))}

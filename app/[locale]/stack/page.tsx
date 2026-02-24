@@ -6,9 +6,11 @@ import { Hero } from './components/hero';
 import { getTranslations } from 'next-intl/server';
 
 export const generateMetadata = async () => {
+  const t = await getTranslations('Stack.metadata');
+
   return {
-    title: 'Stack',
-    description: 'My tech stack.',
+    title: t('title'),
+    description: t('description'),
   };
 };
 

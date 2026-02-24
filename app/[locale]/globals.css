@@ -43,6 +43,7 @@ body {
         --backdrop: 0 0% 96.1%;
 
         --connection: 0 0% 79.6%;
+        --hauteur-header:100px;
     }
     .dark {
         --background: 0 0% 3.9%;
@@ -106,7 +107,11 @@ body {
         background-size: 0.25rem 0.25rem;
     }
 }
-
+html {
+        scroll-padding-top: var(--hauteur-header);
+        overscroll-behavior: none;
+        scroll-behavior: smooth;
+      }
 .react-activity-calendar svg {
     @apply w-full h-auto;
 }

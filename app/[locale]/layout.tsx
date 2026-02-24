@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { WindowsEmojiPolyfill } from "@/components/windows-emoji-polyfill";
 import { env } from "@/lib/env";
 import { ThemeProvider } from "@/providers/theme";
-import { Analytics } from "@vercel/analytics/react";
+// import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
@@ -142,7 +142,7 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
                         <Footer />
                     </ThemeProvider>
                     <Toaster />
-                    <Analytics />
+                    {/* <Analytics /> */}
                     <WindowsEmojiPolyfill />
                 </NextIntlClientProvider>
             </body>

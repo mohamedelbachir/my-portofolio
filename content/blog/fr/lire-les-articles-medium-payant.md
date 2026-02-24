@@ -2,6 +2,7 @@
 title: Comment lire les articles medium premium gratuitement
 pubDate: 2024-12-25
 description: Dans ce blog je vais vous expliquer comment vous pouviez lire des articles medium gratuitement
+lang: fr
 preview: /images/blog/medium.jpeg
 tags:
   - Tuto
@@ -24,7 +25,7 @@ Heureusement, il existe quelques techniques que vous pouvez utiliser pour contou
 
 ---
 
-## 1. **Utiliser la Wayback Machine**
+## 1. Utiliser la Wayback Machine
 La **Wayback Machine** , gérée par l'Internet Archive, est un outil qui capture des instantanés de pages web au fil du temps. Vous pouvez l'utiliser pour accéder à des versions archivées d'articles Medium.
 
 ### Étapes :
@@ -38,7 +39,7 @@ La Wayback Machine stocke des instantanés de pages web, y compris des articles 
 
 ---
 
-## 2. **Utiliser freedium**
+## 2. Utiliser freedium
 Comme son nom l'indique c'est un site qui vous permet facilement de juste en collant le lien de l'article payant vous aviez une version de l'article sans problème avec le *code* si inclus dans l'article.
 ![Freedium site](/images/blog/freedium_site.png)
 

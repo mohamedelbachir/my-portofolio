@@ -42,7 +42,7 @@ export const CodeSnippetClient = ({ dark, light, code }: CodeSnippetClientProps)
         )}
         aria-label="Copy code"
       >
-        {copied ? <CheckIcon size={16} /> : <CopyIcon size={16} />}
+        {copied ? <CheckIcon size={16} /> : <CopyIcon className="text-muted-foreground" size={16} />}
       </button>
     </div>
   );

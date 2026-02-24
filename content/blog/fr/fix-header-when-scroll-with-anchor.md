@@ -3,6 +3,7 @@ title: Résoudre le problème de section cachée par le header en position "fixe
 pubDate: 2024-07-06T17:27:15.097Z
 type: blog
 description: Comment résoudre le problème de section cachée derrière les headers de votre page simplement
+lang: fr
 preview: /images/blog/css-tips-and-tricks.avif
 tags:
   - CSS

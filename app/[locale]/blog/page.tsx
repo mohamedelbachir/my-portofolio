@@ -26,7 +26,7 @@ export const generateMetadata = async () => {
 const Blog = async () => {
     const t = await getTranslations('Blog');
     const locale = await getLocale();
-    const posts = getSortedPostsData();
+    const posts = getSortedPostsData(locale);
 
     if (!posts.length) {
         return (

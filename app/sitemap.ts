@@ -19,7 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/work",
   ];
 
-  const posts = getSortedPostsData();
+  const posts = locales.flatMap((locale) =>
+    getSortedPostsData(locale).map((post) => ({ ...post, locale }))
+  );
 
   const getAlternates = (path: string) => {
     const languages: Record<string, string> = {};
@@ -42,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const postEntries = posts.map((post) => {
     const route = `/blog/${post.slug}`;
     return {
-      url: `${baseUrl}/${defaultLocale}${route}`,
+      url: `${baseUrl}/${post.locale}${route}`,
       lastModified: new Date(post.pubDate),
       changeFrequency: "monthly" as const,
       priority: 0.6,

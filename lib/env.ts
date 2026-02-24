@@ -1,14 +1,14 @@
-import { createEnv } from '@t3-oss/env-nextjs';
-import { z } from 'zod';
+import { createEnv } from "@t3-oss/env-nextjs";
+import { z } from "zod";
 
 export const env = createEnv({
   server: {
-    BASEHUB_TOKEN: z.string().min(1).startsWith('bshb_pk_').optional(),
+    BASEHUB_TOKEN: z.string().min(1).startsWith("bshb_pk_").optional(),
     RESEND_AUDIENCE_ID: z.string().min(1).optional(),
-    RESEND_TOKEN: z.string().min(1).startsWith('re_').optional(),
+    RESEND_TOKEN: z.string().min(1).startsWith("re_").optional(),
     BETTERSTACK_API_KEY: z.string().min(1).optional(),
     BETTERSTACK_URL: z.string().min(1).optional(),
-    GITHUB_TOKEN: z.string().min(1).startsWith('github_pat_').optional(),
+    GITHUB_TOKEN: z.string().min(1).startsWith("github_pat_").optional(),
     KV_REST_API_URL: z.string().min(1).url().optional(),
     KV_REST_API_TOKEN: z.string().min(1).optional(),
     RESEND_FROM: z.string().min(1).email().optional(),
@@ -19,19 +19,25 @@ export const env = createEnv({
     SMTP_PASS: z.string().min(1).optional(),
     VERCEL_TOKEN: z.string().min(1).optional(),
     EDGE_CONFIG: z.string().min(1).url().optional(),
-    EDGE_CONFIG_ID: z.string().min(1).startsWith('ecfg_').optional(),
+    EDGE_CONFIG_ID: z.string().min(1).startsWith("ecfg_").optional(),
     SPOTIFY_CLIENT_ID: z.string().min(1).optional(),
     SPOTIFY_CLIENT_SECRET: z.string().min(1).optional(),
     SPOTIFY_REFRESH_TOKEN: z.string().min(1).optional(),
     STEAM_ID: z.string().min(1).optional(),
     STEAM_API_KEY: z.string().min(1).optional(),
     YOUTUBE_API_KEY: z.string().min(1).optional(),
-
     // Added by Vercel
     VERCEL_PROJECT_PRODUCTION_URL: z.string().min(1).optional(),
   },
   client: {
-    NEXT_PUBLIC_LOGO_DEV_TOKEN: z.string().min(1).startsWith('pk_').optional(),
+    NEXT_PUBLIC_LOGO_DEV_TOKEN: z.string().min(1).startsWith("pk_").optional(),
+    //firebase env variables
+    NEXT_PUBLIC_FIREBASE_API_KEY: z.string().min(1).optional(),
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: z.string().min(1).optional(),
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID: z.string().min(1).optional(),
+    NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: z.string().min(1).optional(),
+    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: z.string().min(1).optional(),
+    NEXT_PUBLIC_FIREBASE_APP_ID: z.string().min(1).optional(),
   },
   runtimeEnv: {
     BASEHUB_TOKEN: process.env.BASEHUB_TOKEN,
@@ -59,5 +65,15 @@ export const env = createEnv({
     YOUTUBE_API_KEY: process.env.YOUTUBE_API_KEY,
     NEXT_PUBLIC_LOGO_DEV_TOKEN: process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN,
     VERCEL_PROJECT_PRODUCTION_URL: process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN:
+      process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID:
+      process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET:
+      process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID:
+      process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    NEXT_PUBLIC_FIREBASE_APP_ID: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
   },
 });

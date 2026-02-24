@@ -321,8 +321,8 @@ export const projects = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     image: "https://ui.woilasoft.com/opengraph-image.jpg",
     description: {
-      en: "50+ Stunning Sections and Templates made with React",
-      fr: "Plus de 50 sections et modèles réalisés avec React.",
+      en: "50+ Stunning Sections and Templates made with React, TypeScript, Tailwind CSS.",
+      fr: "Plus de 50 sections et modèles époustouflants réalisés avec React, TypeScript, Tailwind CSS.",
     },
   },
   {
@@ -343,8 +343,8 @@ export const projects = [
     tags: ["Astro", "TypeScript", "Tailwind CSS"],
     image: "/images/project/woilasoft.png",
     description: {
-      en: "your partner for custom digital solutions.",
-      fr: "votre partenaire pour des solutions numériques et personnalisées. ",
+      en: "your partner for custom digital solutions. wether is web, AI, Apps or desktop related product ",
+      fr: "votre partenaire pour des solutions numériques et personnalisées. que ce soit une application web , AI ou mobile ",
     },
   },
   {

@@ -9,8 +9,8 @@ function WithReactions(props: ReactionsProps) {
   return (
     <div
       className={clsx(
-        "pointer-events-none sticky bottom-8 !z-10 mt-16",
-        "lg:bottom-8 lg:mt-24",
+        "pointer-events-none sticky px-4 bottom-4 !z-10 mt-16",
+        "lg:bottom-8 lg:mt-24 lg:px-0",
         "fm:static",
       )}
     >

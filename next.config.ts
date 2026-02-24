@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
         protocol: "https",
       },
       { hostname: "templify.woilasoft.com", protocol: "https" },
+      { hostname: "ui.woilasoft.com", protocol: "https" },
     ],
   },
 

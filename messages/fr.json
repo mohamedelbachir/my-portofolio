@@ -122,6 +122,7 @@
       "saas": "SaaS",
       "mobile": "Application Mobile",
       "desktop": "Application Desktop",
+      "ui": "UI",
       "other": "Autre"
     },
     "github": {

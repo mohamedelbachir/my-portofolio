@@ -316,7 +316,7 @@ export const projects = [
   },
   {
     title: "Woilasoft UI",
-    category: "UI",
+    category: "ui",
     href: "https://ui.woilasoft.com/",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     image: "https://ui.woilasoft.com/opengraph-image.jpg",

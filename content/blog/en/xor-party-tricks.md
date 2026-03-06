@@ -35,7 +35,7 @@ But here's where it gets interesting. XOR has a magical property that forms the 
 
 This simple property is the key to everything. When you XOR a value with itself, it disappears. When you XOR it with something else, it comes back.
 
-```
+```shell
 a = 5       (binary: 101)
 b = 3       (binary: 011)
 
@@ -111,7 +111,7 @@ print(decrypted)  # "Hello, World!"
 
 XOR is its own inverse. If you encrypt with a key, encrypting again with the same key gives you back the original.
 
-```
+```shell
 plaintext ⊕ key = ciphertext
 ciphertext ⊕ key = plaintext
 ```
@@ -217,7 +217,7 @@ int main()
 
 **Output:**
 
-```
+```shell
 Before: 69 420
 After: 420 69
 ```

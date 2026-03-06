@@ -1,7 +1,11 @@
 ---
 title: Les Astuces XOR – La Magie de l'Opération Bitwise
 description: Découvrez la magie cachée du XOR (OU exclusif) – une opération bitwise qui permet des solutions élégantes pour l'échange de variables, le chiffrement et la recherche d'éléments manquants. Apprenez les astuces qui font sourire les développeurs.
-date: 2026-03-06
+pubDate: 2026-03-06
+lang: en
+tags:
+  - Cpp
+  - Xor
 ---
 
 # Les Astuces XOR : L'Opération Bitwise Qui Continue de Fasciner

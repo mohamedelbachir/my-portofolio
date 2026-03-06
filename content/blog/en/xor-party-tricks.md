@@ -1,7 +1,11 @@
 ---
 title: XOR Party Tricks – The Magic Bitwise Operation
 description: Discover the hidden magic of XOR (exclusive OR) – a bitwise operation that enables elegant solutions for swapping, encryption, and finding missing elements. Learn the tricks that make developers smile.
-date: 2026-03-06
+pubDate: 2026-03-06
+lang: en
+tags:
+  - CPP
+  - XOR
 ---
 
 # XOR Party Tricks: The Bitwise Operation That Keeps On Giving

@@ -38,7 +38,7 @@ export const generateMetadata = async ({ params }: BlogPostProps) => {
       category: "Blog",
       tags: post.tags,
       date: post.pubDate,
-      lang: post.lang as "en" | "id",
+      lang: locale as "en" | "fr",
     });
 
     return {

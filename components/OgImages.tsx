@@ -68,9 +68,9 @@ const styles: Record<string, CSSProperties> = {
     alignItems: "center",
     bottom: 64,
     display: "flex",
-    left: 132,
+    left: 66,
     position: "absolute",
-    right: 132,
+    right: 66,
   },
   authorAvatar: {
     borderRadius: "100%",

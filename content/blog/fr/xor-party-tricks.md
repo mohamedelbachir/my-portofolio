@@ -35,7 +35,7 @@ Mais c'est ici que ça devient intéressant. XOR possède une propriété magiqu
 
 Cette simple propriété est la clé de tout. Quand vous faites un XOR d'une valeur avec elle-même, elle disparaît. Quand vous la faites avec quelque chose d'autre, elle réapparaît.
 
-```
+```shell
 a = 5       (binaire: 101)
 b = 3       (binaire: 011)
 
@@ -111,7 +111,7 @@ print(decrypted)  # "Bonjour, le Monde !"
 
 XOR est son propre inverse. Si vous chiffrez avec une clé, chiffrer à nouveau avec la même clé vous donne l'original.
 
-```
+```shell
 texte_clair ⊕ clé = texte_chiffré
 texte_chiffré ⊕ clé = texte_clair
 ```
@@ -217,7 +217,7 @@ int main()
 
 **Sortie :**
 
-```
+```shell
 Avant : 69 420
 Après : 420 69
 ```
